@@ -7,7 +7,7 @@ console.log(winners);
 
 Welcome to an interactive journey through the most prestigious cycling races across the globe. Each button represents a major race, and by selecting one, you'll uncover intriguing insights into the history of its winners. On the left, a dynamic map highlights the countries that have produced the most winners for each race. On the right, you'll see a comprehensive list of all race victors.
 
-Engage with the map by clicking on any country to filter the winners list by nation. To reset and view the complete list again, simply unclick a country. xplore how different countries have made their mark on the world of cycling!
+Engage with the map by clicking on any country to filter the winners list by nation. To reset and view the complete list again, simply unclick a country. Explore how different countries have made their mark on the world of cycling!
 
 ```js
 // Mapping of the most important races to their respective logo

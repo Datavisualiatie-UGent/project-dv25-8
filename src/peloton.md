@@ -20,33 +20,52 @@ const selector = view(Inputs.range([firstYear, latestYear], {step: 1, value: lat
 ```
 
 ```js	
-const world = await d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json");
+// Load the world map
+const world = await d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json");
 const countries = topojson.feature(world, world.objects.countries);
 
 // Define a function that creates a map of the world with the number of riders per country
 function nationsWorldTourMap({ width } = {}) {
+  // Filter based on the selected year
   const filteredData = nations.ranking[selector];
-  console.log(filteredData);
+
+  // Define a color scale
   const color = d3.scaleSequentialLog(d3.interpolateBlues)
     .domain([1, d3.max(filteredData, d => d.number_riders)]);
 
-  return Plot.plot({
-    width,
-    height: width / 2.5,
-    projection: "equirectangular",
-    marks: [
-      Plot.geo(countries, { 
-        fill: d => {
-          const countryData = filteredData.find(e => e.country_iso3 === +d.id);
-          return countryData ? color(countryData.number_riders) : "#eee";
-        },
-        title: d => {
-          const countryData = filteredData.find(e => e.country_iso3 === +d.id);
-          return countryData ? `${d.properties.name}: ${countryData.number_riders} riders` : d.properties.name;
-        }
-      }),
-    ]
-  });
+  // Create an SVG element
+  const svg = d3.create("svg")
+    .attr("width", width)
+    .attr("height", width / 2.5)
+    .call(d3.zoom().scaleExtent([1, 5]) // Allow zooming between 1x and 5x
+    .on("zoom", (event) => {
+      svg.select("g").attr("transform", event.transform);
+    }));
+
+  const g = svg.append("g");
+
+  // Draw the map
+  g.selectAll("path")
+    .data(countries.features)
+    .enter()
+    .append("path")
+    .attr("d", d3.geoPath(d3.geoEquirectangular()))
+    .attr("fill", d => {
+        const countryData = filteredData.find(e => e.country_iso3 === +d.id);
+        return countryData ? color(countryData.number_riders) : "#eee";
+    })
+    .attr("stroke", "white")
+    .attr("stroke-width", 0.7)
+    .append("title")
+    .text(d => {
+        const countryData = filteredData.find(e => e.country_iso3 === +d.id);
+        return countryData ? `${d.properties.name}: ${countryData.number_riders} riders` : `${d.properties.name}: No riders`;
+    });
+
+  return html`
+  <div class="map-container">
+    ${svg.node()}
+  </div>`;
 }
 ```
 
