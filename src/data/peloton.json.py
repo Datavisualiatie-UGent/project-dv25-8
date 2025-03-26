@@ -1,8 +1,12 @@
 import json
 import sys
+import logging
 import country_converter as coco
 from procyclingstats import Ranking
 
+# Configure logging
+logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
+logger = logging.getLogger(__name__)
 
 # Initialize a dictionary to store results
 data = {}
@@ -10,7 +14,7 @@ data = {}
 # Initialize the country converter (maps country names to ISO3 codes)
 cc = coco.CountryConverter()
 
-nations = {'ranking': {}}
+nations = {'ranking': {}, 'riders': {}}
 
 # Extract the number of World tour riders per country over the years
 for year in range(1930, 2026):
@@ -24,6 +28,22 @@ for year in range(1930, 2026):
         nation['country_iso3'] = iso3 if iso3 else None
 
     nations['ranking'][f'{year}'] = ranking
+
+    # Get all the riders in that year for the different nations
+    nations['riders'][f'{year}'] = {}
+    for nation in ranking:
+        conversion_country = cc.convert(names=nation['nation_name'], to='ISO2')
+
+        if conversion_country == 'not found':
+            # Set the country to the full name
+            conversion_country = nation['nation_name']
+
+        riders = Ranking(f"nation.php?season={year}&level=wt&filter=Filter&id=" +
+                         f"{conversion_country}&c=me&p=overview&s=contract-riders")
+        riders = riders.individual_ranking('rider_name', 'team_name')
+
+        nations['riders'][f'{year}'][f'{nation['country_iso3']}'] = riders
+
 
 data['nations'] = nations
 

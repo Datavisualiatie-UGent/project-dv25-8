@@ -16,7 +16,7 @@ const firstYear = Math.min(...years);
 const latestYear = Math.max(...years);
 
 // Create a selector for the years
-const selector = view(Inputs.range([firstYear, latestYear], {step: 1, value: latestYear}));
+const selectedYear = view(Inputs.range([firstYear, latestYear], {step: 1, value: latestYear}));
 ```
 
 ```js	
@@ -24,10 +24,14 @@ const selector = view(Inputs.range([firstYear, latestYear], {step: 1, value: lat
 const world = await d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json");
 const countries = topojson.feature(world, world.objects.countries);
 
+// Mutable stores to keep track of the selected country id and name on the map
+const selectedCountryId = Mutable("");
+const selectedCountryName = Mutable("");
+
 // Define a function that creates a map of the world with the number of riders per country
 function nationsWorldTourMap({ width } = {}) {
   // Filter based on the selected year
-  const filteredData = nations.ranking[selector];
+  const filteredData = nations.ranking[selectedYear];
 
   // Define a color scale
   const color = d3.scaleSequentialLog(d3.interpolateBlues)
@@ -54,6 +58,18 @@ function nationsWorldTourMap({ width } = {}) {
         const countryData = filteredData.find(e => e.country_iso3 === +d.id);
         return countryData ? color(countryData.number_riders) : "#eee";
     })
+    .on("click", (event, d) => {
+      if (selectedCountryId.value === +d.id) {
+        console.log("Country : ", d.properties.name);
+        selectedCountryId.value = "";
+        selectedCountryName.value = "";
+      } else {
+        console.log(selectedCountryId, selectedCountryName);
+        console.log("Country selected 2: ", d.properties.name);
+        selectedCountryId.value = +d.id;
+        selectedCountryName.value = d.properties.name;
+      }
+    })
     .attr("stroke", "white")
     .attr("stroke-width", 0.7)
     .append("title")
@@ -69,8 +85,43 @@ function nationsWorldTourMap({ width } = {}) {
 }
 ```
 
-<div class="card">
+```js	
+// Function to display the list with riders of this country in the selected year
+function ridersList({ width } = {}) {
+    // Filter based on the race
+    if (selectedCountryId == "") return html`<p><strong>Select a country on the map to see the riders</strong></p>`;
+    const ridersOfSelectedCountry = nations.riders[selectedYear][selectedCountryId] || [];
+
+    // Retrieve the total number of riders 
+    const countryData = nations.ranking[selectedYear].find(d => d.country_iso3 === selectedCountryId);
+    const totalRiders = countryData ? countryData.number_riders : 0;
+
+    return html`
+        <div class="ranking-container" style="max-width: ${width}px; max-height: ${width * 1.35}px; overflow-y: auto;">
+            ${selectedCountryId && selectedCountryName ? html`
+              <h3><strong>${selectedCountryName} (Total: ${totalRiders} ${totalRiders !== 1 ? 'riders' : 'rider'})</strong></h3>
+            ` : ''}
+
+            ${ridersOfSelectedCountry.map(rider => html`
+                <li><strong>${rider.rider_name}</strong></li>
+            `)}
+        </ul>
+    `;
+}
+```
+
+<!-- <div class="card">
   ${resize((width) => nationsWorldTourMap({width}))}
+</div> -->
+<div>
+    <div class="content">
+        <div class="card map-container">
+            ${resize((width) => nationsWorldTourMap({width}))}
+        </div>
+        <div class="card ranking-container">
+            ${resize((width) => ridersList({width}))}
+        </div>
+    </div>
 </div>
 
 By sliding over the years, it is clear that the number of countries represented in the World Tour peloton has been increasing over time. This trend reflects the global nature of professional cycling and the sport's growing popularity in different regions around the world. This can also be seen in the next visualization, which shows the number of different nationalities in the peloton over the years.
@@ -203,5 +254,38 @@ function youngestAgeOverYears({ width } = {}) {
 </div>
 
 <style>
+
+  
+.content {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.card {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.map-container {
+  flex: 2.5;
+}
+
+.ranking-container {
+  flex: 0.5;
+  min-width: 250px;
+}
+
+.ranking-list {
+  list-style: none;
+  padding: 0;
+}
+
+.ranking-list li {
+  padding: 5px 0;
+  border-bottom: 1px solid #ddd;
+}
 
 </style>
