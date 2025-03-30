@@ -242,6 +242,26 @@ function youngestAgeOverYears({ width } = {}) {
     title: "Average age of 10 youngest World Tour riders over the years"
   });
 }
+
+function ageHistogram({width} = {}) {
+  var data = [];
+  console.log(Object.values(nations.riders2[1931]));
+  Object.values(nations.riders2[selectedYear]).forEach(nationData => {
+    nationData.forEach(rider => {
+      data.push(rider.age);
+    });
+  });
+  return Plot.plot({
+    width: width,
+    height: width / 2,
+    x: { label: 'Age', type: 'linear' },
+    y: { label: 'Number of riders', type: 'linear' },
+    marks: [
+      Plot.rectY(data, Plot.binX({y: 'count', thresholds: Array.from({length: 100}, (_, i) => i)}, {x: d => d, fill: 'steelblue'}))
+    ],
+    title: "Age distribution of the active riders in " + selectedYear
+  });
+}
 ```
 
 <div class="grid grid-cols-2">
@@ -250,6 +270,9 @@ function youngestAgeOverYears({ width } = {}) {
   </div>
   <div class="card">
     ${resize((width) => youngestAgeOverYears({width}))}
+  </div>
+  <div class="card">
+    ${resize((width) => ageHistogram({width}))}
   </div>
 </div>
 

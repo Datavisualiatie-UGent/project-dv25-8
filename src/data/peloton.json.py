@@ -11,7 +11,8 @@ logger = logging.getLogger(__name__)
 data = {
     'nations': {
         'ranking': {},
-        'riders': {}
+        'riders': {},
+        'riders2': {}
     },
     'ages': {
         'average': {},
@@ -25,11 +26,13 @@ for year in range(1930, 2026):
     data['nations']['ranking'][f'{year}'] = nations_ranking
 
     data['nations']['riders'][f'{year}'] = {}
+    data['nations']['riders2'][f'{year}'] = {}
     for nation in nations_ranking:
         nation_name = nation['nation_name']
         nation_iso3 = nation['nation_iso3']
         riders = get_riders(year, nation_name)
         data['nations']['riders'][f'{year}'][f'{nation_iso3}'] = riders
+        data['nations']['riders2'][f'{year}'][f'{nation_iso3}'] = get_riders_2(year, nation_name)
 
 # Extract the average age of World tour riders over the years
 for year in range(1930, 2026):

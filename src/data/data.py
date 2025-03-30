@@ -1,7 +1,8 @@
 import country_converter as coco
 import diskcache
+from datetime import datetime
 from typing import Any
-from procyclingstats import Ranking
+from procyclingstats import Ranking, Rider
 
 cache = diskcache.Cache(".cache")
 
@@ -32,6 +33,32 @@ def get_riders(year: int, nation_name: str) -> list[dict[str, Any]]:
 
     return riders
 
+@diskcache.Cache(".cache/get_riders_2").memoize()
+def get_riders_2(year: int, nation_name: str) -> list[dict[str, Any]]:
+    # Convert the country name to iso2 to use in the filter
+    country_iso2 = coco.CountryConverter().convert(names=nation_name, to='ISO2')
+    country_iso2 = country_iso2 if country_iso2 != 'not found' else nation_name
+
+    # Get a list of rider names
+    rider_urls = Ranking(f"nation.php?season={year}&level=wt&filter=Filter&id={country_iso2}&c=me&p=overview&s=contract-riders")
+    rider_urls = [d['rider_url'] for d in rider_urls.individual_ranking('rider_url')]
+
+    # Get a list of rider information
+    riders = []
+    for rider_url in rider_urls:
+        rider = Rider(f'{rider_url}/{year}')
+        birthdate = '-'.join(f'{int(part):02d}' for part in rider.birthdate().split('-'))
+        birthdate = datetime.fromisoformat(birthdate).date()
+        today = datetime.today().date()
+        age = today.year - birthdate.year - ((today.month, today.day) < (birthdate.month, birthdate.day))
+        riders.append({
+            'name': rider.name(),
+            'age': age,
+            'nationality': rider.nationality()
+        })
+
+    return riders
+
 @cache.memoize()
 def get_average_age(year: int) -> list[dict[str, Any]]:
     ranking = Ranking(f"statistics.php?year={year}&level=1&sekse=1&filter=Filter&p=teams&s=average-age")
@@ -43,3 +70,7 @@ def get_youngest_age(year: int) -> list[dict[str, Any]]:
     ranking = Ranking(f"statistics.php?year={year}&sekse=1&level=1&filter=Filter&p=riders&s=youngest-riders")
     ranking = ranking.statistics_ranking('rank', 'rank', 'rider_name', 'min_age')
     return ranking
+
+if __name__ == '__main__':
+    riders = get_riders_2(2024, 'Belgium')
+    print(riders)
