@@ -168,6 +168,11 @@ class Scraper:
         :return: True if given HTML is valid, otherwise False.
         """
         try:
+            if not self.html.css_first(".page-title > .main > h1") or \
+                not self.html.css_first("div.page-content > div") or \
+                not self.html.css_first(".page-title > .main > h1"):
+                return False
+
             page_title = self.html.css_first(".page-title > .main > h1").text()
             assert page_title != "Page not found"
 

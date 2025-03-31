@@ -60,12 +60,9 @@ function nationsWorldTourMap({ width } = {}) {
     })
     .on("click", (event, d) => {
       if (selectedCountryId.value === +d.id) {
-        console.log("Country : ", d.properties.name);
         selectedCountryId.value = "";
         selectedCountryName.value = "";
       } else {
-        console.log(selectedCountryId, selectedCountryName);
-        console.log("Country selected 2: ", d.properties.name);
         selectedCountryId.value = +d.id;
         selectedCountryName.value = d.properties.name;
       }
@@ -127,6 +124,7 @@ function ridersList({ width } = {}) {
 By sliding over the years, it is clear that the number of countries represented in the World Tour peloton has been increasing over time. This trend reflects the global nature of professional cycling and the sport's growing popularity in different regions around the world. This can also be seen in the next visualization, which shows the number of different nationalities in the peloton over the years.
 
 ```js
+
 // Define a function that creates a line plot of the number of different nationalities in the World Tour peloton over the years
 function nationsOverYears({ width } = {}) {
   const data = Object.entries(nations.ranking).map(([year, countries]) => ({
@@ -245,10 +243,11 @@ function youngestAgeOverYears({ width } = {}) {
 
 function ageHistogram({width} = {}) {
   var data = [];
-  console.log(Object.values(nations.riders2[1931]));
-  Object.values(nations.riders2[selectedYear]).forEach(nationData => {
+  Object.values(nations.riders2[selectedYearAge]).forEach(nationData => {
     nationData.forEach(rider => {
-      data.push(rider.age);
+      // Subtract the difference between the current year and the selected year
+      // from the rider's age to get the age in the selected year
+      data.push(rider.age - (latestYear - selectedYearAge));
     });
   });
   return Plot.plot({
@@ -259,7 +258,7 @@ function ageHistogram({width} = {}) {
     marks: [
       Plot.rectY(data, Plot.binX({y: 'count', thresholds: Array.from({length: 100}, (_, i) => i)}, {x: d => d, fill: 'steelblue'}))
     ],
-    title: "Age distribution of the active riders in " + selectedYear
+    title: "Age distribution of the active riders in " + selectedYearAge
   });
 }
 ```
@@ -271,6 +270,14 @@ function ageHistogram({width} = {}) {
   <div class="card">
     ${resize((width) => youngestAgeOverYears({width}))}
   </div>
+</div>
+
+```js
+// Create a selector for the years
+const selectedYearAge = view(Inputs.range([firstYear, latestYear], {step: 1, value: latestYear}));
+```
+
+<div class="grid grid-cols-2">
   <div class="card">
     ${resize((width) => ageHistogram({width}))}
   </div>

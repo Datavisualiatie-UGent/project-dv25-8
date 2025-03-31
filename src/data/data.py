@@ -46,16 +46,23 @@ def get_riders_2(year: int, nation_name: str) -> list[dict[str, Any]]:
     # Get a list of rider information
     riders = []
     for rider_url in rider_urls:
-        rider = Rider(f'{rider_url}/{year}')
-        birthdate = '-'.join(f'{int(part):02d}' for part in rider.birthdate().split('-'))
-        birthdate = datetime.fromisoformat(birthdate).date()
-        today = datetime.today().date()
-        age = today.year - birthdate.year - ((today.month, today.day) < (birthdate.month, birthdate.day))
-        riders.append({
-            'name': rider.name(),
-            'age': age,
-            'nationality': rider.nationality()
-        })
+        try:
+            # Get the rider information
+            rider = Rider(f'{rider_url}')
+        except ValueError:
+            continue
+
+        # Make sure that the birthdate is valid (some are unknown on procyclingstats)
+        if rider.birthdate():
+            birthdate = '-'.join(f'{int(part):02d}' for part in rider.birthdate().split('-'))
+            birthdate = datetime.fromisoformat(birthdate).date()
+            today = datetime.today().date()
+            age = today.year - birthdate.year - ((today.month, today.day) < (birthdate.month, birthdate.day))
+            riders.append({
+                'name': rider.name(),
+                'age': age,
+                'nationality': rider.nationality()
+            })
 
     return riders
 
@@ -71,6 +78,6 @@ def get_youngest_age(year: int) -> list[dict[str, Any]]:
     ranking = ranking.statistics_ranking('rank', 'rank', 'rider_name', 'min_age')
     return ranking
 
-if __name__ == '__main__':
-    riders = get_riders_2(2024, 'Belgium')
-    print(riders)
+# if __name__ == '__main__':
+#     riders = get_riders_2(2024, 'Belgium')
+#     print(riders)
