@@ -55,7 +55,7 @@ function nationsWorldTourMap({ width } = {}) {
     .append("path")
     .attr("d", d3.geoPath(d3.geoEquirectangular()))
     .attr("fill", d => {
-        const countryData = filteredData.find(e => e.country_iso3 === +d.id);
+        const countryData = filteredData.find(e => e.nation_iso3 === +d.id);
         return countryData ? color(countryData.number_riders) : "#eee";
     })
     .on("click", (event, d) => {
@@ -71,7 +71,7 @@ function nationsWorldTourMap({ width } = {}) {
     .attr("stroke-width", 0.7)
     .append("title")
     .text(d => {
-        const countryData = filteredData.find(e => e.country_iso3 === +d.id);
+        const countryData = filteredData.find(e => e.nation_iso3 === +d.id);
         return countryData ? `${d.properties.name}: ${countryData.number_riders} riders` : `${d.properties.name}: No riders`;
     });
 
@@ -90,7 +90,7 @@ function ridersList({ width } = {}) {
     const ridersOfSelectedCountry = nations.riders[selectedYear][selectedCountryId] || [];
 
     // Retrieve the total number of riders 
-    const countryData = nations.ranking[selectedYear].find(d => d.country_iso3 === selectedCountryId);
+    const countryData = nations.ranking[selectedYear].find(d => d.nation_iso3 === selectedCountryId);
     const totalRiders = countryData ? countryData.number_riders : 0;
 
     return html`
