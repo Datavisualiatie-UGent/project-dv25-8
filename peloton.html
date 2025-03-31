@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Observable Framework v1.13.2">
+<title>Inside the WorldTour-Peloton | Tour de Data</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
+<link rel="preload" as="style" href="./_import/custom-style.d74c78f4.css">
+<link rel="preload" as="style" href="./_observablehq/stdlib/inputs.ea9fd553.css">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
+<link rel="stylesheet" type="text/css" href="./_import/custom-style.d74c78f4.css">
+<link rel="stylesheet" type="text/css" href="./_observablehq/stdlib/inputs.ea9fd553.css">
+<link rel="modulepreload" href="./_observablehq/client.e6a8ae95.js">
+<link rel="modulepreload" href="./_observablehq/runtime.e080113b.js">
+<link rel="modulepreload" href="./_observablehq/stdlib.82806664.js">
+<link rel="modulepreload" href="./_npm/d3@7.9.0/e780feca.js">
+<link rel="modulepreload" href="./_npm/htl@0.3.1/72f4716c.js">
+<link rel="modulepreload" href="./_observablehq/stdlib/inputs.6ba3de0b.js">
+<link rel="modulepreload" href="./_npm/@observablehq/plot@0.6.17/d761ef9b.js">
+<link rel="modulepreload" href="./_npm/topojson-client@3.1.0/edd9ee95.js">
+<link rel="modulepreload" href="./_npm/isoformat@0.2.1/18cbf477.js">
+<link rel="modulepreload" href="./_npm/d3-array@3.2.4/e93ca09f.js">
+<link rel="modulepreload" href="./_npm/d3-axis@3.0.0/0f2de24d.js">
+<link rel="modulepreload" href="./_npm/d3-brush@3.0.0/65eb105b.js">
+<link rel="modulepreload" href="./_npm/d3-chord@3.0.1/7ef8fb2e.js">
+<link rel="modulepreload" href="./_npm/d3-color@3.1.0/aeb57b94.js">
+<link rel="modulepreload" href="./_npm/d3-contour@4.0.2/1d2aed74.js">
+<link rel="modulepreload" href="./_npm/d3-delaunay@6.0.4/5ced1d52.js">
+<link rel="modulepreload" href="./_npm/d3-dispatch@3.0.1/9ba9c7f3.js">
+<link rel="modulepreload" href="./_npm/d3-drag@3.0.0/4202580c.js">
+<link rel="modulepreload" href="./_npm/d3-dsv@3.0.1/9cffc2bd.js">
+<link rel="modulepreload" href="./_npm/d3-ease@3.0.1/cdd7e898.js">
+<link rel="modulepreload" href="./_npm/d3-fetch@3.0.1/b4e2ad9a.js">
+<link rel="modulepreload" href="./_npm/d3-force@3.0.0/5e804d15.js">
+<link rel="modulepreload" href="./_npm/d3-format@3.1.0/86074ef6.js">
+<link rel="modulepreload" href="./_npm/d3-geo@3.1.1/40599fb3.js">
+<link rel="modulepreload" href="./_npm/d3-hierarchy@3.1.2/e49e792c.js">
+<link rel="modulepreload" href="./_npm/d3-interpolate@3.0.1/8d1e5425.js">
+<link rel="modulepreload" href="./_npm/d3-path@3.1.0/20d3f133.js">
+<link rel="modulepreload" href="./_npm/d3-polygon@3.0.1/7553081f.js">
+<link rel="modulepreload" href="./_npm/d3-quadtree@3.0.1/0dfd751c.js">
+<link rel="modulepreload" href="./_npm/d3-random@3.0.1/3c90ee06.js">
+<link rel="modulepreload" href="./_npm/d3-scale@4.0.2/843b6a76.js">
+<link rel="modulepreload" href="./_npm/d3-scale-chromatic@3.1.0/ba24c2e7.js">
+<link rel="modulepreload" href="./_npm/d3-selection@3.0.0/4d94e5b7.js">
+<link rel="modulepreload" href="./_npm/d3-shape@3.2.0/6d3a6726.js">
+<link rel="modulepreload" href="./_npm/d3-time@3.1.0/9f03c579.js">
+<link rel="modulepreload" href="./_npm/d3-time-format@4.1.0/07c9626f.js">
+<link rel="modulepreload" href="./_npm/d3-timer@3.0.1/b58a267d.js">
+<link rel="modulepreload" href="./_npm/d3-transition@3.0.1/004da2ac.js">
+<link rel="modulepreload" href="./_npm/d3-zoom@3.0.0/b5786b3f.js">
+<link rel="modulepreload" href="./_npm/interval-tree-1d@1.0.4/53fe8176.js">
+<link rel="modulepreload" href="./_npm/internmap@2.0.3/e08981d9.js">
+<link rel="modulepreload" href="./_npm/delaunator@5.0.1/02d43215.js">
+<link rel="modulepreload" href="./_npm/binary-search-bounds@2.0.5/cbf6ba23.js">
+<link rel="modulepreload" href="./_npm/robust-predicates@3.0.2/aa00730b.js">
+<link rel="icon" href="./_file/logo.6b894ad5.png" type="image/png" sizes="32x32">
+<script type="module">
+
+import {define} from "./_observablehq/client.e6a8ae95.js";
+import {registerFile} from "./_observablehq/stdlib.82806664.js";
+
+registerFile("./data/peloton.json", {"name":"./data/peloton.json","mimeType":"application/json","path":"./_file/data/peloton.bf237c1b.json","lastModified":1743441095027,"size":10558717});
+
+define({id: "c91b30e7", inputs: ["FileAttachment"], outputs: ["nations","ages"], body: async (FileAttachment) => {
+const {nations, ages} = await FileAttachment("./data/peloton.json").json();
+return {nations,ages};
+}});
+
+define({id: "d3e940f3", inputs: ["nations","view","Inputs"], outputs: ["years","firstYear","latestYear","selectedYear"], body: (nations,view,Inputs) => {
+// Compute the years available in the data set, first and latest year
+const years = Object.keys(nations.ranking).map(d => +d);
+const firstYear = Math.min(...years);
+const latestYear = Math.max(...years);
+
+// Create a selector for the years
+const selectedYear = view(Inputs.range([firstYear, latestYear], {step: 1, value: latestYear}));
+return {years,firstYear,latestYear,selectedYear};
+}});
+
+define({id: "1a23a6c8", inputs: ["d3","topojson","Mutable","nations","selectedYear","html"], outputs: ["world","countries","selectedCountryId","selectedCountryName","nationsWorldTourMap"], body: async (d3,topojson,Mutable,nations,selectedYear,html) => {
+// Load the world map
+const world = await d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json");
+const countries = topojson.feature(world, world.objects.countries);
+
+// Mutable stores to keep track of the selected country id and name on the map
+const selectedCountryId = Mutable("");
+const selectedCountryName = Mutable("");
+
+// Define a function that creates a map of the world with the number of riders per country
+function nationsWorldTourMap({ width } = {}) {
+  // Filter based on the selected year
+  const filteredData = nations.ranking[selectedYear];
+
+  // Define a color scale
+  const color = d3.scaleSequentialLog(d3.interpolateBlues)
+    .domain([1, d3.max(filteredData, d => d.number_riders)]);
+
+  // Create an SVG element
+  const svg = d3.create("svg")
+    .attr("width", width)
+    .attr("height", width / 2.5)
+    .call(d3.zoom().scaleExtent([1, 5]) // Allow zooming between 1x and 5x
+    .on("zoom", (event) => {
+      svg.select("g").attr("transform", event.transform);
+    }));
+
+  const g = svg.append("g");
+
+  // Draw the map
+  g.selectAll("path")
+    .data(countries.features)
+    .enter()
+    .append("path")
+    .attr("d", d3.geoPath(d3.geoEquirectangular()))
+    .attr("fill", d => {
+        const countryData = filteredData.find(e => e.nation_iso3 === +d.id);
+        return countryData ? color(countryData.number_riders) : "#eee";
+    })
+    .on("click", (event, d) => {
+      if (selectedCountryId.value === +d.id) {
+        console.log("Country : ", d.properties.name);
+        selectedCountryId.value = "";
+        selectedCountryName.value = "";
+      } else {
+        console.log(selectedCountryId, selectedCountryName);
+        console.log("Country selected 2: ", d.properties.name);
+        selectedCountryId.value = +d.id;
+        selectedCountryName.value = d.properties.name;
+      }
+    })
+    .attr("stroke", "white")
+    .attr("stroke-width", 0.7)
+    .append("title")
+    .text(d => {
+        const countryData = filteredData.find(e => e.nation_iso3 === +d.id);
+        return countryData ? `${d.properties.name}: ${countryData.number_riders} riders` : `${d.properties.name}: No riders`;
+    });
+
+  return html`
+  <div class="map-container">
+    ${svg.node()}
+  </div>`;
+}
+return {world,countries,selectedCountryId,selectedCountryName,nationsWorldTourMap};
+}});
+
+define({id: "9b49d16b", inputs: ["selectedCountryId","html","nations","selectedYear","selectedCountryName"], outputs: ["ridersList"], body: (selectedCountryId,html,nations,selectedYear,selectedCountryName) => {
+// Function to display the list with riders of this country in the selected year
+function ridersList({ width } = {}) {
+    // Filter based on the race
+    if (selectedCountryId == "") return html`<p><strong>Select a country on the map to see the riders</strong></p>`;
+    const ridersOfSelectedCountry = nations.riders[selectedYear][selectedCountryId] || [];
+
+    // Retrieve the total number of riders 
+    const countryData = nations.ranking[selectedYear].find(d => d.nation_iso3 === selectedCountryId);
+    const totalRiders = countryData ? countryData.number_riders : 0;
+
+    return html`
+        <div class="ranking-container" style="max-width: ${width}px; max-height: ${width * 1.35}px; overflow-y: auto;">
+            ${selectedCountryId && selectedCountryName ? html`
+              <h3><strong>${selectedCountryName} (Total: ${totalRiders} ${totalRiders !== 1 ? 'riders' : 'rider'})</strong></h3>
+            ` : ''}
+
+            ${ridersOfSelectedCountry.map(rider => html`
+                <li><strong>${rider.rider_name}</strong></li>
+            `)}
+        </ul>
+    `;
+}
+return {ridersList};
+}});
+
+define({id: "519d0808", mode: "inline", inputs: ["resize","nationsWorldTourMap","display"], body: async (resize,nationsWorldTourMap,display) => {
+display(await(
+resize((width) => nationsWorldTourMap({width}))
+))
+}});
+
+define({id: "f152e61c", mode: "inline", inputs: ["resize","ridersList","display"], body: async (resize,ridersList,display) => {
+display(await(
+resize((width) => ridersList({width}))
+))
+}});
+
+define({id: "bac5051e", inputs: ["nations","Plot"], outputs: ["nationsOverYears"], body: (nations,Plot) => {
+// Define a function that creates a line plot of the number of different nationalities in the World Tour peloton over the years
+function nationsOverYears({ width } = {}) {
+  const data = Object.entries(nations.ranking).map(([year, countries]) => ({
+    year: new Date(+year, 0, 1),
+    number_countries: countries.length
+  }));
+
+  return Plot.plot({
+    width,
+    height: width / 2,
+    x: { label: "Year", type: "time" },
+    y: { label: "Number of Countries", type: "linear" },
+    marks: [
+      Plot.line(data, { x: "year", y: "number_countries", stroke: "steelblue", strokeWidth: 2 }),
+      Plot.dot(data, { 
+        x: "year", 
+        y: "number_countries", 
+        fill: "steelblue", 
+        r: 2,
+        channels: {Year: "year", Countries: "number_countries"},
+        tip: {format: {Year: d => d.getFullYear(), Countries: true, stroke: true, x: false, y: false}}
+      })
+    ],
+    title: "Number of different nationalities"
+  });
+}
+return {nationsOverYears};
+}});
+
+define({id: "40dc6b14", mode: "inline", inputs: ["resize","nationsOverYears","display"], body: async (resize,nationsOverYears,display) => {
+display(await(
+resize((width) => nationsOverYears({width}))
+))
+}});
+
+define({id: "f857c114", inputs: ["ages","d3","Plot"], outputs: ["yearlyAverages","averageAgeOverYears"], body: (ages,d3,Plot) => {
+// Compute the average age per year
+const yearlyAverages = Object.entries(ages.average).map(([year, teams]) => ({
+  year: new Date(+year, 0, 1),                    // Convert year to date
+  average_age: d3.mean(teams, d => d.average_age)   // Compute mean age of teams
+}));
+
+// Define a function that creates a line plot of the average age of World Tour riders over the years
+function averageAgeOverYears({ width } = {}) {
+  return Plot.plot({
+    width: width,
+    height: width / 2,
+    x: { label: "Year", type: "time" },
+    y: { label: "Average Age", type: "linear" },
+    marks: [
+      Plot.line(yearlyAverages, { x: "year", y: "average_age", stroke: "steelblue", strokeWidth: 2 }),
+      Plot.dot(yearlyAverages, { 
+        x: "year", 
+        y: "average_age", 
+        fill: "steelblue", 
+        r: 2,
+        channels: {Year: "year", Age: "average_age"},
+        tip: {format: {Year: d => d.getFullYear(), Age: true, stroke: true, x: false, y: false}}
+      }),
+    ],
+    title: "Average age of World Tour riders over the years"
+  });
+}
+return {yearlyAverages,averageAgeOverYears};
+}});
+
+define({id: "5827b397", inputs: ["ages","d3","Plot"], outputs: ["parseAge","yearlyYoungest","youngestAgeOverYears"], body: (ages,d3,Plot) => {
+// Function to parse age strings in the format "xx y + dd"
+function parseAge(ageString) {
+    // Extract numbers from the string
+    const match = ageString.match(/(\d+)y(?: \+ (\d+)d)?/);
+    
+    if (!match) return null; // Handle invalid input
+
+    let years = parseInt(match[1], 10);
+    let days = match[2] ? parseInt(match[2], 10) : 0;
+    
+    // Convert days to years and add to total age
+    return years + (days / 365);
+}
+
+// Compute the average age of the 10 youngest World tour riders per year
+const yearlyYoungest = Object.entries(ages.youngest).map(([year, riders]) => {
+  const filteredRiders = riders
+    .map(d => parseAge(d.min_age))              // Convert to float age
+    .filter(age => age !== null && age >= 15)   // Remove null and values < 15 (errors in data set)
+    .slice(0, 10);                              // Take the first 10 valid values
+
+  return {
+    year: new Date(+year, 0, 1),                // Convert year to date
+    min_age: d3.mean(filteredRiders)            // Compute mean
+  };
+});
+
+// Define a function that creates a line plot of the average age of the 10 youngest World Tour riders over the years
+function youngestAgeOverYears({ width } = {}) {
+  return Plot.plot({
+    width: width,
+    height: width / 2,
+    x: { label: "Year", type: "time" },
+    y: { label: "Age", type: "linear" },
+    marks: [
+      Plot.line(yearlyYoungest, { x: "year", y: "min_age", stroke: "steelblue", strokeWidth: 2 }),
+      Plot.dot(yearlyYoungest, { 
+        x: "year", 
+        y: "min_age", 
+        fill: "steelblue", 
+        r: 2,
+        channels: {Year: "year", Age: "min_age"},
+        tip: {format: {Year: d => d.getFullYear(), Age: true, stroke: true, x: false, y: false}}
+      }),
+    ],
+    title: "Average age of 10 youngest World Tour riders over the years"
+  });
+}
+return {parseAge,yearlyYoungest,youngestAgeOverYears};
+}});
+
+define({id: "0385e824", mode: "inline", inputs: ["resize","averageAgeOverYears","display"], body: async (resize,averageAgeOverYears,display) => {
+display(await(
+resize((width) => averageAgeOverYears({width}))
+))
+}});
+
+define({id: "6edeaf2a", mode: "inline", inputs: ["resize","youngestAgeOverYears","display"], body: async (resize,youngestAgeOverYears,display) => {
+display(await(
+resize((width) => youngestAgeOverYears({width}))
+))
+}});
+
+</script>
+</head>
+<body>
+<div id="observablehq-center">
+<header id="observablehq-header">
+
+  <div class="header">
+    <div class="header-centered">
+      <a href="./">Overview</a>
+      <a href="./peloton">Peloton</a>
+      <a href="./races">Races</a>
+      <a href="./insights">Insights</a>
+    </div>
+  </div>
+
+</header>
+<main id="observablehq-main" class="observablehq">
+<div class="observablehq observablehq--block"><!--:c91b30e7:--></div>
+<h1 id="inside-the-world-tour-peloton" tabindex="-1"><a class="observablehq-header-anchor" href="#inside-the-world-tour-peloton">Inside the WorldTour-Peloton</a></h1>
+<p>The World Tour peloton is a diverse and dynamic group of athletes, each with their own story, background, and journey to the top of professional cycling. In this section, we take a closer look at the riders who make up this elite group. Through visualizations of their ages, nationalities, teams, and other key factors, we uncover the trends and patterns that define the makeup of the peloton. Explore how cycling has become a truly global sport and discover the individuals powering the races that captivate audiences around the world.</p>
+<h2 id="tour-around-the-world" tabindex="-1"><a class="observablehq-header-anchor" href="#tour-around-the-world">Tour around the world</a></h2>
+<p>To gain insight into the global reach of professional cycling, we explore the number of riders representing each country in the World Tour peloton. The map below visualizes the distribution of riders across countries for the selected year, highlighting the extent of cycling's global presence.</p>
+<div class="observablehq observablehq--block"><!--:d3e940f3:--></div>
+<div class="observablehq observablehq--block"><!--:1a23a6c8:--></div>
+<div class="observablehq observablehq--block"><!--:9b49d16b:--></div>
+<!-- <div class="card">
+  ${resize((width) => nationsWorldTourMap({width}))}
+</div> -->
+<div>
+    <div class="content">
+        <div class="card map-container">
+            <observablehq-loading></observablehq-loading><!--:519d0808:-->
+        </div>
+        <div class="card ranking-container">
+            <observablehq-loading></observablehq-loading><!--:f152e61c:-->
+        </div>
+    </div>
+</div>
+<p>By sliding over the years, it is clear that the number of countries represented in the World Tour peloton has been increasing over time. This trend reflects the global nature of professional cycling and the sport's growing popularity in different regions around the world. This can also be seen in the next visualization, which shows the number of different nationalities in the peloton over the years.</p>
+<div class="observablehq observablehq--block"><!--:bac5051e:--></div>
+<div class="grid grid-cols-2">
+  <div class="card">
+    <observablehq-loading></observablehq-loading><!--:40dc6b14:-->
+  </div>
+</div>
+<h2 id="age-is-just-a-number" tabindex="-1"><a class="observablehq-header-anchor" href="#age-is-just-a-number">Age is just a number</a></h2>
+<div class="observablehq observablehq--block"><!--:f857c114:--></div>
+<div class="observablehq observablehq--block"><!--:5827b397:--></div>
+<div class="grid grid-cols-2">
+  <div class="card">
+    <observablehq-loading></observablehq-loading><!--:0385e824:-->
+  </div>
+  <div class="card">
+    <observablehq-loading></observablehq-loading><!--:6edeaf2a:-->
+  </div>
+</div>
+<style>
+
+  
+.content {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.card {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.map-container {
+  flex: 2.5;
+}
+
+.ranking-container {
+  flex: 0.5;
+  min-width: 250px;
+}
+
+.ranking-list {
+  list-style: none;
+  padding: 0;
+}
+
+.ranking-list li {
+  padding: 5px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+</style>
+</main>
+</div>
+</body>
+</html>

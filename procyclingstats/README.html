@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Observable Framework v1.13.2">
+<title>Tour de Data</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
+<link rel="preload" as="style" href="../_import/custom-style.d74c78f4.css">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
+<link rel="stylesheet" type="text/css" href="../_import/custom-style.d74c78f4.css">
+<link rel="modulepreload" href="../_observablehq/client.e6a8ae95.js">
+<link rel="modulepreload" href="../_observablehq/runtime.e080113b.js">
+<link rel="modulepreload" href="../_observablehq/stdlib.82806664.js">
+<link rel="icon" href="../_file/logo.6b894ad5.png" type="image/png" sizes="32x32">
+<script type="module">
+
+import "../_observablehq/client.e6a8ae95.js";
+
+</script>
+</head>
+<body>
+<div id="observablehq-center">
+<header id="observablehq-header">
+
+  <div class="header">
+    <div class="header-centered">
+      <a href="../">Overview</a>
+      <a href="../peloton">Peloton</a>
+      <a href="../races">Races</a>
+      <a href="../insights">Insights</a>
+    </div>
+  </div>
+
+</header>
+<main id="observablehq-main" class="observablehq">
+<h1 id="tour-de-data" tabindex="-1"><a class="observablehq-header-anchor" href="#tour-de-data">Tour de Data</a></h1>
+<p>This is an <a href="https://observablehq.com/framework/" target="_blank" rel="noopener noreferrer">Observable Framework</a> app. To install the required dependencies, run:</p>
+<pre><code>npm install
+</code></pre>
+<p>Then, to start the local preview server, run:</p>
+<pre><code>npm run dev
+</code></pre>
+<p>Then visit <a href="http://localhost:3000" target="_blank" rel="noopener noreferrer">http://localhost:3000</a> to preview your app.</p>
+<p>For more, see <a href="https://observablehq.com/framework/getting-started" target="_blank" rel="noopener noreferrer">https://observablehq.com/framework/getting-started</a>.</p>
+<h2 id="project-structure" tabindex="-1"><a class="observablehq-header-anchor" href="#project-structure">Project structure</a></h2>
+<p>A typical Framework project looks like this:</p>
+<pre data-language="ini"><code class="language-ini">.
+├─ src
+│  ├─ components
+│  │  └─ timeline.js           <span class="hljs-comment"># an importable module</span>
+│  ├─ data
+│  │  ├─ launches.csv.js       <span class="hljs-comment"># a data loader</span>
+│  │  └─ events.json           <span class="hljs-comment"># a static data file</span>
+│  ├─ example-dashboard.md     <span class="hljs-comment"># a page</span>
+│  ├─ example-report.md        <span class="hljs-comment"># another page</span>
+│  └─ index.md                 <span class="hljs-comment"># the home page</span>
+├─ .gitignore
+├─ observablehq.config.js      <span class="hljs-comment"># the app config file</span>
+├─ package.json
+└─ README.md
+</code></pre>
+<p><strong><code>src</code></strong> - This is the “source root” — where your source files live. Pages go here. Each page is a Markdown file. Observable Framework uses <a href="https://observablehq.com/framework/project-structure#routing" target="_blank" rel="noopener noreferrer">file-based routing</a>, which means that the name of the file controls where the page is served. You can create as many pages as you like. Use folders to organize your pages.</p>
+<p><strong><code>src/index.md</code></strong> - This is the home page for your app. You can have as many additional pages as you’d like, but you should always have a home page, too.</p>
+<p><strong><code>src/data</code></strong> - You can put <a href="https://observablehq.com/framework/data-loaders" target="_blank" rel="noopener noreferrer">data loaders</a> or static data files anywhere in your source root, but we recommend putting them here.</p>
+<p><strong><code>src/components</code></strong> - You can put shared <a href="https://observablehq.com/framework/imports" target="_blank" rel="noopener noreferrer">JavaScript modules</a> anywhere in your source root, but we recommend putting them here. This helps you pull code out of Markdown files and into JavaScript modules, making it easier to reuse code across pages, write tests and run linters, and even share code with vanilla web applications.</p>
+<p><strong><code>observablehq.config.js</code></strong> - This is the <a href="https://observablehq.com/framework/config" target="_blank" rel="noopener noreferrer">app configuration</a> file, such as the pages and sections in the sidebar navigation, and the app’s title.</p>
+<h2 id="command-reference" tabindex="-1"><a class="observablehq-header-anchor" href="#command-reference">Command reference</a></h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>npm install</code></td>
+<td>Install or reinstall dependencies</td>
+</tr>
+<tr>
+<td><code>npm run dev</code></td>
+<td>Start local preview server</td>
+</tr>
+<tr>
+<td><code>npm run build</code></td>
+<td>Build your static site, generating <code>./dist</code></td>
+</tr>
+<tr>
+<td><code>npm run deploy</code></td>
+<td>Deploy your app to Observable</td>
+</tr>
+<tr>
+<td><code>npm run clean</code></td>
+<td>Clear the local data loader cache</td>
+</tr>
+<tr>
+<td><code>npm run observable</code></td>
+<td>Run commands like <code>observable help</code></td>
+</tr>
+</tbody>
+</table>
+</main>
+</div>
+</body>
+</html>
