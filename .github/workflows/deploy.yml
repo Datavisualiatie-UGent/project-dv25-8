@@ -30,23 +30,22 @@ jobs:
       - name: Install Python dependencies
         run: |
             python -m pip install --upgrade pip
-            pip install -r requirements.txt
-        env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    
+            pip install -r requirements.txt    
 
       - run: npm ci
+
       - id: date
         run: echo "date=$(TZ=America/Los_Angeles date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+
       - id: cache-data
         uses: actions/cache@v4
         with:
             path: src/.observablehq/cache
             key: data-${{ hashFiles('src/data/*') }}-${{ steps.date.outputs.date }}
+
       - run: npm run build
-      - name: Deploy to Observable Cloud
-        # This parameter to `--message` will use the latest commit message
-        run: npm run deploy -- --message "$(git log -1 --pretty=%s)"
-        env:
-          # Authentication information. See below for how to set this up.
-          OBSERVABLE_TOKEN: ${{ secrets.OBSERVABLE_TOKEN }}
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist       # Folder where the built files are located
