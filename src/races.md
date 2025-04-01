@@ -1,6 +1,6 @@
 ```js
-const {winners} = await FileAttachment("data/races.json").json();
-console.log(winners);
+const {winners, raceInfo} = await FileAttachment("data/races.json").json();
+console.log(raceInfo);
 ```
 
 # Where winners are born
@@ -72,11 +72,9 @@ function winnersRacesMap(race, { width } = {}) {
     })
     .on("click", (event, d) => {
       if (selectedCountryId.value === d.id) {
-        console.log("Country : ", d.properties.name);
         selectedCountryId.value = "";
         selectedCountryName.value = "";
       } else {
-        console.log("Country selected 2: ", d.properties.name);
         selectedCountryId.value = d.id;
         selectedCountryName.value = d.properties.name;
       }
@@ -149,6 +147,52 @@ const selectedRace = Generators.input(buttons);
             ${resize((width) => winnersRanking(selectedRace, {width}))}
         </div>
     </div>
+</div>
+
+```js
+const metricOptions = view(Inputs.radio([
+  { value: "Distance", label: "Distance (km)" },
+  { value: "Average Speed", label: "Average Speed (km/h)" }
+], { label: html`<b>Select metric:</b>`, value: "Distance", format: (x) => x.value }));
+```
+
+```js
+
+// Function that plots the distance and average of speed for the selected race over the years
+function raceDetails(race, metric, { width } = {}) {
+    const data = raceInfo[race] || [];
+
+    // Filter out invalid data (e.g., average speed of 0)
+    const filteredData = data.filter(d => d.average_speed > 0);
+    console.log(filteredData);
+
+    return Plot.plot({
+      width,
+      height: width * 0.35,
+      marks: [
+        Plot.line(filteredData, {
+          x: "year",
+          y: metric.value === "Distance" ? "distance" : "average_speed",
+          stroke: metric.value === "Distance" ? "steelblue" : "red",
+          strokeWidth: 2
+        }),
+        Plot.dot(filteredData, {
+          x: "year",
+          y: metric.value === "Distance" ? "distance" : "average_speed",
+          fill: metric.value === "Distance" ? "steelblue" : "red",
+          r: 3,
+          tip: d => `${d.year.getFullYear()}: ${d.value.toFixed(2)} ${metric.value === "Distance" ? "km" : "km/h"}`
+        })
+      ],
+      x: { label: "Year", ticks: 10, tickFormat: d3.format("d") },
+      y: { label: metric.value === "Distance" ? "Distance (km)" : "Average Speed (km/h)", nice: true }
+    });
+}
+```
+
+<div class="card">
+    <h2>${selectedRace.replace(/-/g, ' ').toUpperCase()}</h2>
+    ${resize((width) => raceDetails(selectedRace, metricOptions, { width }))}
 </div>
 
 <style>

@@ -215,6 +215,12 @@ class TableParser:
         return [text for text in nations_texts
                 if not text.isnumeric() and text != "-"]
 
+    def year(self) -> List[str]:
+        return self.parse_extra_column("Year", lambda x: int(x) if x.isnumeric() else None)
+
+    def average_speed(self) -> List[str]:
+        return self.parse_extra_column("Avg. speed", lambda x: float(x) if x else None)
+
     def climb_url(self) -> List[str]:
         """
         Parses all location elements hrefs from HTML. NOT only climbs, but for
@@ -397,8 +403,14 @@ class TableParser:
             int(x) if x.isnumeric() else 0)
 
     def distance(self) -> List[float]:
-        return self.parse_extra_column("KMs", lambda x:
-            float(x) if x else None)
+        possible_columns = ["KMs", "Distance"]
+        for column_name in possible_columns:
+            try:
+                return self.parse_extra_column(column_name, lambda x:
+                    float(x) if x else None)
+            except ValueError:
+                pass
+        raise ValueError("Distance column wasn't found.")
 
     def date(self) -> List[str]:
         return self.parse_extra_column("Date", str)
