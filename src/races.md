@@ -3,11 +3,27 @@ const {winners, raceInfo} = await FileAttachment("data/races.json").json();
 console.log(raceInfo);
 ```
 
-# Where winners are born
+# Race trough the years
 
-Welcome to an interactive journey through the most prestigious cycling races across the globe. Each button represents a major race, and by selecting one, you'll uncover intriguing insights into the history of its winners. On the left, a dynamic map highlights the countries that have produced the most winners for each race. On the right, you'll see a comprehensive list of all race victors.
+Welcome to an interactive journey through the most prestigious cycling races across the globe. Each button represents a major race, and by selecting one, you'll uncover intriguing insights into the history of the race. 
 
-Engage with the map by clicking on any country to filter the winners list by nation. To reset and view the complete list again, simply unclick a country. Explore how different countries have made their mark on the world of cycling!
+```js
+// Grid with buttons for each race
+const buttons = Inputs.button(
+  Object.keys(racesList).map(race => [html`
+      <div class="race-button">
+        <img src="${racesList[race]}" alt="${race}" />
+      </div>`, 
+      _ => race]
+  ), {value: 'tour-de-france'});
+
+// Selected race button
+const selectedRace = Generators.input(buttons);
+```
+
+<div>
+    ${display(buttons)}
+</div>
 
 ```js
 // Mapping of the most important races to their respective logo
@@ -122,39 +138,23 @@ function winnersRanking(race, { width } = {}) {
 }
 ```
 
-```js
-// Grid with buttons for each race
-const buttons = Inputs.button(
-  Object.keys(racesList).map(race => [html`
-      <div class="race-button"}">
-        <img src="${racesList[race]}" alt="${race}" />
-      </div>`, 
-      _ => race]
-  ), {value: 'tour-de-france'});
+<div>
+  <h2 style="margin-bottom: 1rem;">${selectedRace.replace(/-/g, ' ').toUpperCase()}</h2>
+</div>
 
-// Selected race button
-const selectedRace = Generators.input(buttons);
-```
+### Where winners are born
+On the left, a dynamic map highlights the countries that have produced the most winners for the selected race. On the right, you'll see a comprehensive list of all race victors.Engage with the map by clicking on any country to filter the winners list by nation. To reset and view the complete list again, simply unclick a country. Explore how different countries have made their mark on the world of cycling!
 
 <div>
-    ${display(buttons)}
     <div class="content">
         <div class="card map-container">
             ${resize((width) => winnersRacesMap(selectedRace, {width}))}
         </div>
         <div class="card ranking-container">
-            <h2>${selectedRace.replace(/-/g, ' ').toUpperCase()}</h2>
             ${resize((width) => winnersRanking(selectedRace, {width}))}
         </div>
     </div>
 </div>
-
-```js
-const metricOptions = view(Inputs.radio([
-  { value: "distance", label: "Distance (km)", color: "black", unit: "km" },
-  { value: "average_speed", label: "Average Speed (km/h)", color: "black", unit: "km/h" }
-], { label: html`<b>Select metric:</b>`, value: "Distance", format: (x) => x.label }));
-```
 
 ```js
 
@@ -253,10 +253,33 @@ function raceDetails(race, metric, { width } = {}) {
 }
 ```
 
+### Measuring the madness: how tough was it?
+Every race tells a story — not just of who won, but how hard it was to win. In this section, we dive into the details that define the character of each race.
+Use the toggle to switch between **total distance** and **average speed** to explore how these iconic races have evolved.
+Were they longer in the past? Has the pace picked up over the decades?
+We even highlight the top 3 fastest or longest editions, along with periods like the World Wars that left their mark on the sport.
+
+
+```js
+const metricOptions = view(Inputs.radio(
+    new Map([
+      ["Distance (km)", "distance"],
+      ["Average Speed (km/h)", "average_speed"]
+    ]), { label: html`<b>Select metric:</b>`, value: "distance", format: ([label, value]) => label }));
+
+const metricMap = {
+  "distance": { value: "distance", label: "Distance (km)", color: "black", unit: "km" },
+  "average_speed": { value: "average_speed", label: "Average Speed (km/h)", color: "black", unit: "km/h" }
+};
+```
+
 <div class="card">
-    <h2>${selectedRace.replace(/-/g, ' ').toUpperCase()}</h2>
-    ${resize((width) => raceDetails(selectedRace, metricOptions, { width }))}
+    ${resize((width) => raceDetails(selectedRace, metricMap[metricOptions], { width }))}
 </div>
+
+```js
+    console.log(metricMap[metricOptions]);
+```
 
 <style>
 
@@ -277,7 +300,8 @@ button {
   transition: transform 0.2s, box-shadow 0.2s;
   border-radius: 8px;
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
-}
+  margin-bottom: 20px;
+  }
 
 .race-button:hover {
   transform: scale(1.05);
