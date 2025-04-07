@@ -151,42 +151,105 @@ const selectedRace = Generators.input(buttons);
 
 ```js
 const metricOptions = view(Inputs.radio([
-  { value: "Distance", label: "Distance (km)" },
-  { value: "Average Speed", label: "Average Speed (km/h)" }
-], { label: html`<b>Select metric:</b>`, value: "Distance", format: (x) => x.value }));
+  { value: "distance", label: "Distance (km)", color: "black", unit: "km" },
+  { value: "average_speed", label: "Average Speed (km/h)", color: "black", unit: "km/h" }
+], { label: html`<b>Select metric:</b>`, value: "Distance", format: (x) => x.label }));
 ```
 
 ```js
 
 // Function that plots the distance and average of speed for the selected race over the years
 function raceDetails(race, metric, { width } = {}) {
-    const data = raceInfo[race] || [];
+  const data = raceInfo[race] || [];
 
-    // Filter out invalid data (e.g., average speed of 0)
-    const filteredData = data.filter(d => d.average_speed > 0);
-    console.log(filteredData);
+  const filteredData = data.filter(d => d.average_speed > 0 && d.distance > 0);
 
-    return Plot.plot({
-      width,
-      height: width * 0.35,
-      marks: [
-        Plot.line(filteredData, {
+  // Get top 3 entries based on selected metric
+  const top3 = [...filteredData]
+    .sort((a, b) => b[metric.value] - a[metric.value])
+    .slice(0, 3);
+
+  const medals = ["🥇", "🥈", "🥉"];
+
+  // Get year bounds of the data
+  const years = filteredData.map(d => d.year);
+  const minYear = d3.min(years);
+  const maxYear = d3.max(years);
+
+  // List of highlighted periods (WW I and WW II)
+  const highlightPeriods = [
+    { start: 1914, end: 1918, label: "WW I" },
+    { start: 1940, end: 1945, label: "WW II" }
+  ];
+
+  // Filter to only show highlightPeriods that overlap with data
+  const visiblePeriods = highlightPeriods.filter(p => p.end >= minYear && p.start <= maxYear);
+
+  return Plot.plot({
+    width,
+    height: width * 0.35,
+    marks: [
+      // Line
+      Plot.line(filteredData, {
+        x: "year",
+        y: metric.value,
+        stroke: metric.color,
+        strokeWidth: 2
+      }),
+
+      // Dots
+      Plot.dot(filteredData, {
+        x: "year",
+        y: metric.value,
+        fill: metric.color,
+        r: 3,
+        channels: { Year: "year", Metric: metric.value },
+        tip: { format: { Year: d => d3.format("d")(d), Metric: true, stroke: true, x: false, y: false } }
+      }),
+
+      // Medal annotations for top 3
+      Plot.text(
+        top3.map((d, i) => ({ ...d, medal: medals[i] })),
+        {
           x: "year",
-          y: metric.value === "Distance" ? "distance" : "average_speed",
-          stroke: metric.value === "Distance" ? "steelblue" : "red",
-          strokeWidth: 2
-        }),
-        Plot.dot(filteredData, {
+          y: metric.value,
+          text: d => d.medal,
+          dy: -15,
+          fontSize: 18,
+          textAnchor: "middle",
+        }
+      ),
+
+      // Dotted vertical lines for start and end of periods
+      Plot.ruleX(
+        visiblePeriods.flatMap(p => [p.start, p.end]),
+        {
+          stroke: "black",
+          strokeOpacity: 0.6,
+          strokeDasharray: "4,2", // Dotted line
+          strokeWidth: 1
+        }
+      ),
+
+      // Annotation text centered between period start and end
+      Plot.text(
+        visiblePeriods.map(p => ({
+          year: (p.start + p.end) / 2,
+          label: `${p.label}`
+        })),
+        {
           x: "year",
-          y: metric.value === "Distance" ? "distance" : "average_speed",
-          fill: metric.value === "Distance" ? "steelblue" : "red",
-          r: 3,
-          tip: d => `${d.year.getFullYear()}: ${d.value.toFixed(2)} ${metric.value === "Distance" ? "km" : "km/h"}`
-        })
-      ],
-      x: { label: "Year", ticks: 10, tickFormat: d3.format("d") },
-      y: { label: metric.value === "Distance" ? "Distance (km)" : "Average Speed (km/h)", nice: true }
-    });
+          text: d => d.label,
+          dy: 210,
+          fontSize: 14,
+          fontWeight: "bold",
+          fill: "black"
+        }
+      ),
+    ],
+    x: { label: "Year", ticks: 10, tickFormat: d3.format("d") },
+    y: { label: metric.label, nice: true }
+  });
 }
 ```
 
