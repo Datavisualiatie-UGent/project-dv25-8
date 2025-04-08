@@ -98,3 +98,25 @@ def get_race_details(race: str) -> list[dict[str, Any]]:
     ranking = ranking.statistics_ranking('year', 'distance', 'average_speed')
 
     return ranking
+
+
+@diskcache.Cache(".cache/get_equipment_for_teams").memoize()
+def get_equipment_for_teams(year: int) -> list[dict[str, Any]]:
+    '''
+    Returns the equipment used by the team for the given year.
+    '''
+    ranking = Ranking(f'statistics.php?season={year}&level=wt&filter=Filter&p=gear')
+    ranking = ranking.statistics_ranking('team_name', 'bike', 'groupset', 'wheels')
+
+    return ranking
+
+
+@diskcache.Cache(".cache/get_number_of_wins_for_teams").memoize()
+def get_number_of_wins_for_teams(year: int) -> list[dict[str, Any]]:
+    '''
+    Returns the number of wins for the teams for the given year.
+    '''
+    ranking = Ranking(f'statistics.php?year={year}&filter=Filter&p=teams&s=wt-wins-for-wt-teams')
+    ranking = ranking.statistics_ranking('team_name', 'number_of_wins')
+
+    return ranking

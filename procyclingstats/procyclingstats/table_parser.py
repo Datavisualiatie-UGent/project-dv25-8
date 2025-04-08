@@ -270,6 +270,18 @@ class TableParser:
             times.append(rider_time)
         return times
 
+    def number_of_wins(self) -> List[int]:
+        return self.parse_extra_column("#", lambda x: int(x) if x.isnumeric() else None)
+
+    def bike(self) -> List[str]:
+        return self.parse_extra_column("Bike", lambda x: str(x) if x else None)
+
+    def groupset(self) -> List[str]:
+        return self.parse_extra_column("Groupset", lambda x: str(x) if x else None)
+
+    def wheels(self) -> List[str]:
+        return self.parse_extra_column("Wheels", lambda x: str(x) if x else None)
+
     def bonus(self) -> List[str]:
         """
         Parses all bonuses elements from the table. If there aren't any returns
