@@ -6,6 +6,13 @@ import {createSwitcher} from "./components/inputSwitch.js";
 # Deeper Insights into the Peloton
 Cycling isn't just about physical strength — it's also a complex web of strategies, technologies, and team dynamics. On this page, we dive deeper into the data to uncover patterns and correlations that shape race outcomes. From the bikes they ride to the diversity within their teams, let's explore what gives riders their edge.
 
+### Equipment Choices: A Closer Look
+Over the years, WorldTour teams have made distinct choices when it comes to the equipment they trust — from the bikes they ride to the wheels and groupsets that drive performance. These choices reflect not only technological partnerships and sponsorships but also evolving trends in the peloton.
+
+In this section, we examine how often different brands have been used by teams between 2010 and 2025. By counting how many teams chose each brand in a given season, we get a sense of which manufacturers have maintained a strong presence in the pro peloton — and which ones have faded or emerged over time.
+
+Use the switcher to explore the most frequently used bike brands, wheels, and groupsets. While popularity doesn’t always equate to performance, this breakdown highlights the brands that have earned the trust of the sport's top-tier teams year after year.
+
 ```js
 
 function absoluteNumbersEquipment({ width } = {} ){
@@ -65,7 +72,7 @@ const switcherElement = createSwitcher(
 
 <div class="chart-container">
   <div class="header-with-switcher">
-    <h3>Brands Used by Teams for their Equipment</h3>
+    <h2>Number of World-Tour teams using the branch for their equipment (2010-2025)</h2>
     ${switcherElement}
   </div>
   <div id="bike-brands" style="margin-bottom: 2rem;">
@@ -74,9 +81,12 @@ const switcherElement = createSwitcher(
 </div>
 
 ### Performance by Equipment
-In the world of professional cycling, the right equipment can be the difference between victory and defeat. From high-performance bikes to specialized wheels and cutting-edge groupsets, each component plays a role in shaping a team's success. In this section, we analyze the relationship between equipment and performance by comparing teams using specific brands of gear.
+In professional cycling, equipment isn't just a matter of preference — it can be a decisive factor in a team's success. From cutting-edge bikes to aerodynamic wheels and precision-engineered groupsets, every component contributes to performance on the road.
 
-By calculating the average performance of teams riding with a particular brand, we ensure a fair comparison across different equipment types. This approach allows us to evaluate the impact of each brand on overall performance, taking into account the number of teams using it. By looking at the aggregated data, we can uncover potential correlations and gain deeper insights into how equipment choices may influence race outcomes.
+In this section, we explore how equipment choices correlate with team success by comparing the performance of teams using different brands. To ensure a fair comparison, we calculate the **average number of WorldTour wins** per season for teams using each brand. This is done by dividing the total number of wins by the number of seasons those teams used that brand.
+
+By aggregating this data, we can identify which equipment is more commonly associated with winning performances.
+**Of course, this doesn’t imply that the gear alone makes the difference — the strength, strategy, and budget of the teams using the equipment are key factors as well**. Still, it gives us a data-driven look into how certain brands align with competitive success.
 
 ```js
 function equipmentComparison({ width } = {}) {
@@ -145,7 +155,7 @@ const switcherElementBis = createSwitcher(
 
 <div class="chart-container">
   <div class="header-with-switcher">
-    <h3>Brands Used by Teams for their Equipment</h3>
+    <h2>Average number of World-Tour wins per brand (2010-2025)</h2>
     ${switcherElementBis}
   </div>
   <div id="bike-brands" style="margin-bottom: 2rem;">
@@ -160,12 +170,11 @@ const switcherElementBis = createSwitcher(
   align-items: center;
   justify-content: space-between;
   margin-bottom: 1rem;
-  gap: 1rem;
 }
 
 .header-with-switcher h2 {
   margin: 0;
-  font-size: 1.5em;
+  font-size: 1em;
 }
 
 </style>
