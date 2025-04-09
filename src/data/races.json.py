@@ -28,7 +28,8 @@ for race in racelist:
 # Fix data errors:
 # 1. The distance for the 1953 edition of Liege-Bastogne-Liege is incorrect (2 winners, so distance was double)
 # 2. The distance for the 1949 edition of Paris-Roubaix is incorrect (2 winners, so distance was double)
-data['raceInfo']['liege-bastogne-liege'][2025-1957]['distance'] = data['raceInfo']['liege-bastogne-liege'][2025-1957]['distance'] / 2
+data['raceInfo']['liege-bastogne-liege'][2025-1957]['distance'] = \
+                                                    data['raceInfo']['liege-bastogne-liege'][2025-1957]['distance'] / 2
 data['raceInfo']['paris-roubaix'][2025-1949]['distance'] = data['raceInfo']['paris-roubaix'][2025-1949]['distance'] / 2
 
 

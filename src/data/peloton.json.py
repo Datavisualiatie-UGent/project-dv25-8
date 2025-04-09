@@ -1,7 +1,7 @@
 import json
 import sys
 import logging
-from data import *
+from data import get_nations_ranking, get_riders, get_riders_2
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
