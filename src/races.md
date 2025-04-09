@@ -1,13 +1,29 @@
 ```js
-const {winners} = await FileAttachment("data/races.json").json();
-console.log(winners);
+const {winners, raceInfo} = await FileAttachment("data/races.json").json();
+console.log(raceInfo);
 ```
 
-# Where winners are born
+# Race trough the years
 
-Welcome to an interactive journey through the most prestigious cycling races across the globe. Each button represents a major race, and by selecting one, you'll uncover intriguing insights into the history of its winners. On the left, a dynamic map highlights the countries that have produced the most winners for each race. On the right, you'll see a comprehensive list of all race victors.
+Welcome to an interactive journey through the most prestigious cycling races across the globe. Each button represents a major race, and by selecting one, you'll uncover intriguing insights into the history of the race. 
 
-Engage with the map by clicking on any country to filter the winners list by nation. To reset and view the complete list again, simply unclick a country. Explore how different countries have made their mark on the world of cycling!
+```js
+// Grid with buttons for each race
+const buttons = Inputs.button(
+  Object.keys(racesList).map(race => [html`
+      <div class="race-button">
+        <img src="${racesList[race]}" alt="${race}" />
+      </div>`, 
+      _ => race]
+  ), {value: 'tour-de-france'});
+
+// Selected race button
+const selectedRace = Generators.input(buttons);
+```
+
+<div>
+    ${display(buttons)}
+</div>
 
 ```js
 // Mapping of the most important races to their respective logo
@@ -72,11 +88,9 @@ function winnersRacesMap(race, { width } = {}) {
     })
     .on("click", (event, d) => {
       if (selectedCountryId.value === d.id) {
-        console.log("Country : ", d.properties.name);
         selectedCountryId.value = "";
         selectedCountryName.value = "";
       } else {
-        console.log("Country selected 2: ", d.properties.name);
         selectedCountryId.value = d.id;
         selectedCountryName.value = d.properties.name;
       }
@@ -124,32 +138,148 @@ function winnersRanking(race, { width } = {}) {
 }
 ```
 
-```js
-// Grid with buttons for each race
-const buttons = Inputs.button(
-  Object.keys(racesList).map(race => [html`
-      <div class="race-button"}">
-        <img src="${racesList[race]}" alt="${race}" />
-      </div>`, 
-      _ => race]
-  ), {value: 'tour-de-france'});
+<div>
+  <h2 style="margin-bottom: 1rem;">${selectedRace.replace(/-/g, ' ').toUpperCase()}</h2>
+</div>
 
-// Selected race button
-const selectedRace = Generators.input(buttons);
-```
+### Where winners are born
+On the left, a dynamic map highlights the countries that have produced the most winners for the selected race. On the right, you'll see a comprehensive list of all race victors.Engage with the map by clicking on any country to filter the winners list by nation. To reset and view the complete list again, simply unclick a country. Explore how different countries have made their mark on the world of cycling!
 
 <div>
-    ${display(buttons)}
     <div class="content">
         <div class="card map-container">
             ${resize((width) => winnersRacesMap(selectedRace, {width}))}
         </div>
         <div class="card ranking-container">
-            <h2>${selectedRace.replace(/-/g, ' ').toUpperCase()}</h2>
             ${resize((width) => winnersRanking(selectedRace, {width}))}
         </div>
     </div>
 </div>
+
+```js
+
+// Function that plots the distance and average of speed for the selected race over the years
+function raceDetails(race, metric, { width } = {}) {
+  const data = raceInfo[race] || [];
+
+  const filteredData = data.filter(d => d.average_speed > 0 && d.distance > 0);
+
+  // Get top 3 entries based on selected metric
+  const top3 = [...filteredData]
+    .sort((a, b) => b[metric.value] - a[metric.value])
+    .slice(0, 3);
+
+  const medals = ["🥇", "🥈", "🥉"];
+
+  // Get year bounds of the data
+  const years = filteredData.map(d => d.year);
+  const minYear = d3.min(years);
+  const maxYear = d3.max(years);
+
+  // List of highlighted periods (WW I and WW II)
+  const highlightPeriods = [
+    { start: 1914, end: 1918, label: "WW I" },
+    { start: 1940, end: 1945, label: "WW II" }
+  ];
+
+  // Filter to only show highlightPeriods that overlap with data
+  const visiblePeriods = highlightPeriods.filter(p => p.end >= minYear && p.start <= maxYear);
+
+  return Plot.plot({
+    width,
+    height: width * 0.35,
+    marks: [
+      // Line
+      Plot.line(filteredData, {
+        x: "year",
+        y: metric.value,
+        stroke: metric.color,
+        strokeWidth: 2
+      }),
+
+      // Dots
+      Plot.dot(filteredData, {
+        x: "year",
+        y: metric.value,
+        fill: metric.color,
+        r: 3,
+        channels: { Year: "year", Metric: metric.value },
+        tip: { format: { Year: d => d3.format("d")(d), Metric: true, stroke: true, x: false, y: false } }
+      }),
+
+      // Medal annotations for top 3
+      Plot.text(
+        top3.map((d, i) => ({ ...d, medal: medals[i] })),
+        {
+          x: "year",
+          y: metric.value,
+          text: d => d.medal,
+          dy: -15,
+          fontSize: 18,
+          textAnchor: "middle",
+        }
+      ),
+
+      // Dotted vertical lines for start and end of periods
+      Plot.ruleX(
+        visiblePeriods.flatMap(p => [p.start, p.end]),
+        {
+          stroke: "black",
+          strokeOpacity: 0.6,
+          strokeDasharray: "4,2", // Dotted line
+          strokeWidth: 1
+        }
+      ),
+
+      // Annotation text centered between period start and end
+      Plot.text(
+        visiblePeriods.map(p => ({
+          year: (p.start + p.end) / 2,
+          label: `${p.label}`
+        })),
+        {
+          x: "year",
+          text: d => d.label,
+          dy: 210,
+          fontSize: 14,
+          fontWeight: "bold",
+          fill: "black"
+        }
+      ),
+    ],
+    x: { label: "Year", ticks: 10, tickFormat: d3.format("d") },
+    y: { label: metric.label, nice: true }
+  });
+}
+```
+
+### Measuring the madness: how tough was it?
+Every race tells a story — not just of who won, but how hard it was to win. In this section, we dive into the details that define the character of each race.
+Use the toggle to switch between **total distance** and **average speed** to explore how these iconic races have evolved.
+Were they longer in the past? Has the pace picked up over the decades?
+We even highlight the top 3 fastest or longest editions, along with periods like the World Wars that left their mark on the sport.
+
+
+```js
+const metricOptions = view(Inputs.radio(
+    new Map([
+      ["Distance (km)", "distance"],
+      ["Average Speed (km/h)", "average_speed"]
+    ]), { label: html`<b>Select metric:</b>`, value: "distance", format: ([label, value]) => label }));
+
+const metricMap = {
+  "distance": { value: "distance", label: "Distance (km)", color: "black", unit: "km" },
+  "average_speed": { value: "average_speed", label: "Average Speed (km/h)", color: "black", unit: "km/h" }
+};
+```
+
+<div class="card">
+    ${resize((width) => raceDetails(selectedRace, metricMap[metricOptions], { width }))}
+</div>
+
+```js
+    console.log(metricMap[metricOptions]);
+```
 
 <style>
 
@@ -170,7 +300,8 @@ button {
   transition: transform 0.2s, box-shadow 0.2s;
   border-radius: 8px;
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
-}
+  margin-bottom: 20px;
+  }
 
 .race-button:hover {
   transform: scale(1.05);

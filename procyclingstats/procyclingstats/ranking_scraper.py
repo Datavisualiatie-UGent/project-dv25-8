@@ -180,7 +180,14 @@ class Ranking(Scraper):
             "average_age",
             "team_name",
             "rider_name",
-            'min_age'
+            'min_age',
+            'year',
+            'distance',
+            'average_speed',
+            'bike',
+            'groupset',
+            'wheels',
+            'number_of_wins',
         )
         return self._parse_regular_ranking_table(args, available_fields)
 

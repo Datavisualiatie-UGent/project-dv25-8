@@ -39,7 +39,18 @@ class Rider(Scraper):
         general_info_html = self.html.css_first(".rdr-info-cont")
         bd_string = general_info_html.text(separator=" ", deep=False)
         bd_list = [item for item in bd_string.split(" ") if item][:3]
+
+        # Make sure bd_list has 3 elements
+        if len(bd_list) != 3:
+            return None
+
         [day, str_month, year] = bd_list
+        months = list(calendar.month_name)
+
+        # Make sure that the month is a valid month name
+        if str_month not in months:
+            return None
+
         month = list(calendar.month_name).index(str_month)
         return f"{year}-{month}-{day}"
 

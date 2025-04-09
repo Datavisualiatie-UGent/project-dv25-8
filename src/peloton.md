@@ -60,12 +60,9 @@ function nationsWorldTourMap({ width } = {}) {
     })
     .on("click", (event, d) => {
       if (selectedCountryId.value === +d.id) {
-        console.log("Country : ", d.properties.name);
         selectedCountryId.value = "";
         selectedCountryName.value = "";
       } else {
-        console.log(selectedCountryId, selectedCountryName);
-        console.log("Country selected 2: ", d.properties.name);
         selectedCountryId.value = +d.id;
         selectedCountryName.value = d.properties.name;
       }
@@ -127,6 +124,7 @@ function ridersList({ width } = {}) {
 By sliding over the years, it is clear that the number of countries represented in the World Tour peloton has been increasing over time. This trend reflects the global nature of professional cycling and the sport's growing popularity in different regions around the world. This can also be seen in the next visualization, which shows the number of different nationalities in the peloton over the years.
 
 ```js
+
 // Define a function that creates a line plot of the number of different nationalities in the World Tour peloton over the years
 function nationsOverYears({ width } = {}) {
   const data = Object.entries(nations.ranking).map(([year, countries]) => ({
@@ -163,93 +161,39 @@ function nationsOverYears({ width } = {}) {
 
 ## Age is just a number
 
-```js	
-// Compute the average age per year
-const yearlyAverages = Object.entries(ages.average).map(([year, teams]) => ({
-  year: new Date(+year, 0, 1),                    // Convert year to date
-  average_age: d3.mean(teams, d => d.average_age)   // Compute mean age of teams
-}));
 
-// Define a function that creates a line plot of the average age of World Tour riders over the years
-function averageAgeOverYears({ width } = {}) {
+```js	
+// Define a function that creates a bar chart of the distribution of the age of the riders in the World Tour peloton over the years
+function ageHistogram({width} = {}) {
+  var data = [];
+  Object.values(nations.riders2[selectedYearAge]).forEach(nationData => {
+    nationData.forEach(rider => {
+      // Subtract the difference between the current year and the selected year
+      // from the rider's age to get the age in the selected year
+      data.push(rider.age - (latestYear - selectedYearAge));
+    });
+  });
   return Plot.plot({
     width: width,
     height: width / 2,
-    x: { label: "Year", type: "time" },
-    y: { label: "Average Age", type: "linear" },
+    x: { label: 'Age', type: 'linear' },
+    y: { label: 'Number of riders', type: 'linear' },
     marks: [
-      Plot.line(yearlyAverages, { x: "year", y: "average_age", stroke: "steelblue", strokeWidth: 2 }),
-      Plot.dot(yearlyAverages, { 
-        x: "year", 
-        y: "average_age", 
-        fill: "steelblue", 
-        r: 2,
-        channels: {Year: "year", Age: "average_age"},
-        tip: {format: {Year: d => d.getFullYear(), Age: true, stroke: true, x: false, y: false}}
-      }),
+      Plot.rectY(data, Plot.binX({y: 'count', thresholds: Array.from({length: 100}, (_, i) => i)}, {x: d => d, fill: 'steelblue'}))
     ],
-    title: "Average age of World Tour riders over the years"
+    title: "Age distribution of the active riders in " + selectedYearAge
   });
 }
 ```
 
-```js	
-// Function to parse age strings in the format "xx y + dd"
-function parseAge(ageString) {
-    // Extract numbers from the string
-    const match = ageString.match(/(\d+)y(?: \+ (\d+)d)?/);
-    
-    if (!match) return null; // Handle invalid input
-
-    let years = parseInt(match[1], 10);
-    let days = match[2] ? parseInt(match[2], 10) : 0;
-    
-    // Convert days to years and add to total age
-    return years + (days / 365);
-}
-
-// Compute the average age of the 10 youngest World tour riders per year
-const yearlyYoungest = Object.entries(ages.youngest).map(([year, riders]) => {
-  const filteredRiders = riders
-    .map(d => parseAge(d.min_age))              // Convert to float age
-    .filter(age => age !== null && age >= 15)   // Remove null and values < 15 (errors in data set)
-    .slice(0, 10);                              // Take the first 10 valid values
-
-  return {
-    year: new Date(+year, 0, 1),                // Convert year to date
-    min_age: d3.mean(filteredRiders)            // Compute mean
-  };
-});
-
-// Define a function that creates a line plot of the average age of the 10 youngest World Tour riders over the years
-function youngestAgeOverYears({ width } = {}) {
-  return Plot.plot({
-    width: width,
-    height: width / 2,
-    x: { label: "Year", type: "time" },
-    y: { label: "Age", type: "linear" },
-    marks: [
-      Plot.line(yearlyYoungest, { x: "year", y: "min_age", stroke: "steelblue", strokeWidth: 2 }),
-      Plot.dot(yearlyYoungest, { 
-        x: "year", 
-        y: "min_age", 
-        fill: "steelblue", 
-        r: 2,
-        channels: {Year: "year", Age: "min_age"},
-        tip: {format: {Year: d => d.getFullYear(), Age: true, stroke: true, x: false, y: false}}
-      }),
-    ],
-    title: "Average age of 10 youngest World Tour riders over the years"
-  });
-}
+```js
+// Create a selector for the years
+const selectedYearAge = view(Inputs.range([firstYear, latestYear], {step: 1, value: latestYear}));
 ```
 
 <div class="grid grid-cols-2">
   <div class="card">
-    ${resize((width) => averageAgeOverYears({width}))}
-  </div>
-  <div class="card">
-    ${resize((width) => youngestAgeOverYears({width}))}
+    ${resize((width) => ageHistogram({width}))}
   </div>
 </div>
 
