@@ -1,6 +1,6 @@
 ```js
 const {winners, raceInfo} = await FileAttachment("data/races.json").json();
-console.log(raceInfo);
+import {createSwitcher} from "./components/inputSwitch.js";
 ```
 
 # Race trough the years
@@ -261,25 +261,34 @@ We even highlight the top 3 fastest or longest editions, along with periods like
 
 
 ```js
-const metricOptions = view(Inputs.radio(
-    new Map([
-      ["Distance (km)", "distance"],
-      ["Average Speed (km/h)", "average_speed"]
-    ]), { label: html`<b>Select metric:</b>`, value: "distance", format: ([label, value]) => label }));
+// const metricOptions = view(Inputs.radio(
+//     new Map([
+//       ["Distance (km)", "distance"],
+//       ["Average Speed (km/h)", "average_speed"]
+//     ]), { label: html`<b>Select metric:</b>`, value: "distance", format: ([label, value]) => label }));
+
+const selectedMetric = Mutable("Distance");
+const switcherElement = createSwitcher(
+  ["Distance", "Average Speed"],
+  (value) => {
+    selectedMetric.value = value;
+  }
+);
 
 const metricMap = {
-  "distance": { value: "distance", label: "Distance (km)", color: "black", unit: "km" },
-  "average_speed": { value: "average_speed", label: "Average Speed (km/h)", color: "black", unit: "km/h" }
+  "Distance": { value: "distance", label: "Distance (km)", color: "black", unit: "km" },
+  "Average Speed": { value: "average_speed", label: "Average Speed (km/h)", color: "black", unit: "km/h" }
 };
 ```
 
+
 <div class="card">
-    ${resize((width) => raceDetails(selectedRace, metricMap[metricOptions], { width }))}
+    <div style="display: flex; justify-content: flex-end;">
+      ${switcherElement}
+    </div>
+    ${resize((width) => raceDetails(selectedRace, metricMap[selectedMetric], { width }))}
 </div>
 
-```js
-    console.log(metricMap[metricOptions]);
-```
 
 <style>
 
