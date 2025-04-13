@@ -7,32 +7,25 @@ from data import *
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 logger = logging.getLogger(__name__)
 
-# Initialize a dictionary to store results
+# What fi we do a map of riders, and keep active years, same for nation
 data = {
-    'nations': {
-        'ranking': {},
-        'riders': {},
-        'riders2': {}
-    },
+    'nations': {}, # data['nations']['year']['nation_name'] = {}
+    'riders': {}, # data['riders']['year']['nation_name']['rider_name'] = {}
     'ages': {
         'average': {},
         'youngest': {}
     }
 }
 
-# Extract the number of World tour riders per country over the years
 for year in range(1930, 2026):
-    nations_ranking = get_nations_ranking(year)
-    data['nations']['ranking'][f'{year}'] = nations_ranking
+    nations = get_nations(year)
+    data['nations'][f'{year}'] = nations
 
-    data['nations']['riders'][f'{year}'] = {}
-    data['nations']['riders2'][f'{year}'] = {}
-    for nation in nations_ranking:
-        nation_name = nation['nation_name']
-        nation_iso3 = nation['nation_iso3']
-        riders = get_riders(year, nation_name)
-        data['nations']['riders'][f'{year}'][f'{nation_iso3}'] = riders
-        data['nations']['riders2'][f'{year}'][f'{nation_iso3}'] = get_riders_2(year, nation_name)
+    data['riders'][f'{year}'] = {}
+    for nation in nations:
+        riders = get_riders(year, nation['nation_name'])
+        data['nations'][f'{year}'][nation['nation_name']]['number_of_riders'] = len(riders.keys())
+        data['riders'][f'{year}'][f'{nation['nation_name']}'] = riders
 
 # Extract the average age of World tour riders over the years
 for year in range(1930, 2026):

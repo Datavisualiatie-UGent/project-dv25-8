@@ -89,8 +89,8 @@ class Ranking(Scraper):
             "team_name",
             "team_url",
             "nationality",
-            "points",
-            "#Points",
+            #"points",
+            #"#Points",
         )
         if self._ranking_type() != "individual":
             raise ExpectedParsingError(
@@ -159,7 +159,7 @@ class Ranking(Scraper):
             "nation_name",
             "nation_url",
             "nationality",
-            "points",
+            #"points",
             "number_riders"
         )
         if self._ranking_type() != "nations":

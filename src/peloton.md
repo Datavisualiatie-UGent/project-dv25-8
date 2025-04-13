@@ -1,5 +1,5 @@
 ```js
-const {nations, ages} = await FileAttachment("data/peloton.json").json();
+const {nations, riders, ages} = await FileAttachment("data/peloton.json").json();
 ```
 
 # Inside the WorldTour-Peloton
@@ -10,13 +10,10 @@ The World Tour peloton is a diverse and dynamic group of athletes, each with the
 To gain insight into the global reach of professional cycling, we explore the number of riders representing each country in the World Tour peloton. The map below visualizes the distribution of riders across countries for the selected year, highlighting the extent of cycling's global presence.
 
 ```js
-// Compute the years available in the data set, first and latest year
-const years = Object.keys(nations.ranking).map(d => +d);
-const firstYear = Math.min(...years);
-const latestYear = Math.max(...years);
-
-// Create a selector for the years
-const selectedYear = view(Inputs.range([firstYear, latestYear], {step: 1, value: latestYear}));
+// Year slider
+const minYear = Math.min(Object.keys(nations).map(str => +str));
+const maxYear = Math.max(Object.keys(nations).map(str => +str));
+const selectedYear = view(Inputs.range([minYear, maxYear], {step: 1, value: maxYear}));
 ```
 
 ```js	
@@ -31,11 +28,11 @@ const selectedCountryName = Mutable("");
 // Define a function that creates a map of the world with the number of riders per country
 function nationsWorldTourMap({ width } = {}) {
   // Filter based on the selected year
-  const filteredData = nations.ranking[selectedYear];
+  const filteredData = nations[selectedYear];
 
   // Define a color scale
   const color = d3.scaleSequentialLog(d3.interpolateBlues)
-    .domain([1, d3.max(filteredData, d => d.number_riders)]);
+    .domain([1, d3.max(filteredData, d => d.number_of_riders)]);
 
   // Create an SVG element
   const svg = d3.create("svg")
@@ -87,11 +84,11 @@ function nationsWorldTourMap({ width } = {}) {
 function ridersList({ width } = {}) {
     // Filter based on the race
     if (selectedCountryId == "") return html`<p><strong>Select a country on the map to see the riders</strong></p>`;
-    const ridersOfSelectedCountry = nations.riders[selectedYear][selectedCountryId] || [];
+    const ridersOfSelectedCountry = riders[selectedYear][selectedCountryId] || [];
 
     // Retrieve the total number of riders 
-    const countryData = nations.ranking[selectedYear].find(d => d.nation_iso3 === selectedCountryId);
-    const totalRiders = countryData ? countryData.number_riders : 0;
+    const countryData = nations[selectedYear].find(d => d.nation_iso3 === selectedCountryId);
+    const totalRiders = countryData ? countryData.number_of_riders : 0;
 
     return html`
         <div class="ranking-container" style="max-width: ${width}px; max-height: ${width * 1.35}px; overflow-y: auto;">
@@ -124,14 +121,12 @@ function ridersList({ width } = {}) {
 By sliding over the years, it is clear that the number of countries represented in the World Tour peloton has been increasing over time. This trend reflects the global nature of professional cycling and the sport's growing popularity in different regions around the world. This can also be seen in the next visualization, which shows the number of different nationalities in the peloton over the years.
 
 ```js
-
 // Define a function that creates a line plot of the number of different nationalities in the World Tour peloton over the years
 function nationsOverYears({ width } = {}) {
-  const data = Object.entries(nations.ranking).map(([year, countries]) => ({
+  const data = Object.entries(nations).map(([year, countries]) => ({
     year: new Date(+year, 0, 1),
-    number_countries: countries.length
+    number_countries: Object.keys(countries).length
   }));
-
   return Plot.plot({
     width,
     height: width / 2,
@@ -274,7 +269,7 @@ function ageHistogram({width} = {}) {
 
 ```js
 // Create a selector for the years
-const selectedYearAge = view(Inputs.range([firstYear, latestYear], {step: 1, value: latestYear}));
+const selectedYearAge = view(Inputs.range([minYear, maxYear], {step: 1, value: maxYear}));
 ```
 
 <div class="grid grid-cols-2">
