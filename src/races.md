@@ -161,8 +161,19 @@ On the left, a dynamic map highlights the countries that have produced the most 
 // Function that plots the distance and average of speed for the selected race over the years
 function raceDetails(race, metric, { width } = {}) {
   const data = raceInfo[race] || [];
-
   const filteredData = data.filter(d => d.average_speed > 0 && d.distance > 0);
+
+  // Get the annotations for the current race
+  const annotations = customAnnotations.filter(a => a.race === race);
+
+  // Extend data points with annotation if available
+  const annotatedData = filteredData.map(d => {
+    const annotation = annotations.find(a => a.year === d.year);
+    return {
+      ...d,
+      annotation: annotation?.label || ""
+    };
+  });
 
   // Get top 3 entries based on selected metric
   const top3 = [...filteredData]
@@ -197,15 +208,33 @@ function raceDetails(race, metric, { width } = {}) {
         strokeWidth: 2
       }),
 
+      // Dotted vertical lines for start and end of periods
+      Plot.ruleX(
+        visiblePeriods.flatMap(p => [p.start, p.end]),
+        {
+          stroke: "black",
+          strokeOpacity: 0.6,
+          strokeDasharray: "4,2", // Dotted line
+          strokeWidth: 1
+        }
+      ),
+
       // Dots
       Plot.dot(filteredData, {
         x: "year",
         y: metric.value,
         fill: metric.color,
+        strokeWidth: 1,
         r: 3,
-        channels: { Year: "year", Metric: metric.value },
-        tip: { format: { Year: d => d3.format("d")(d), Metric: true, stroke: true, x: false, y: false } }
       }),
+      
+      // Tooltip for each dot
+      Plot.tip(annotatedData, Plot.pointer({
+        x: "year",
+        y: metric.value,
+        title: (d) => [`Year: ${d.year}\n${metric.label}: ${d[metric.value]} ${metric.unit}` +
+                       `${d.annotation ? '\nNote: ' + d.annotation : ""}`],
+      })),
 
       // Medal annotations for top 3
       Plot.text(
@@ -217,17 +246,6 @@ function raceDetails(race, metric, { width } = {}) {
           dy: -15,
           fontSize: 18,
           textAnchor: "middle",
-        }
-      ),
-
-      // Dotted vertical lines for start and end of periods
-      Plot.ruleX(
-        visiblePeriods.flatMap(p => [p.start, p.end]),
-        {
-          stroke: "black",
-          strokeOpacity: 0.6,
-          strokeDasharray: "4,2", // Dotted line
-          strokeWidth: 1
         }
       ),
 
@@ -253,6 +271,58 @@ function raceDetails(race, metric, { width } = {}) {
 }
 ```
 
+```js	
+// List with custom annotations to make the plot more informative.
+const customAnnotations = [
+  {
+    race: "milano-sanremo",
+    year: 2013,
+    label: "Race was neutralized due to cold, rain and snow.",
+  },
+  {
+    race: "world-championship",
+    year: 2002,
+    label: "Completely flat circuit in Zolder, Belgium.",
+  },
+  {
+    race: "world-championship",
+    year: 2011,
+    label: "Completely flat circuit in Copenhagen, Denmark.",
+  },
+  {
+    race: "world-championship",
+    year: 2016,
+    label: "Completely flat circuit in Doha, Qatar.",
+  },
+  {
+    race: "ronde-van-vlaanderen",
+    year: 1941,
+    label: "While the race was canceled during WW I, since the war front lay right trough Flanders, during the second world war the Nazis gave permission to organize the race. They wanted the so-called 'entertainments' to continue, so as not to undermine the morale of the population too much. However, adjustments needed to be made and new roads were discovered that are still part of the route today.",
+  },
+  {
+    race: "ronde-van-vlaanderen",
+    year: 1942,
+    label: "While the race was canceled during WW I, since the war front lay right trough Flanders, during the second world war the Nazis gave permission to organize the race. They wanted the so-called 'entertainments' to continue, so as not to undermine the morale of the population too much. However, adjustments needed to be made and new roads were discovered that are still part of the route today.",
+  },
+  {
+    race: "ronde-van-vlaanderen",
+    year: 1943,
+    label: "While the race was canceled during WW I, since the war front lay right trough Flanders, during the second world war the Nazis gave permission to organize the race. They wanted the so-called 'entertainments' to continue, so as not to undermine the morale of the population too much. However, adjustments needed to be made and new roads were discovered that are still part of the route today.",
+  },
+  {
+    race: "ronde-van-vlaanderen",
+    year: 1944,
+    label: "While the race was canceled during WW I, since the war front lay right trough Flanders, during the second world war the Nazis gave permission to organize the race. They wanted the so-called 'entertainments' to continue, so as not to undermine the morale of the population too much. However, adjustments needed to be made and new roads were discovered that are still part of the route today.",
+  },
+  {
+    race: "ronde-van-vlaanderen",
+    year: 1945,
+    label: "While the race was canceled during WW I, since the war front lay right trough Flanders, during the second world war the Nazis gave permission to organize the race. They wanted the so-called 'entertainments' to continue, so as not to undermine the morale of the population too much. However, adjustments needed to be made and new roads were discovered that are still part of the route today.",
+  },
+]
+
+```
+
 ### Measuring the madness: how tough was it?
 Every race tells a story — not just of who won, but how hard it was to win. In this section, we dive into the details that define the character of each race.
 Use the toggle to switch between **total distance** and **average speed** to explore how these iconic races have evolved.
@@ -261,12 +331,6 @@ We even highlight the top 3 fastest or longest editions, along with periods like
 
 
 ```js
-// const metricOptions = view(Inputs.radio(
-//     new Map([
-//       ["Distance (km)", "distance"],
-//       ["Average Speed (km/h)", "average_speed"]
-//     ]), { label: html`<b>Select metric:</b>`, value: "distance", format: ([label, value]) => label }));
-
 const selectedMetric = Mutable("Distance");
 const switcherElement = createSwitcher(
   ["Distance", "Average Speed"],
