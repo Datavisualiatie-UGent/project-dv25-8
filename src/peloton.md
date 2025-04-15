@@ -1,5 +1,5 @@
 ```js
-const {nations, ages} = await FileAttachment("data/peloton.json").json();
+const {nations, wins} = await FileAttachment("data/peloton.json").json();
 ```
 
 # Inside the WorldTour-Peloton
@@ -107,9 +107,6 @@ function ridersList({ width } = {}) {
 }
 ```
 
-<!-- <div class="card">
-  ${resize((width) => nationsWorldTourMap({width}))}
-</div> -->
 <div>
     <div class="content">
         <div class="card map-container">
@@ -121,41 +118,137 @@ function ridersList({ width } = {}) {
     </div>
 </div>
 
-By sliding over the years, it is clear that the number of countries represented in the World Tour peloton has been increasing over time. This trend reflects the global nature of professional cycling and the sport's growing popularity in different regions around the world. This can also be seen in the next visualization, which shows the number of different nationalities in the peloton over the years.
+By sliding over the years, it is clear that the number of countries represented in the World Tour peloton has been increasing over time. This trend reflects the global nature of professional cycling and the sport's growing popularity in different regions around the world. But of course it is not only about riding for a country, it is also about winning. In the next two graphs, we take a look at the winners. The first one shows the top 10 nations with the most wins in the selected year, showing how dominant certain countries are in the world of cycling. The second one shows the podium of the riders with the most wins in the selected year, highlighting the individual achievements of these athletes.
+
 
 ```js
-
-// Define a function that creates a line plot of the number of different nationalities in the World Tour peloton over the years
-function nationsOverYears({ width } = {}) {
-  const data = Object.entries(nations.ranking).map(([year, countries]) => ({
-    year: new Date(+year, 0, 1),
-    number_countries: countries.length
-  }));
+function topWinnersBarPlot({ width } = {}) {
+  const data = nations.ranking[selectedYear]
+    .filter(d => d.wins > 0)
+    .sort((a, b) => d3.descending(a.wins, b.wins))
+    .slice(0, 10); // Top 10 nations
 
   return Plot.plot({
     width,
-    height: width / 2,
-    x: { label: "Year", type: "time" },
-    y: { label: "Number of Countries", type: "linear" },
+    height: width * 0.6,
+    marginLeft: 100,
+    x: { label: "Wins", type: "linear" },
+    y: { label: null, domain: data.map(d => d.nation_name) },
     marks: [
-      Plot.line(data, { x: "year", y: "number_countries", stroke: "steelblue", strokeWidth: 2 }),
-      Plot.dot(data, { 
-        x: "year", 
-        y: "number_countries", 
+      Plot.barX(data, { 
+        x: "wins", 
+        y: "nation_name", 
         fill: "steelblue", 
-        r: 2,
-        channels: {Year: "year", Countries: "number_countries"},
-        tip: {format: {Year: d => d.getFullYear(), Countries: true, stroke: true, x: false, y: false}}
+      }),
+
+      // The text labels
+      Plot.text(data, {
+        x: d => d.wins + 0.2, // Slightly offset to the right of the bar
+        y: "nation_name",
+        text: d => d.wins,
+        fill: "black",
+        textAnchor: "start",
+        fontWeight: "bold",
+        fontSize: 12
       })
     ],
-    title: "Number of different nationalities"
+    title: `Top 10 winning nations in ${selectedYear}`
   });
 }
 ```
 
+```js
+function verticalPodium({width} = {}) {
+    // 1. Get the top 3 riders from the selected year
+    let top3 = wins.ranking[selectedYear];
+    
+    // Update so that picture contains the correct url: 'https://www.procyclingstats.com' + d.picture
+    top3 = top3.map(d => ({ ...d, picture: 'https://www.procyclingstats.com/' + d.picture }));
+
+    // 2. Define podium metadata (heights, colors) and assign to riders
+    const podiumMeta = {
+        1: { height: 2.7, color: "gold" },
+        2: { height: 2, color: "silver" },
+        3: { height: 1.6, color: "#cd7f32" }
+    };
+
+    top3 = top3.map(d => ({
+        ...d,
+        podium_height: podiumMeta[d.rank]?.height ?? 1,
+        podium_color: podiumMeta[d.rank]?.color ?? "grey"
+    }));
+
+    // 3. Reorder for visual podium layout: [2nd, 1st, 3rd]
+    const riderRankMap = new Map(top3.map(d => [d.rank, d]));
+    let podiumLayout = [
+        riderRankMap.get(2), // 2nd place
+        riderRankMap.get(1), // 1st place
+        riderRankMap.get(3)  // 3rd place
+    ];
+
+    // 4. Define constants for image placement
+    const podiumImageHeightRelative = 0.8;
+    const podiumImageWidthPixels = (width / podiumLayout.length) * 0.6 || 60;
+
+    return Plot.plot({
+      width: width,
+      height: width * 0.6,
+      x: {
+        domain: podiumLayout.map(d => d.rider_name),
+        label: null,
+        tickSize: 0,    // Hide tick marks
+        padding: 0.2    // Space between podium blocks
+      },
+      y: {
+        domain: [0, 4], // Fixed domain [0, max_podium_height + image_space]
+        axis: null      // Hide the y-axis
+      },
+      marks: [
+        // Podium Bars/Blocks
+        Plot.barY(podiumLayout, {
+          x: "rider_name",
+          y: "podium_height",   // Pre-defined podium height
+          fill: "podium_color", // Pre-defined podium color
+          stroke: "black",
+          // Tooltip showing rank, name, nationality, and actual wins
+          title: d => `${d.rider_name} (${d.nationality})\nWins: ${d.number_of_wins}`
+        }),
+
+        // Rider Images on top of the podium steps
+        Plot.image(podiumLayout, {
+          x: "rider_name",
+          // Calculate y position: top of the bar + half the image's relative height
+          // This centers the image vertically slightly above the bar's top edge
+          y: d => d.podium_height + podiumImageHeightRelative / 2,
+          width: podiumImageWidthPixels,
+          src: "picture",
+          title: d => `${d.rider_name} (${d.nationality})\nWins: ${d.number_of_wins}`,
+        }),
+
+        // Text Label for number of wins ON the podium step
+        Plot.text(podiumLayout, {
+            x: "rider_name",
+            y: d => d.podium_height - 0.25, // Position inside the bar, near the top
+            text: d => d.number_of_wins,    // Display the actual number of wins
+            fill: "black",
+            stroke: "white",                // Add outline for better visibility
+            strokeWidth: 3,
+            fontWeight: "bold",
+            fontSize: 14,
+            dy: -2                          // Fine-tune vertical position
+        })
+      ],
+      title: `Podium of the riders with the most wins in ${selectedYear}`,
+    });
+};
+```
+
 <div class="grid grid-cols-2">
   <div class="card">
-    ${resize((width) => nationsOverYears({width}))}
+    ${resize((width) => topWinnersBarPlot({width}))}
+  </div>
+  <div class="card">
+    ${resize((width) => verticalPodium({width}))}
   </div>
 </div>
 
