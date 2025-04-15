@@ -2,7 +2,7 @@ import country_converter as coco
 import diskcache
 from datetime import datetime
 from typing import Any
-from procyclingstats import Ranking, Rider, Team, Teams
+from procyclingstats import Ranking, Rider, Team, Teams, Nation
 import sys
 
 def get_nations(year: int) -> dict[str, Any]:
@@ -13,21 +13,31 @@ def get_nations(year: int) -> dict[str, Any]:
         print(e)
         sys.exit()
 
-    nations = {}
-    for r in ranking_nations:
-        key = r.get('nationality')
-        nations[key] = {}
+    return [r.get('nation_url') for r in ranking_nations]
 
-        nation_iso3 = coco.CountryConverter().convert(names=r.get('nation_name'), to='ISOnumeric')
-        nation_iso3 = nation_iso3 if nation_iso3 else None
+def get_nation(year: int, nation_url: str) -> dict[str, Any]:
+    try:
+        nation = Nation(year, nation_url)
+    except Exception as e:
+        print(e)
+        sys.exit()
 
-        nations[key]['nation_name'] = r.get('nation_name')
-        nations[key]['nationality'] = r.get('nationality')
-        nations[key]['nation_iso3'] = nation_iso3
-        nations[key]['rank'] = r.get('rank')
-        nations[key]['number_of_riders'] = r.get('number_riders')
+    nationality = coco.CountryConverter().convert(names=nation.name(), to='ISO2')
+    nationality = nationality if nationality else None
 
-    return nations
+    nation_ison = coco.CountryConverter().convert(names=nation.name(), to='ISOnumeric')
+    nation_ison = nation_ison if nation_ison else None
+
+    data = {}
+    data['nation_name'] = nation.name()
+    data['nationality'] = nationality
+    data['nation_ison'] = nation_ison
+    data['teams'] = nation.teams()
+    data['riders'] = nation.riders()
+    data['wins'] = nation.wins()
+    data['pcs_points'] = nation.pcs_points()
+
+    return data
 
 def get_teams(year: int) -> list[str]:
     return Teams().teams(year)
@@ -113,4 +123,4 @@ def get_youngest_age(year: int) -> list[dict[str, Any]]:
     return ranking
 
 if __name__ == '__main__':
-    pass
+    print(get_nation(2024, "nation/belgium"))
