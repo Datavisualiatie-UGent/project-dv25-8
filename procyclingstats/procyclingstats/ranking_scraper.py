@@ -180,6 +180,7 @@ class Ranking(Scraper):
             "average_age",
             "team_name",
             "rider_name",
+            "rider_url",
             'min_age',
             'year',
             'distance',

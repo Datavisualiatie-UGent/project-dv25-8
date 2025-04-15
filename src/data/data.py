@@ -17,6 +17,43 @@ def get_nations_ranking(year: int) -> list[dict[str, Any]]:
         iso3 = converter.convert(names=nation['nation_name'], to='ISOnumeric')
         nation['nation_iso3'] = iso3 if iso3 else None
 
+        # Add the number of wins for that country for the given year
+        country_iso2 = converter.convert(names=nation['nation_name'], to='ISO2')
+        country_iso2 = country_iso2 if country_iso2 != 'not found' else nation['nation_name']
+        wins_ranking = Ranking(f"nation.php?season={year}&level=1&plevel=smallerorequal&prowin=0&pprowin=largerorequal&filter=Filter&id={country_iso2}&c=me&p=overview&s=nation-wins")
+        wins_ranking = wins_ranking.statistics_ranking('rank')
+
+        # Select the first element of the ranking to get the number of wins (just the highest win number)
+        if wins_ranking:
+            nation['wins'] = wins_ranking[0]['rank']
+        else:
+            nation['wins'] = 0
+
+    return ranking
+
+
+@diskcache.Cache(".cache/get_wins_ranking").memoize()
+def get_wins_ranking(year: int) -> list[dict[str, Any]]:
+    # Get the wins ranking for the given year
+    ranking = Ranking(f"statistics.php?year={year}&mw=1&filter=Filter&p=riders&s=wins-on-wt-level")
+    ranking = ranking.statistics_ranking('rank', 'rider_name', 'number_of_wins', 'rider_url')
+    converter = coco.CountryConverter()
+
+    # Only use the top 3 riders for the ranking
+    ranking = ranking[:3]
+
+    # Retreive the nationality and the picture for the top 3 riders
+    for rider in ranking:
+        # Get the rider information
+        rider_url = rider['rider_url']
+        rider_data = Rider(rider_url)
+
+        rider['picture'] = rider_data.image_url()
+
+        # Conver the nationality from ISO2 to string
+        rider['nationality'] = rider_data.nationality()
+        rider['nationality'] = converter.convert(names=rider['nationality'], src="ISO2", to="name_short")
+
     return ranking
 
 

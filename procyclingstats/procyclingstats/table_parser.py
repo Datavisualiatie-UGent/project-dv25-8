@@ -271,7 +271,13 @@ class TableParser:
         return times
 
     def number_of_wins(self) -> List[int]:
-        return self.parse_extra_column("#", lambda x: int(x) if x.isnumeric() else None)
+        possible_columns = ["Total", "#"]
+        for column_name in possible_columns:
+            try:
+                return self.parse_extra_column(column_name, lambda x: int(x) if x.isnumeric() else None)
+            except ValueError:
+                pass
+        raise ValueError("Number of wins column wasn't found.")
 
     def bike(self) -> List[str]:
         return self.parse_extra_column("Bike", lambda x: str(x) if x else None)
