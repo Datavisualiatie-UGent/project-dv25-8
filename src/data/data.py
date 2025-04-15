@@ -2,50 +2,56 @@ import country_converter as coco
 import diskcache
 from datetime import datetime
 from typing import Any
-from procyclingstats import Ranking, Rider
+from procyclingstats import Ranking, Rider, Team, Teams
+import sys
 
-@diskcache.Cache(".cache/get_nations_ranking").memoize()
-def get_nations_ranking(year: int) -> list[dict[str, Any]]:
-    # Get nations ranking
-    ranking = Ranking(f"statistics.php?season={year}&level=1&sekse=1&filter=Filter&p=nations")
-    ranking = ranking.statistics_ranking('nation_name', 'rank', 'number_riders')
-    
-    # Add nation ISO3 codes
-    converter = coco.CountryConverter()
-    for nation in ranking:
-        iso3 = converter.convert(names=nation['nation_name'], to='ISOnumeric')
-        nation['nation_iso3'] = iso3 if iso3 else None
-    
-    return ranking
-
-@diskcache.Cache('.cache/get_nations').memoize()
 def get_nations(year: int) -> dict[str, Any]:
-    # Get the ranking of nations
     try:
-        rankings = Ranking(f"statistics.php?season={year}&level=1&sekse=1&filter=Filter&p=nations")
-        nation_rankings = rankings.nations_ranking()
-    except ValueError as e:
+        ranking_nations = Ranking(f'statistics.php?season={year}&level=1&sekse=1&filter=Filter&p=nations')
+        ranking_nations = ranking_nations.nations_ranking()
+    except Exception as e:
         print(e)
-        return {}
-    
-    # Restructure the data
+        sys.exit()
+
     nations = {}
-    for nation_ranking in nation_rankings:
-        nation_iso3 = coco.CountryConverter().convert(names=nation_ranking.get('nation_name'), to='ISOnumeric')
+    for r in ranking_nations:
+        key = r.get('nationality')
+        nations[key] = {}
+
+        nation_iso3 = coco.CountryConverter().convert(names=r.get('nation_name'), to='ISOnumeric')
         nation_iso3 = nation_iso3 if nation_iso3 else None
 
-        nations[nation_ranking.get('nation_name')] = {
-            'nation_name': nation_ranking.get('nation_name'),
-            'nation_url': nation_ranking.get('nation_url'),
-            'rank': nation_ranking.get('rank'),
-            'previous_rank': nation_ranking.get('prev_rank'),
-            'points': nation_ranking.get('points'),
-            'nation_iso3': nation_iso3
-            # number_of_riders added when get_riders is called
-        }
+        nations[key]['nation_name'] = r.get('nation_name')
+        nations[key]['nationality'] = r.get('nationality')
+        nations[key]['nation_iso3'] = nation_iso3
+        nations[key]['rank'] = r.get('rank')
+        nations[key]['number_of_riders'] = r.get('number_riders')
 
-    # Return the nation information
     return nations
+
+def get_teams(year: int) -> list[str]:
+    return Teams().teams(year)
+
+def get_team(team_url: str) -> dict[str, Any]:
+    try:
+        team = Team(team_url)
+    except Exception as e:
+        print(e)
+        sys.exit()
+
+    data = {}
+    data['team_name'] = team.name()
+    data['team_abbreviation'] = team.abbreviation()
+    data['nationality'] = team.nationality()
+    data['class'] = team.status()
+    data['bike_brand'] = team.bike()
+    data['season_wins'] = team.wins_count()
+    data['pcs_points'] = team.pcs_points()
+    data['pcs_rank'] = team.pcs_ranking_position()
+    data['uci_rank'] = team.uci_ranking_position()
+    data['riders'] = [rider.get('rider_url') for rider in team.riders()]
+
+    return data
 
 @diskcache.Cache('.cache/get_riders').memoize()
 def get_riders(year: int, nation_name: str) -> dict[str, Any]:
@@ -107,9 +113,4 @@ def get_youngest_age(year: int) -> list[dict[str, Any]]:
     return ranking
 
 if __name__ == '__main__':
-    # Load data
-    for year in range(1930, 2026):
-        nations = get_nations(year)
-        for nation in nations.values():
-            get_riders(year, nation['nation_name'])
-            print(year, nation['nation_name'])
+    pass

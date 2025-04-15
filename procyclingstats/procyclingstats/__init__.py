@@ -10,6 +10,7 @@ from .rider_scraper import Rider
 from .scraper import Scraper
 from .stage_scraper import Stage
 from .team_scraper import Team
+from .teams_scraper import Teams
 
 __all__ = [
     "Scraper",
@@ -20,7 +21,8 @@ __all__ = [
     "RiderResults",
     "Rider",
     "Stage",
-    "Team"
+    "Team",
+    "Teams"
 ]
 
 sys.path.append(os.path.dirname(os.path.realpath(__file__)))

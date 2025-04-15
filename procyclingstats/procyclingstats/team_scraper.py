@@ -88,7 +88,7 @@ class Team(Scraper):
 
         :return: Count of wins in corresponding season.
         """
-        wins_count_html = self.html.css_first(".team-kpi > li.nr")
+        wins_count_html = self.html.css_first(".team-kpi > li.nr").css_first("span.val > a")
         wins_count_text = str(wins_count_html.text())
         if wins_count_text.isdigit():
             return int(wins_count_text)
@@ -104,7 +104,7 @@ class Team(Scraper):
         :return: PCS points gained throughout corresponding year.
         """
         team_ranking_html = self.html.css_first(
-            ".team-kpi > li.nr:nth-child(4)")
+            ".team-kpi > li.nr:nth-child(4)").css_first("span.val > a")
         if team_ranking_html.text().isnumeric():
             return int(team_ranking_html.text())
         else:
@@ -118,7 +118,7 @@ class Team(Scraper):
         :return: PCS team ranking position in corresponding year.
         """
         team_ranking_html = self.html.css_first(
-            ".team-kpi > li.nr:nth-child(6)")
+            ".team-kpi > li.nr:nth-child(6)").css_first("span.val > a")
         if team_ranking_html.text().isnumeric():
             return int(team_ranking_html.text())
         else:
@@ -131,7 +131,7 @@ class Team(Scraper):
         :return: UCI team ranking position in corresponding year.
         """
         team_ranking_html = self.html.css_first(
-            ".team-kpi > li.nr:nth-child(8)")
+            ".team-kpi > li.nr:nth-child(8)").css_first("span.val > a")
         if team_ranking_html.text().isnumeric():
             return int(team_ranking_html.text())
         else:
