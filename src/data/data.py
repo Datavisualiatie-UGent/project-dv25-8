@@ -2,7 +2,7 @@ import country_converter as coco
 import diskcache
 from datetime import datetime
 from typing import Any
-from procyclingstats import Ranking, Rider, Team, Teams, Nation
+from procyclingstats import Ranking, Nation, Team, Teams, Rider
 import sys
 
 @diskcache.Cache('.cache/get_nations').memoize()
@@ -67,14 +67,18 @@ def get_team(team_url: str) -> dict[str, Any]:
 
     return data
 
+@diskcache.Cache('.cache/get_riders').memoize()
+def get_riders(year: int) -> list[str]:
+    return [rider_url for team_url in get_teams(year) for rider_url in get_team(team_url)['riders']]
+
 @diskcache.Cache('.cache/get_rider').memoize()
 def get_rider(year:int, rider_url: str) -> dict[str, Any]:
     try:
-        rider = Rider(rider_url)
+        rider = Rider(f'{rider_url}/{year}')
     except Exception as e:
         print(e)
         sys.exit()
-    
+
     data = {}
     data['name'] = rider.name()
     data['nationality'] = rider.nationality()
@@ -85,56 +89,10 @@ def get_rider(year:int, rider_url: str) -> dict[str, Any]:
     data['height'] = rider.height()
     data['image_url'] = rider.image_url()
     data['teams_history'] = {str(d.get('season')): d.get('team_url') for d in rider.teams_history() if d.get('season') is not None}
+    pcs_results = rider.points_per_season_history()
+    data['pcs_points'] = {str(d['season']): d['points'] for d in pcs_results}
+    data['pcs_ranks'] = {str(d['season']): d['rank'] for d in pcs_results}
     return data
-
-def get_rider_results(year: int, rider_url: str) -> dict[str, Any]:
-    pass
-
-def get_riders(year: int, nation_name: str) -> dict[str, Any]:
-    def age(year: int, birthdate: str) -> int:
-        if birthdate is None:
-            return None
-        isoBirthdate = '-'.join(f'{int(part):02d}' for part in rider_information.birthdate().split('-'))
-        return year - datetime.fromisoformat(isoBirthdate).date().year
-    
-    # Convert the nation name to iso2 to use in the filter
-    country_iso2 = coco.CountryConverter().convert(names=nation_name, to='ISO2')
-    country_iso2 = country_iso2 if country_iso2 != 'not found' else nation_name
-
-    # Get the ranking of riders
-    try:
-        rankings = Ranking(f"nation.php?season={year}&level=wt&filter=Filter&id={country_iso2}&c=me&p=overview&s=contract-riders")
-        individual_rankings = rankings.individual_ranking()
-    except ValueError as e:
-        print(e)
-        return {}
-    
-    riders = {}
-    for individual_ranking in individual_rankings:
-        # Get rider information
-        try:
-            rider_information = Rider(f'{individual_ranking.get('rider_url')}/{year}')
-        except:
-            continue
-
-        # Merge all available data
-        riders[individual_ranking.get('rider_name')] = {
-            'rider_name': individual_ranking.get('rider_name'),
-            'rider_url': individual_ranking.get('rider_url'),
-            'team_name': individual_ranking.get('team_name'),
-            'team_url': individual_ranking.get('team_url'),
-            'rank': individual_ranking.get('rank'),
-            'previous_rank': individual_ranking.get('prev_rank'),
-            'nationality': individual_ranking.get('nationality'),
-            'points': individual_ranking.get('points'),
-            'birthdate': rider_information.birthdate(),
-            'age': age(year, rider_information.birthdate()),
-            'weight': rider_information.weight(),
-            'height': rider_information.height()
-        }
-
-    # Return the rider information
-    return riders
 
 @diskcache.Cache(".cache/get_average_age").memoize()
 def get_average_age(year: int) -> list[dict[str, Any]]:
@@ -149,4 +107,4 @@ def get_youngest_age(year: int) -> list[dict[str, Any]]:
     return ranking
 
 if __name__ == '__main__':
-    print(get_rider(2025, "rider/tadej-pogacar"))
+    pass
