@@ -5,6 +5,7 @@ from typing import Any
 from procyclingstats import Ranking, Rider, Team, Teams, Nation
 import sys
 
+@diskcache.Cache('.cache/get_nations').memoize()
 def get_nations(year: int) -> dict[str, Any]:
     try:
         ranking_nations = Ranking(f'statistics.php?season={year}&level=1&sekse=1&filter=Filter&p=nations')
@@ -15,6 +16,7 @@ def get_nations(year: int) -> dict[str, Any]:
 
     return [r.get('nation_url') for r in ranking_nations]
 
+@diskcache.Cache('.cache/get_nation').memoize()
 def get_nation(year: int, nation_url: str) -> dict[str, Any]:
     try:
         nation = Nation(year, nation_url)
@@ -39,9 +41,11 @@ def get_nation(year: int, nation_url: str) -> dict[str, Any]:
 
     return data
 
+@diskcache.Cache('.cache/get_teams').memoize()
 def get_teams(year: int) -> list[str]:
     return Teams().teams(year)
 
+@diskcache.Cache('.cache/get_team').memoize()
 def get_team(team_url: str) -> dict[str, Any]:
     try:
         team = Team(team_url)
@@ -63,7 +67,29 @@ def get_team(team_url: str) -> dict[str, Any]:
 
     return data
 
-@diskcache.Cache('.cache/get_riders').memoize()
+@diskcache.Cache('.cache/get_rider').memoize()
+def get_rider(year:int, rider_url: str) -> dict[str, Any]:
+    try:
+        rider = Rider(rider_url)
+    except Exception as e:
+        print(e)
+        sys.exit()
+    
+    data = {}
+    data['name'] = rider.name()
+    data['nationality'] = rider.nationality()
+    data['birthdate'] = rider.birthdate()
+    data['age'] = year - datetime.strptime(data['birthdate'], '%Y-%m-%d').year
+    data['place_of_birth'] = rider.place_of_birth()
+    data['weight'] = rider.weight()
+    data['height'] = rider.height()
+    data['image_url'] = rider.image_url()
+    data['teams_history'] = {str(d.get('season')): d.get('team_url') for d in rider.teams_history() if d.get('season') is not None}
+    return data
+
+def get_rider_results(year: int, rider_url: str) -> dict[str, Any]:
+    pass
+
 def get_riders(year: int, nation_name: str) -> dict[str, Any]:
     def age(year: int, birthdate: str) -> int:
         if birthdate is None:
@@ -123,4 +149,4 @@ def get_youngest_age(year: int) -> list[dict[str, Any]]:
     return ranking
 
 if __name__ == '__main__':
-    print(get_nation(2024, "nation/belgium"))
+    print(get_rider(2025, "rider/tadej-pogacar"))
