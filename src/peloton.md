@@ -1,76 +1,74 @@
 ```js
-const {nations, riders, ages} = await FileAttachment("data/peloton.json").json();
+const data = await FileAttachment('data/peloton.json').json();
 ```
 
 # Inside the WorldTour-Peloton
 The World Tour peloton is a diverse and dynamic group of athletes, each with their own story, background, and journey to the top of professional cycling. In this section, we take a closer look at the riders who make up this elite group. Through visualizations of their ages, nationalities, teams, and other key factors, we uncover the trends and patterns that define the makeup of the peloton. Explore how cycling has become a truly global sport and discover the individuals powering the races that captivate audiences around the world.
 
 ## Tour around the world
-
 To gain insight into the global reach of professional cycling, we explore the number of riders representing each country in the World Tour peloton. The map below visualizes the distribution of riders across countries for the selected year, highlighting the extent of cycling's global presence.
 
 ```js
 // Year slider
-const minYear = Math.min(Object.keys(nations).map(str => +str));
-const maxYear = Math.max(Object.keys(nations).map(str => +str));
+const minYear = Math.min.apply(null, Object.keys(data.nations).map(str => +str));
+const maxYear = Math.max.apply(null, Object.keys(data.nations).map(str => +str));
 const selectedYear = view(Inputs.range([minYear, maxYear], {step: 1, value: maxYear}));
 ```
 
-```js	
-// Load the world map
+```js
+// World map
 const world = await d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json");
 const countries = topojson.feature(world, world.objects.countries);
 
-// Mutable stores to keep track of the selected country id and name on the map
-const selectedCountryId = Mutable("");
-const selectedCountryName = Mutable("");
+// Mutable stores to keep track of the selected nation id and name on the map
+const selectedNationId = Mutable("");
+const selectedNationName = Mutable("");
 
-// Define a function that creates a map of the world with the number of riders per country
+// Define a function that creates a map of the world with the number of riders per nation
 function nationsWorldTourMap({ width } = {}) {
-  // Filter based on the selected year
-  const filteredData = nations[selectedYear];
+    // Filter based on the selected year
+    const nations = Object.values(data.nations[selectedYear]);
 
-  // Define a color scale
-  const color = d3.scaleSequentialLog(d3.interpolateBlues)
-    .domain([1, d3.max(filteredData, d => d.number_of_riders)]);
+    // Define a color scale
+    const color = d3.scaleSequentialLog(d3.interpolateBlues).domain([1, d3.max(nations, nation => nation.riders.length)]);
 
-  // Create an SVG element
-  const svg = d3.create("svg")
-    .attr("width", width)
-    .attr("height", width / 2.5)
-    .call(d3.zoom().scaleExtent([1, 5]) // Allow zooming between 1x and 5x
-    .on("zoom", (event) => {
-      svg.select("g").attr("transform", event.transform);
+    // Create an SVG element
+    const svg = d3.create("svg")
+        .attr("width", width)
+        .attr("height", width / 2.5)
+        .call(d3.zoom().scaleExtent([1, 5]) // Allow zooming between 1x and 5x
+        .on("zoom", (event) => {
+        svg.select("g").attr("transform", event.transform);
     }));
 
-  const g = svg.append("g");
+    const g = svg.append("g");
 
-  // Draw the map
-  g.selectAll("path")
-    .data(countries.features)
-    .enter()
-    .append("path")
-    .attr("d", d3.geoPath(d3.geoEquirectangular()))
-    .attr("fill", d => {
-        const countryData = filteredData.find(e => e.nation_iso3 === +d.id);
-        return countryData ? color(countryData.number_riders) : "#eee";
-    })
-    .on("click", (event, d) => {
-      if (selectedCountryId.value === +d.id) {
-        selectedCountryId.value = "";
-        selectedCountryName.value = "";
-      } else {
-        selectedCountryId.value = +d.id;
-        selectedCountryName.value = d.properties.name;
-      }
-    })
-    .attr("stroke", "white")
-    .attr("stroke-width", 0.7)
-    .append("title")
-    .text(d => {
-        const countryData = filteredData.find(e => e.nation_iso3 === +d.id);
-        return countryData ? `${d.properties.name}: ${countryData.number_riders} riders` : `${d.properties.name}: No riders`;
-    });
+    // Draw the map
+    g.selectAll("path")
+        .data(countries.features)
+        .enter()
+        .append("path")
+        .attr("d", d3.geoPath(d3.geoEquirectangular()))
+        .attr("fill", d => {
+            const nation = nations.find(nation => nation.ison === +d.id);
+            return nation ? color(nation.riders.length) : "#eee";
+        })
+        .on("click", (event, d) => {
+        if (selectedNationId.value === +d.id) {
+            selectedNationId.value = "";
+            selectedNationName.value = "";
+        } else {
+            selectedNationId.value = +d.id;
+            selectedNationName.value = d.properties.name;
+        }
+        })
+        .attr("stroke", "white")
+        .attr("stroke-width", 0.7)
+        .append("title")
+        .text(d => {
+            const nation = nations.find(nation => nation.ison === +d.id);
+            return nation ? `${d.properties.name}: ${nation.riders.length} riders` : `${d.properties.name}: No riders`;
+        });
 
   return html`
   <div class="map-container">
@@ -79,34 +77,23 @@ function nationsWorldTourMap({ width } = {}) {
 }
 ```
 
-```js	
+```js
 // Function to display the list with riders of this country in the selected year
 function ridersList({ width } = {}) {
-    // Filter based on the race
-    if (selectedCountryId == "") return html`<p><strong>Select a country on the map to see the riders</strong></p>`;
-    const ridersOfSelectedCountry = riders[selectedYear][selectedCountryId] || [];
+    if (selectedNationId == "") return html`<p><strong>Select a country on the map to see the riders</strong></p>`;
 
-    // Retrieve the total number of riders 
-    const countryData = nations[selectedYear].find(d => d.nation_iso3 === selectedCountryId);
-    const totalRiders = countryData ? countryData.number_of_riders : 0;
+    const nation = Object.values(data.nations[selectedYear]).filter(nation => nation.ison == selectedNationId)[0];
+    const riders = Object.values(data.riders[selectedYear]).filter(rider => rider.nationality == nation.nationality);
 
     return html`
         <div class="ranking-container" style="max-width: ${width}px; max-height: ${width * 1.35}px; overflow-y: auto;">
-            ${selectedCountryId && selectedCountryName ? html`
-              <h3><strong>${selectedCountryName} (Total: ${totalRiders} ${totalRiders !== 1 ? 'riders' : 'rider'})</strong></h3>
-            ` : ''}
-
-            ${ridersOfSelectedCountry.map(rider => html`
-                <li><strong>${rider.rider_name}</strong></li>
-            `)}
+            ${selectedNationId && selectedNationName ? html`<h3><strong>${selectedNationName} (Total: ${riders.length} ${riders.length !== 1 ? 'riders' : 'rider'})</strong></h3>` : ''}
+            ${riders.map(rider => html`<li><strong>${rider.name}</strong></li>`)}
         </ul>
     `;
 }
 ```
 
-<!-- <div class="card">
-  ${resize((width) => nationsWorldTourMap({width}))}
-</div> -->
 <div>
     <div class="content">
         <div class="card map-container">
@@ -118,158 +105,154 @@ function ridersList({ width } = {}) {
     </div>
 </div>
 
-By sliding over the years, it is clear that the number of countries represented in the World Tour peloton has been increasing over time. This trend reflects the global nature of professional cycling and the sport's growing popularity in different regions around the world. This can also be seen in the next visualization, which shows the number of different nationalities in the peloton over the years.
+By sliding over the years, it is clear that the number of countries represented in the World Tour peloton has been increasing over time. This trend reflects the global nature of professional cycling and the sport's growing popularity in different regions around the world. But of course it is not only about riding for a country, it is also about winning. In the next two graphs, we take a look at the winners. The first one shows the top 10 nations with the most wins in the selected year, showing how dominant certain countries are in the world of cycling. The second one shows the podium of the riders with the most wins in the selected year, highlighting the individual achievements of these athletes.
 
 ```js
 // Define a function that creates a line plot of the number of different nationalities in the World Tour peloton over the years
-function nationsOverYears({ width } = {}) {
-  const data = Object.entries(nations).map(([year, countries]) => ({
-    year: new Date(+year, 0, 1),
-    number_countries: Object.keys(countries).length
-  }));
-  return Plot.plot({
-    width,
-    height: width / 2,
-    x: { label: "Year", type: "time" },
-    y: { label: "Number of Countries", type: "linear" },
-    marks: [
-      Plot.line(data, { x: "year", y: "number_countries", stroke: "steelblue", strokeWidth: 2 }),
-      Plot.dot(data, { 
-        x: "year", 
-        y: "number_countries", 
-        fill: "steelblue", 
-        r: 2,
-        channels: {Year: "year", Countries: "number_countries"},
-        tip: {format: {Year: d => d.getFullYear(), Countries: true, stroke: true, x: false, y: false}}
-      })
-    ],
-    title: "Number of different nationalities"
-  });
+function topWinnersBarPlot({ width } = {}) {
+    const nations = Object.values(data.nations[selectedYear])
+        .filter(nation => (nation.wins || 0) > 0)
+        .sort((a, b) => d3.descending(a.wins || 0, b.wins || 0))
+        .slice(0, 10); // Top 10 nations
+    return Plot.plot({
+        width,
+        height: width * 0.6,
+        marginLeft: 100,
+        x: { label: "Wins", type: "linear" },
+        y: { label: null, domain: nations.map(nation => nation.name) },
+        marks: [
+        Plot.barX(nations, { 
+            x: "wins", 
+            y: "name", 
+            fill: "steelblue", 
+        }),
+
+        // The text labels
+        Plot.text(nations, {
+            x: nation => nation.wins + 0.2, // Slightly offset to the right of the bar
+            y: "name",
+            text: nation => nation.wins,
+            fill: "black",
+            textAnchor: "start",
+            fontWeight: "bold",
+            fontSize: 12
+        })
+        ],
+        title: `Top 10 winning nations in ${selectedYear}`
+    });
 }
+```
+
+```js
+function verticalPodium({width} = {}) {
+    // 1. Get the top 3 riders from the selected year
+    let top3 = data.wins.ranking[selectedYear];
+    
+    // Update so that picture contains the correct url: 'https://www.procyclingstats.com' + d.picture
+    top3 = top3.map(d => ({ ...d, picture: 'https://www.procyclingstats.com/' + d.picture }));
+
+    // 2. Define podium metadata (heights, colors) and assign to riders
+    const podiumMeta = {
+        1: { height: 2.7, color: "gold" },
+        2: { height: 2, color: "silver" },
+        3: { height: 1.6, color: "#cd7f32" }
+    };
+
+    top3 = top3.map(d => ({
+        ...d,
+        podium_height: podiumMeta[d.rank]?.height ?? 1,
+        podium_color: podiumMeta[d.rank]?.color ?? "grey"
+    }));
+
+    // 3. Reorder for visual podium layout: [2nd, 1st, 3rd]
+    const riderRankMap = new Map(top3.map(d => [d.rank, d]));
+    let podiumLayout = [
+        riderRankMap.get(2), // 2nd place
+        riderRankMap.get(1), // 1st place
+        riderRankMap.get(3)  // 3rd place
+    ];
+
+    // 4. Define constants for image placement
+    const podiumImageHeightRelative = 0.8;
+    const podiumImageWidthPixels = (width / podiumLayout.length) * 0.6 || 60;
+
+    return Plot.plot({
+        width: width,
+        height: width * 0.6,
+        x: {
+            domain: podiumLayout.map(d => d.rider_name),
+            label: null,
+            tickSize: 0,    // Hide tick marks
+            padding: 0.2    // Space between podium blocks
+        },
+        y: {
+            domain: [0, 4], // Fixed domain [0, max_podium_height + image_space]
+            axis: null      // Hide the y-axis
+        },
+        marks: [
+            // Podium Bars/Blocks
+            Plot.barY(podiumLayout, {
+                x: "rider_name",
+                y: "podium_height",   // Pre-defined podium height
+                fill: "podium_color", // Pre-defined podium color
+                stroke: "black",
+                // Tooltip showing rank, name, nationality, and actual wins
+                title: d => `${d.rider_name} (${d.nationality})\nWins: ${d.number_of_wins}`
+            }),
+
+            // Rider Images on top of the podium steps
+            Plot.image(podiumLayout, {
+                x: "rider_name",
+                // Calculate y position: top of the bar + half the image's relative height
+                // This centers the image vertically slightly above the bar's top edge
+                y: d => d.podium_height + podiumImageHeightRelative / 2,
+                width: podiumImageWidthPixels,
+                src: "picture",
+                title: d => `${d.rider_name} (${d.nationality})\nWins: ${d.number_of_wins}`,
+            }),
+
+            // Text Label for number of wins ON the podium step
+            Plot.text(podiumLayout, {
+                x: "rider_name",
+                y: d => d.podium_height - 0.25, // Position inside the bar, near the top
+                text: d => d.number_of_wins,    // Display the actual number of wins
+                fill: "black",
+                stroke: "white",                // Add outline for better visibility
+                strokeWidth: 3,
+                fontWeight: "bold",
+                fontSize: 14,
+                dy: -2                          // Fine-tune vertical position
+            })
+        ],
+        title: `Podium of the riders with the most wins in ${selectedYear}`,
+    });
+};
 ```
 
 <div class="grid grid-cols-2">
   <div class="card">
-    ${resize((width) => nationsOverYears({width}))}
+    ${resize((width) => topWinnersBarPlot({width}))}
+  </div>
+  <div class="card">
+    ${resize((width) => verticalPodium({width}))}
   </div>
 </div>
 
 ## Age is just a number
-
 ```js	
-// Compute the average age per year
-const yearlyAverages = Object.entries(ages.average).map(([year, teams]) => ({
-  year: new Date(+year, 0, 1),                    // Convert year to date
-  average_age: d3.mean(teams, d => d.average_age)   // Compute mean age of teams
-}));
-
-// Define a function that creates a line plot of the average age of World Tour riders over the years
-function averageAgeOverYears({ width } = {}) {
-  return Plot.plot({
-    width: width,
-    height: width / 2,
-    x: { label: "Year", type: "time" },
-    y: { label: "Average Age", type: "linear" },
-    marks: [
-      Plot.line(yearlyAverages, { x: "year", y: "average_age", stroke: "steelblue", strokeWidth: 2 }),
-      Plot.dot(yearlyAverages, { 
-        x: "year", 
-        y: "average_age", 
-        fill: "steelblue", 
-        r: 2,
-        channels: {Year: "year", Age: "average_age"},
-        tip: {format: {Year: d => d.getFullYear(), Age: true, stroke: true, x: false, y: false}}
-      }),
-    ],
-    title: "Average age of World Tour riders over the years"
-  });
-}
-```
-
-```js	
-// Function to parse age strings in the format "xx y + dd"
-function parseAge(ageString) {
-    // Extract numbers from the string
-    const match = ageString.match(/(\d+)y(?: \+ (\d+)d)?/);
-    
-    if (!match) return null; // Handle invalid input
-
-    let years = parseInt(match[1], 10);
-    let days = match[2] ? parseInt(match[2], 10) : 0;
-    
-    // Convert days to years and add to total age
-    return years + (days / 365);
-}
-
-// Compute the average age of the 10 youngest World tour riders per year
-const yearlyYoungest = Object.entries(ages.youngest).map(([year, riders]) => {
-  const filteredRiders = riders
-    .map(d => parseAge(d.min_age))              // Convert to float age
-    .filter(age => age !== null && age >= 15)   // Remove null and values < 15 (errors in data set)
-    .slice(0, 10);                              // Take the first 10 valid values
-
-  return {
-    year: new Date(+year, 0, 1),                // Convert year to date
-    min_age: d3.mean(filteredRiders)            // Compute mean
-  };
-});
-
-// Define a function that creates a line plot of the average age of the 10 youngest World Tour riders over the years
-function youngestAgeOverYears({ width } = {}) {
-  return Plot.plot({
-    width: width,
-    height: width / 2,
-    x: { label: "Year", type: "time" },
-    y: { label: "Age", type: "linear" },
-    marks: [
-      Plot.line(yearlyYoungest, { x: "year", y: "min_age", stroke: "steelblue", strokeWidth: 2 }),
-      Plot.dot(yearlyYoungest, { 
-        x: "year", 
-        y: "min_age", 
-        fill: "steelblue", 
-        r: 2,
-        channels: {Year: "year", Age: "min_age"},
-        tip: {format: {Year: d => d.getFullYear(), Age: true, stroke: true, x: false, y: false}}
-      }),
-    ],
-    title: "Average age of 10 youngest World Tour riders over the years"
-  });
-}
-
 function ageHistogram({width} = {}) {
-  var data = [];
-  Object.values(nations.riders2[selectedYearAge]).forEach(nationData => {
-    nationData.forEach(rider => {
-      // Subtract the difference between the current year and the selected year
-      // from the rider's age to get the age in the selected year
-      data.push(rider.age - (latestYear - selectedYearAge));
+    const d = Object.values(data.riders[selectedYear]).map(rider => selectedYear - +rider.birthdate.split('-')[0]);
+    return Plot.plot({
+        width: width,
+        height: width / 2,
+        x: { label: 'Age', type: 'linear' },
+        y: { label: 'Number of riders', type: 'linear' },
+        marks: [
+            Plot.rectY(d, Plot.binX({y: 'count', thresholds: Array.from({length: 100}, (_, i) => i)}, {x: d => d, fill: 'steelblue'}))
+        ],
+        title: "Age distribution of the active riders in " + selectedYear
     });
-  });
-  return Plot.plot({
-    width: width,
-    height: width / 2,
-    x: { label: 'Age', type: 'linear' },
-    y: { label: 'Number of riders', type: 'linear' },
-    marks: [
-      Plot.rectY(data, Plot.binX({y: 'count', thresholds: Array.from({length: 100}, (_, i) => i)}, {x: d => d, fill: 'steelblue'}))
-    ],
-    title: "Age distribution of the active riders in " + selectedYearAge
-  });
 }
-```
-
-<div class="grid grid-cols-2">
-  <div class="card">
-    ${resize((width) => averageAgeOverYears({width}))}
-  </div>
-  <div class="card">
-    ${resize((width) => youngestAgeOverYears({width}))}
-  </div>
-</div>
-
-```js
-// Create a selector for the years
-const selectedYearAge = view(Inputs.range([minYear, maxYear], {step: 1, value: maxYear}));
 ```
 
 <div class="grid grid-cols-2">
@@ -279,8 +262,6 @@ const selectedYearAge = view(Inputs.range([minYear, maxYear], {step: 1, value: m
 </div>
 
 <style>
-
-  
 .content {
   display: flex;
   gap: 20px;
@@ -312,5 +293,4 @@ const selectedYearAge = view(Inputs.range([minYear, maxYear], {step: 1, value: m
   padding: 5px 0;
   border-bottom: 1px solid #ddd;
 }
-
 </style>

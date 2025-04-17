@@ -324,7 +324,7 @@ class TableParser:
             for bib_e in bibs_elements]
 
     def rank(self) -> List[Optional[int]]:
-        possible_columns = ["Rnk", "pos", "Result", "#"]
+        possible_columns = ["Rnk", "pos", "Result", "#", "Nr."]
         for column_name in possible_columns:
             try:
                 return self.parse_extra_column(column_name,
