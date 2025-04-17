@@ -149,6 +149,8 @@ class Rider(Scraper):
         # special layout
             nationality_html = self.html.css_first(
                 ".rdr-info-cont > span > span")
+        if nationality_html is None:
+            return None
         flag_class = nationality_html.attributes['class']
         return flag_class.split(" ")[-1].upper() # type:ignore
 
@@ -197,12 +199,14 @@ class Rider(Scraper):
                          if f in ("season", "team_name", "team_url")]
         if casual_fields:
             table_parser.parse(casual_fields)
+        
         # add classes for row validity checking
-        classes = table_parser.parse_extra_column(1,
-            lambda x: x.split(" ")[-1].replace("(", "").replace(")", "")
-            if x and not x.split(" ")[-1].replace("(", "").replace(")", "")[0].isnumeric() and
-            "retired" not in x.lower() else None)
-        table_parser.extend_table("class", classes)
+        # classes = table_parser.parse_extra_column(1,
+        #     lambda x: x.split(" ")[-1].replace("(", "").replace(")", "")
+        #     if x and not x.split(" ")[-1].replace("(", "").replace(")", "")[0].isnumeric() and
+        #     "retired" not in x.lower() else None)
+        # table_parser.extend_table("class", classes)
+        
         if "since" in fields:
             until_dates = table_parser.parse_extra_column(-2,
                 lambda x: get_day_month(x) if "as from" in x else "01-01")
@@ -211,12 +215,12 @@ class Rider(Scraper):
             until_dates = table_parser.parse_extra_column(-2,
                 lambda x: get_day_month(x) if "until" in x else "12-31")
             table_parser.extend_table("until", until_dates)
-        table = [row for row in table_parser.table if row['class']]
+        # table = [row for row in table_parser.table if row['class']]
         # remove class field if isn't needed
-        if "class" not in fields:
-            for row in table:
-                row.pop("class")
-        return table
+        # if "class" not in fields:
+        #     for row in table:
+        #         row.pop("class")
+        return table_parser.table
 
     def points_per_season_history(self, *args: str) -> List[Dict[str, Any]]:
         """
@@ -239,6 +243,8 @@ class Rider(Scraper):
         )
         fields = parse_table_fields_args(args, available_fields)
         points_table_html = self.html.css_first("table.rdr-season-stats")
+        if points_table_html is None:
+            return []
         table_parser = TableParser(points_table_html)
         table_parser.parse(fields)
         return table_parser.table
