@@ -1,45 +1,44 @@
 import json
 import sys
 import logging
-from data import get_nations_ranking, get_riders, get_riders_2, get_wins_ranking, get_wins_ranking_top3
+from data import *
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 logger = logging.getLogger(__name__)
 
-# Initialize a dictionary to store results
 data = {
-    'nations': {
-        'ranking': {},
-        'riders': {},
-        'riders2': {}
-    },
+    'nations': {},
+    'teams': {},
+    'riders': {},
     'wins': {
         'top3': {},
         'all': {}
     }
 }
 
-# Extract the number of World tour riders per country over the years
-for year in range(2024, 2026):
-    nations_ranking = get_nations_ranking(year)
-    data['nations']['ranking'][f'{year}'] = nations_ranking
+for year in range(1930, 2026):
+    # data['nations'][<year>][<name>] = {...}
+    data['nations'][str(year)] = {}
+    for nation_url in get_nations(year):
+        nation = get_nation(year, nation_url)
+        data['nations'][str(year)][nation['name']] = nation
 
-    data['nations']['riders'][f'{year}'] = {}
-    data['nations']['riders2'][f'{year}'] = {}
-    for nation in nations_ranking:
-        nation_name = nation['nation_name']
-        nation_iso3 = nation['nation_iso3']
-        riders = get_riders(year, nation_name)
-        data['nations']['riders'][f'{year}'][f'{nation_iso3}'] = riders
-        data['nations']['riders2'][f'{year}'][f'{nation_iso3}'] = get_riders_2(year, nation_name)
-
+    # data['teams'][<year>][<name>] = {...}
+    data['teams'][str(year)] = {}
+    for team_url in get_teams(year):
+        team = get_team(team_url)
+        data['teams'][str(year)][team['name']] = team
+        
     wins_ranking_top3 = get_wins_ranking_top3(year)
     data['wins']['top3'][f'{year}'] = wins_ranking_top3
 
     wins_ranking = get_wins_ranking(year)
     data['wins']['all'][f'{year}'] = wins_ranking
 
-
 # Write the data as a JSON format to stdout
 sys.stdout.buffer.write(json.dumps(data, indent=4).encode('utf-8'))
+
+# Write to a file as backup
+with open('data.json', 'w', encoding='utf-8') as file:
+    json.dump(data, file, ensure_ascii=False, indent=4)
