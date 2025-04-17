@@ -160,7 +160,7 @@ function topWinnersBarPlot({ width } = {}) {
 ```js
 function verticalPodium({width} = {}) {
     // 1. Get the top 3 riders from the selected year
-    let top3 = wins.ranking[selectedYear];
+    let top3 = wins.top3[selectedYear];
     
     // Update so that picture contains the correct url: 'https://www.procyclingstats.com' + d.picture
     top3 = top3.map(d => ({ ...d, picture: 'https://www.procyclingstats.com/' + d.picture }));
@@ -255,7 +255,7 @@ function verticalPodium({width} = {}) {
 ## Age is just a number
 
 
-```js	
+```js
 // Define a function that creates a bar chart of the distribution of the age of the riders in the World Tour peloton over the years
 function ageHistogram({width} = {}) {
   var data = [];
@@ -263,16 +263,37 @@ function ageHistogram({width} = {}) {
     nationData.forEach(rider => {
       // Subtract the difference between the current year and the selected year
       // from the rider's age to get the age in the selected year
-      data.push(rider.age - (latestYear - selectedYearAge));
+      const age = rider.age - (latestYear - selectedYearAge);
+      const status = (wins.all[selectedYear][rider.name.replace(/\s+/g, ' ').toUpperCase()]) > 0 ? "winner" : "non-winner";
+      data.push({age, status});
     });
   });
+
+  // Sort so "non-winner" comes first -> they are drawn later (on top)
+  data.sort((a, b) => a.status === "winner" ? -1 : 1);
+
   return Plot.plot({
     width: width,
     height: width / 2,
     x: { label: 'Age', type: 'linear' },
     y: { label: 'Number of riders', type: 'linear' },
+    color: {
+      legend: true,
+      domain: ["winner", "non-winner"],
+      range: ["gold", "steelblue"] // green for winners, red for non-winners
+    },
     marks: [
-      Plot.rectY(data, Plot.binX({y: 'count', thresholds: Array.from({length: 100}, (_, i) => i)}, {x: d => d, fill: 'steelblue'}))
+      Plot.rectY(
+        data,
+        Plot.binX(
+          {y: "count"},
+          {
+            x: d => d.age,
+            fill: d => d.status,
+            thresholds: Array.from({length: 100}, (_, i) => i)
+          }
+        )
+      )
     ],
     title: "Age distribution of the active riders in " + selectedYearAge
   });

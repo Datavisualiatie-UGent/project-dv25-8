@@ -3,6 +3,7 @@ import diskcache
 from datetime import datetime
 from typing import Any
 from procyclingstats import Ranking, Rider
+import json
 
 
 @diskcache.Cache(".cache/get_nations_ranking").memoize()
@@ -32,18 +33,19 @@ def get_nations_ranking(year: int) -> list[dict[str, Any]]:
     return ranking
 
 
-@diskcache.Cache(".cache/get_wins_ranking").memoize()
-def get_wins_ranking(year: int) -> list[dict[str, Any]]:
+@diskcache.Cache(".cache/get_wins_ranking_top3").memoize()
+def get_wins_ranking_top3(year: int) -> list[dict[str, Any]]:
     # Get the wins ranking for the given year
     ranking = Ranking(f"statistics.php?year={year}&mw=1&filter=Filter&p=riders&s=wins-on-wt-level")
     ranking = ranking.statistics_ranking('rank', 'rider_name', 'number_of_wins', 'rider_url')
     converter = coco.CountryConverter()
 
     # Only use the top 3 riders for the ranking
-    ranking = ranking[:3]
+    # Separate top 3 and rest
+    top3 = ranking[:3]
 
     # Retreive the nationality and the picture for the top 3 riders
-    for rider in ranking:
+    for rider in top3:
         # Get the rider information
         rider_url = rider['rider_url']
         rider_data = Rider(rider_url)
@@ -54,8 +56,29 @@ def get_wins_ranking(year: int) -> list[dict[str, Any]]:
         rider['nationality'] = rider_data.nationality()
         rider['nationality'] = converter.convert(names=rider['nationality'], src="ISO2", to="name_short")
 
-    return ranking
+    return top3
 
+@diskcache.Cache(".cache/get_wins_ranking").memoize()
+def get_wins_ranking(year: int) -> list[dict[str, Any]]:
+    # Get the wins ranking for the given year
+    ranking = Ranking(f"statistics.php?year={year}&mw=1&filter=Filter&p=riders&s=wins-on-wt-level")
+    ranking = ranking.statistics_ranking('rank', 'rider_name', 'number_of_wins', 'rider_url')
+    converter = coco.CountryConverter()
+
+    # Build lookup dictionary
+    def swap_name(full_name: str) -> str:
+        parts = full_name.split()
+        for i, part in enumerate(parts):
+            if part.isupper():
+                # Assume family name starts here
+                front_name = " ".join(parts[:i+1])
+                family_name = " ".join(parts[i+1:])
+                return f"{family_name} {front_name}".upper()
+        return ""  # fallback if nothing is all caps
+
+    lookup = {swap_name(r["rider_name"]): r["number_of_wins"] for r in ranking}
+
+    return lookup
 
 @diskcache.Cache(".cache/get_riders").memoize()
 def get_riders(year: int, nation_name: str) -> list[dict[str, Any]]:

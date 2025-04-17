@@ -1,7 +1,7 @@
 import json
 import sys
 import logging
-from data import get_nations_ranking, get_riders, get_riders_2, get_wins_ranking
+from data import get_nations_ranking, get_riders, get_riders_2, get_wins_ranking, get_wins_ranking_top3
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
@@ -15,12 +15,13 @@ data = {
         'riders2': {}
     },
     'wins': {
-        'ranking': {},
+        'top3': {},
+        'all': {}
     }
 }
 
 # Extract the number of World tour riders per country over the years
-for year in range(1930, 2026):
+for year in range(2024, 2026):
     nations_ranking = get_nations_ranking(year)
     data['nations']['ranking'][f'{year}'] = nations_ranking
 
@@ -33,8 +34,11 @@ for year in range(1930, 2026):
         data['nations']['riders'][f'{year}'][f'{nation_iso3}'] = riders
         data['nations']['riders2'][f'{year}'][f'{nation_iso3}'] = get_riders_2(year, nation_name)
 
+    wins_ranking_top3 = get_wins_ranking_top3(year)
+    data['wins']['top3'][f'{year}'] = wins_ranking_top3
+
     wins_ranking = get_wins_ranking(year)
-    data['wins']['ranking'][f'{year}'] = wins_ranking
+    data['wins']['all'][f'{year}'] = wins_ranking
 
 
 # Write the data as a JSON format to stdout
