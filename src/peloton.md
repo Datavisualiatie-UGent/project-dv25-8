@@ -241,7 +241,10 @@ function verticalPodium({width} = {}) {
 ## Age is just a number
 ```js	
 function ageHistogram({width} = {}) {
-    const d = Object.values(data.riders[selectedYear]).map(rider => selectedYear - +rider.birthdate.split('-')[0]);
+    const d = Object.values(data.riders[selectedYear])
+                    .filter(rider => rider.birthdate)
+                    .map(rider => selectedYear - +rider.birthdate.split('-')[0]);
+
     return Plot.plot({
         width: width,
         height: width / 2,
