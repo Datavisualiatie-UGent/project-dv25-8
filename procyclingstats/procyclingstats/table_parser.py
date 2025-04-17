@@ -347,6 +347,8 @@ class TableParser:
                 seasons.append(int(season_e_text))
             else:
                 seasons.append(None)
+        while len(seasons) != self.table_length:
+            seasons.append(None)
         return seasons
 
     def rider_number(self) -> List[Optional[int]]:
@@ -514,4 +516,6 @@ class TableParser:
                             filtered_values.append(href)
                         else:
                             filtered_values.append(a_element.text())
+        while len(filtered_values) != self.table_length:
+            filtered_values.append(None)
         return filtered_values

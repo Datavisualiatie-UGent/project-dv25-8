@@ -4,6 +4,7 @@ setup.py
 procyclingstats/__init__.py
 procyclingstats/__main__.py
 procyclingstats/errors.py
+procyclingstats/nation_scraper.py
 procyclingstats/race_climbs_scraper.py
 procyclingstats/race_scraper.py
 procyclingstats/race_startlist_scraper.py
@@ -14,6 +15,7 @@ procyclingstats/scraper.py
 procyclingstats/stage_scraper.py
 procyclingstats/table_parser.py
 procyclingstats/team_scraper.py
+procyclingstats/teams_scraper.py
 procyclingstats/utils.py
 procyclingstats.egg-info/PKG-INFO
 procyclingstats.egg-info/SOURCES.txt
