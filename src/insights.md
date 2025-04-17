@@ -1,5 +1,5 @@
 ```js
-const {teamsInfo} = await FileAttachment("data/insights.json").json();
+const {teamsInfo, teamsDiversity} = await FileAttachment("data/insights.json").json();
 import {createSwitcher} from "./components/inputSwitch.js";
 ```
 
@@ -110,8 +110,6 @@ function equipmentComparison({ width } = {}) {
     })
   ).sort((a, b) => d3.descending(a.averageWins, b.averageWins)); // Sort by average wins
 
-  console.log(equipmentStats);
-
   return Plot.plot({
     width,
     height: equipmentStats.length * 50 + 50,
@@ -160,6 +158,45 @@ const switcherElementBis = createSwitcher(
   </div>
   <div id="bike-brands" style="margin-bottom: 2rem;">
     ${resize((width) => equipmentComparison({ width }))}
+  </div>
+</div>
+
+```js
+function teamsDiversityPlot({ width } = {}) {
+  const teamsDiversityData = teamsDiversity.filter(d => d.nationalities > 0);
+  return Plot.plot({
+    width: 600,
+    height: 400,
+    x: {
+      label: "Number of nationalities"
+    },
+    y: {
+      label: "Number of wins"
+    },
+    marks: [
+      Plot.dot(teamsDiversityData, {
+        x: "nationalities",
+        y: "wins",
+        stroke: "black",
+        fill: "steelblue",
+        r: 3,
+        tip: true
+      }),
+      Plot.linearRegressionY(teamsDiversityData, {
+        x: "nationalities",
+        y: "wins",
+        stroke: "red"
+      })
+    ],
+    title: "Does Team Diversity Correlate with Performance?"
+  });
+}
+```
+
+<div class="chart-container">
+  <h2>Does Team Diversity Correlate with Performance?</h2>
+  <div id="teams-diversity" style="margin-bottom: 2rem;">
+    ${resize((width) => teamsDiversityPlot({ width }))}
   </div>
 </div>
 

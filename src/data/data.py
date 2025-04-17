@@ -178,7 +178,7 @@ def get_number_of_wins_for_teams(year: int) -> list[dict[str, Any]]:
     Returns the number of wins for the teams for the given year.
     '''
     ranking = Ranking(f'statistics.php?year={year}&filter=Filter&p=teams&s=wt-wins-for-wt-teams')
-    ranking = ranking.statistics_ranking('team_name', 'number_of_wins')
+    ranking = ranking.statistics_ranking('team_name', 'team_url', 'number_of_wins')
 
     return ranking
 
