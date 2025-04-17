@@ -1,7 +1,7 @@
 import json
 import sys
 import logging
-from data import *
+from data import get_wins_ranking_top3, get_wins_ranking, get_team, get_teams, get_nation, get_nations
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
@@ -18,6 +18,7 @@ data = {
 }
 
 for year in range(1930, 2026):
+    logger.info(year)
     # data['nations'][<year>][<name>] = {...}
     data['nations'][str(year)] = {}
     for nation_url in get_nations(year):
