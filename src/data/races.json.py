@@ -1,8 +1,12 @@
 import json
 import sys
 import country_converter as coco
+import logging
 from data import get_wins_list_for_race, get_race_details
 
+# Configure logging
+logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
+logger = logging.getLogger(__name__)
 
 # List with the names of the most important races
 racelist = ['tour-de-france', 'giro-d-italia', 'vuelta-a-espana', 'paris-roubaix',
@@ -19,6 +23,7 @@ data = {
 cc = coco.CountryConverter()
 
 for race in racelist:
+    logger.info(race)
     # Extract for the given race the most winning riders
     data['winners'][f'{race}'] = get_wins_list_for_race(race)
 

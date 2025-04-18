@@ -1,9 +1,10 @@
 import country_converter as coco
 import diskcache
+import sys
 from datetime import datetime
 from typing import Any
 from procyclingstats import Ranking, Nation, Team, Teams, Rider
-import sys
+
 
 @diskcache.Cache('.cache/get_nations').memoize()
 def get_nations(year: int) -> list[str, Any]:
@@ -93,30 +94,20 @@ def get_rider(rider_url: str) -> dict[str, Any]:
     data['pcs_ranks'] = {str(d['season']): d['rank'] for d in pcs_results} if pcs_results is not [] else {}
     return data
 
-@diskcache.Cache(".cache/get_average_age").memoize()
-def get_average_age(year: int) -> list[dict[str, Any]]:
-    ranking = Ranking(f"statistics.php?year={year}&level=1&sekse=1&filter=Filter&p=teams&s=average-age")
-    ranking = ranking.statistics_ranking('rank', 'team_name', 'average_age')
-    return ranking
 
-@diskcache.Cache(".cache/get_youngest_age").memoize()
-def get_youngest_age(year: int) -> list[dict[str, Any]]:
-    ranking = Ranking(f"statistics.php?year={year}&sekse=1&level=1&filter=Filter&p=riders&s=youngest-riders")
-    ranking = ranking.statistics_ranking('rank', 'rank', 'rider_name', 'min_age')
-    return ranking
-
-@diskcache.Cache(".cache/get_wins_ranking").memoize()
-def get_wins_ranking(year: int) -> list[dict[str, Any]]:
+@diskcache.Cache(".cache/get_wins_ranking_top3").memoize()
+def get_wins_ranking_top3(year: int) -> list[dict[str, Any]]:
     # Get the wins ranking for the given year
     ranking = Ranking(f"statistics.php?year={year}&mw=1&filter=Filter&p=riders&s=wins-on-wt-level")
     ranking = ranking.statistics_ranking('rank', 'rider_name', 'number_of_wins', 'rider_url')
     converter = coco.CountryConverter()
 
     # Only use the top 3 riders for the ranking
-    ranking = ranking[:3]
+    # Separate top 3 and rest
+    top3 = ranking[:3]
 
     # Retreive the nationality and the picture for the top 3 riders
-    for rider in ranking:
+    for rider in top3:
         # Get the rider information
         rider_url = rider['rider_url']
         rider_data = Rider(rider_url)
@@ -127,7 +118,28 @@ def get_wins_ranking(year: int) -> list[dict[str, Any]]:
         rider['nationality'] = rider_data.nationality()
         rider['nationality'] = converter.convert(names=rider['nationality'], src="ISO2", to="name_short")
 
-    return ranking
+    return top3
+
+@diskcache.Cache(".cache/get_wins_ranking").memoize()
+def get_wins_ranking(year: int) -> list[dict[str, Any]]:
+    # Get the wins ranking for the given year
+    ranking = Ranking(f"statistics.php?year={year}&mw=1&filter=Filter&p=riders&s=wins-on-wt-level")
+    ranking = ranking.statistics_ranking('rank', 'rider_name', 'number_of_wins', 'rider_url')
+
+    # Build lookup dictionary
+    def swap_name(full_name: str) -> str:
+        parts = full_name.split()
+        for i, part in enumerate(parts):
+            if part.isupper():
+                # Assume family name starts here
+                front_name = " ".join(parts[:i+1])
+                family_name = " ".join(parts[i+1:])
+                return f"{family_name} {front_name}".upper()
+        return ""  # fallback if nothing is all caps
+
+    lookup = {swap_name(r["rider_name"]): r["number_of_wins"] for r in ranking}
+    return lookup
+
 
 @diskcache.Cache(".cache/get_wins_list_for_race").memoize()
 def get_wins_list_for_race(race: str) -> list[dict[str, Any]]:
@@ -181,6 +193,7 @@ def get_number_of_wins_for_teams(year: int) -> list[dict[str, Any]]:
     ranking = ranking.statistics_ranking('team_name', 'number_of_wins')
 
     return ranking
+
 
 if __name__ == '__main__':
     pass

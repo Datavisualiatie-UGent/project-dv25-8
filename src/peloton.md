@@ -146,7 +146,7 @@ function topWinnersBarPlot({ width } = {}) {
 ```js
 function verticalPodium({width} = {}) {
     // 1. Get the top 3 riders from the selected year
-    let top3 = data.wins.ranking[selectedYear];
+    let top3 = data.wins.top3[selectedYear];
     
     // Update so that picture contains the correct url: 'https://www.procyclingstats.com' + d.picture
     top3 = top3.map(d => ({ ...d, picture: 'https://www.procyclingstats.com/' + d.picture }));
@@ -239,23 +239,53 @@ function verticalPodium({width} = {}) {
 </div>
 
 ## Age is just a number
-```js	
+```js
+// Define a function that creates a bar chart of the distribution of the age of the riders in the World Tour peloton over the years
 function ageHistogram({width} = {}) {
-    const d = Object.values(data.riders[selectedYear])
-                    .filter(rider => rider.birthdate)
-                    .map(rider => selectedYear - +rider.birthdate.split('-')[0]);
+  var dataList = [];
+  Object.values(data.riders[selectedYear]).forEach(rider => {
+      // Subtract the difference between the current year and the selected year
+      // from the rider's age to get the age in the selected year
+      if (rider.birthdate){
+          const age = selectedYear - +rider.birthdate.split('-')[0];
+          const status = (data.wins.all[selectedYear][rider.name.replace(/\s+/g, ' ').toUpperCase()]) > 0 ? "winner" : "non-winner";
 
-    return Plot.plot({
-        width: width,
-        height: width / 2,
-        x: { label: 'Age', type: 'linear' },
-        y: { label: 'Number of riders', type: 'linear' },
-        marks: [
-            Plot.rectY(d, Plot.binX({y: 'count', thresholds: Array.from({length: 100}, (_, i) => i)}, {x: d => d, fill: 'steelblue'}))
-        ],
-        title: "Age distribution of the active riders in " + selectedYear
-    });
-}
+          // Make sure it is a valid age (> 14):
+          if (age > 14) {
+            dataList.push({age, status});
+          }
+      }
+  });
+
+  // Sort so "non-winner" comes first -> they are drawn later (on top)
+  dataList.sort((a, b) => a.status === "winner" ? -1 : 1);
+
+  return Plot.plot({
+    width: width,
+    height: width / 2,
+    x: { label: 'Age', type: 'linear' },
+    y: { label: 'Number of riders', type: 'linear' },
+    color: {
+      legend: true,
+      domain: ["winner", "non-winner"],
+      range: ["gold", "steelblue"] // green for winners, red for non-winners
+    },
+    marks: [
+      Plot.rectY(
+        dataList,
+        Plot.binX(
+          {y: "count"},
+          {
+            x: d => d.age,
+            fill: d => d.status,
+            thresholds: Array.from({length: 100}, (_, i) => i)
+          }
+        )
+      )
+    ],
+    title: "Age distribution of the active riders in " + selectedYear
+  })
+};
 ```
 
 <div class="grid grid-cols-2">
