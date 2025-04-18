@@ -1,7 +1,10 @@
 import json
 import sys
+import logging
 from data import get_equipment_for_teams, get_number_of_wins_for_teams
 
+logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
+logger = logging.getLogger(__name__)
 
 # Initialize a dictionary to store results
 data = {
@@ -10,6 +13,7 @@ data = {
 
 # extract the equipment of the teams over the years
 for year in range(2010, 2026):
+    logger.info(year)
     equipment_teams = get_equipment_for_teams(year)
     wins_teams = get_number_of_wins_for_teams(year)
 
