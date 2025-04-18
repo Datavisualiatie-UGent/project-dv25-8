@@ -146,7 +146,7 @@ function topWinnersBarPlot({ width } = {}) {
 ```js
 function verticalPodium({width} = {}) {
     // 1. Get the top 3 riders from the selected year
-    let top3 = wins.top3[selectedYear];
+    let top3 = data.wins.top3[selectedYear];
     
     // Update so that picture contains the correct url: 'https://www.procyclingstats.com' + d.picture
     top3 = top3.map(d => ({ ...d, picture: 'https://www.procyclingstats.com/' + d.picture }));
@@ -242,19 +242,21 @@ function verticalPodium({width} = {}) {
 ```js
 // Define a function that creates a bar chart of the distribution of the age of the riders in the World Tour peloton over the years
 function ageHistogram({width} = {}) {
-  var data = [];
-  Object.values(nations.riders2[selectedYearAge]).forEach(nationData => {
-    nationData.forEach(rider => {
+  var dataList = [];
+  Object.values(data.riders[selectedYear]).forEach(rider => {
       // Subtract the difference between the current year and the selected year
       // from the rider's age to get the age in the selected year
-      const age = rider.age - (latestYear - selectedYearAge);
-      const status = (wins.all[selectedYear][rider.name.replace(/\s+/g, ' ').toUpperCase()]) > 0 ? "winner" : "non-winner";
-      data.push({age, status});
-    });
+      const age = selectedYear - +rider.birthdate.split('-')[0];
+      const status = (data.wins.all[selectedYear][rider.name.replace(/\s+/g, ' ').toUpperCase()]) > 0 ? "winner" : "non-winner";
+
+      // Make sure it is a valid age (> 14):
+      if (age > 14) {
+        dataList.push({age, status});
+      }
   });
 
   // Sort so "non-winner" comes first -> they are drawn later (on top)
-  data.sort((a, b) => a.status === "winner" ? -1 : 1);
+  dataList.sort((a, b) => a.status === "winner" ? -1 : 1);
 
   return Plot.plot({
     width: width,
@@ -268,7 +270,7 @@ function ageHistogram({width} = {}) {
     },
     marks: [
       Plot.rectY(
-        data,
+        dataList,
         Plot.binX(
           {y: "count"},
           {
@@ -279,8 +281,9 @@ function ageHistogram({width} = {}) {
         )
       )
     ],
-    title: "Age distribution of the active riders in " + selectedYearAge
-  });
+    title: "Age distribution of the active riders in " + selectedYear
+  })
+};
 ```
 
 <div class="grid grid-cols-2">
