@@ -11,7 +11,7 @@ Over the years, WorldTour teams have made distinct choices when it comes to the 
 
 In this section, we examine how often different brands have been used by teams between 2010 and 2025. By counting how many teams chose each brand in a given season, we get a sense of which manufacturers have maintained a strong presence in the pro peloton — and which ones have faded or emerged over time.
 
-Use the switcher to explore the most frequently used bike brands, wheels, and groupsets. While popularity doesn’t always equate to performance, this breakdown highlights the brands that have earned the trust of the sport's top-tier teams year after year.
+Use the switcher to explore the most frequently used **bike brands**, **wheels**, and **groupsets (collection of mechanical parts like brakes, derailleurs, chain, ...)**. While popularity doesn’t always equate to performance, this breakdown highlights the brands that have earned the trust of the sport's top-tier teams year after year.
 
 ```js
 
@@ -31,7 +31,7 @@ function absoluteNumbersEquipment({ width } = {} ){
 
   return Plot.plot({
     width,
-    height: brandCounts.length * 50 + 50,
+    height: brandCounts.length * 25 + 50,
     marginLeft: 120,
     marginRight: 50,
     x: { label: "Number of Teams", nice: true },
@@ -43,7 +43,7 @@ function absoluteNumbersEquipment({ width } = {} ){
       Plot.barX(brandCounts, {
         x: "count",
         y: "brand",
-        fill: "steelblue"
+        fill: "steelblue",
       }),
       Plot.text(brandCounts, {
         x: "count",
@@ -114,7 +114,7 @@ function equipmentComparison({ width } = {}) {
 
   return Plot.plot({
     width,
-    height: equipmentStats.length * 50 + 50,
+    height: equipmentStats.length * 25 + 50,
     marginLeft: 120,
     marginRight: 50,
     x: { label: "Average Wins per Equipment", nice: true },

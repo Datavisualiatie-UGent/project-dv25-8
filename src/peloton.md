@@ -152,17 +152,17 @@ function verticalPodium({width} = {}) {
     top3 = top3.map(d => ({ ...d, picture: 'https://www.procyclingstats.com/' + d.picture }));
 
     // 2. Define podium metadata (heights, colors) and assign to riders
-    const podiumMeta = {
-        1: { height: 2.7, color: "gold" },
-        2: { height: 2, color: "silver" },
-        3: { height: 1.6, color: "#cd7f32" }
-    };
+    const maxHeight = 2.7;
+    const maxWins = Math.max(...top3.map(d => d.number_of_wins));
 
-    top3 = top3.map(d => ({
-        ...d,
-        podium_height: podiumMeta[d.rank]?.height ?? 1,
-        podium_color: podiumMeta[d.rank]?.color ?? "grey"
-    }));
+    top3 = top3.map(d => {
+        let normalizedHeight = (d.number_of_wins / maxWins) * maxHeight;
+        return {
+            ...d,
+            podium_height: normalizedHeight,
+            podium_color: d.rank === 1 ? "gold" : d.rank === 2 ? "silver" : d.rank === 3 ? "#cd7f32" : "grey"
+        };
+    });
 
     // 3. Reorder for visual podium layout: [2nd, 1st, 3rd]
     const riderRankMap = new Map(top3.map(d => [d.rank, d]));
@@ -211,20 +211,20 @@ function verticalPodium({width} = {}) {
                 title: d => `${d.rider_name} (${d.nationality})\nWins: ${d.number_of_wins}`,
             }),
 
-            // Text Label for number of wins ON the podium step
-            Plot.text(podiumLayout, {
-                x: "rider_name",
-                y: d => d.podium_height - 0.25, // Position inside the bar, near the top
-                text: d => d.number_of_wins,    // Display the actual number of wins
-                fill: "black",
-                stroke: "white",                // Add outline for better visibility
-                strokeWidth: 3,
-                fontWeight: "bold",
-                fontSize: 14,
-                dy: -2                          // Fine-tune vertical position
-            })
-        ],
-        title: `Podium of the riders with the most wins in ${selectedYear}`,
+        // Text Label for number of wins ON the podium step
+        Plot.text(podiumLayout, {
+            x: "rider_name",
+            y: d => d.podium_height - 0.25, // Position inside the bar, near the top
+            text: d => d.number_of_wins,    // Display the actual number of wins
+            fill: "black",
+            stroke: "white",                // Add outline for better visibility
+            strokeWidth: 3,
+            fontWeight: "bold",
+            fontSize: 24,
+            dy: -4                          // Fine-tune vertical position
+        })
+      ],
+      title: `Podium of the riders with the most World-Tour wins in ${selectedYear}`,
     });
 };
 ```
