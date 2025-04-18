@@ -246,12 +246,14 @@ function ageHistogram({width} = {}) {
   Object.values(data.riders[selectedYear]).forEach(rider => {
       // Subtract the difference between the current year and the selected year
       // from the rider's age to get the age in the selected year
-      const age = selectedYear - +rider.birthdate.split('-')[0];
-      const status = (data.wins.all[selectedYear][rider.name.replace(/\s+/g, ' ').toUpperCase()]) > 0 ? "winner" : "non-winner";
+      if (rider.birthdate){
+          const age = selectedYear - +rider.birthdate.split('-')[0];
+          const status = (data.wins.all[selectedYear][rider.name.replace(/\s+/g, ' ').toUpperCase()]) > 0 ? "winner" : "non-winner";
 
-      // Make sure it is a valid age (> 14):
-      if (age > 14) {
-        dataList.push({age, status});
+          // Make sure it is a valid age (> 14):
+          if (age > 14) {
+            dataList.push({age, status});
+          }
       }
   });
 
