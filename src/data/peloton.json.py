@@ -12,10 +12,13 @@ data = {
     'teams': {},
     'riders': {},
     'wins': {
-        'ranking': {}
+        'top3': {},
+        'all': {}
     }
 }
+
 for year in range(1930, 2026):
+    logger.info(year)
     # data['nations'][<year>][<name>] = {...}
     data['nations'][str(year)] = {}
     for nation_url in get_nations(year):
@@ -32,10 +35,13 @@ for year in range(1930, 2026):
     data['riders'][str(year)] = {}
     for rider_url in get_riders(year):
         rider = get_rider(rider_url)
-        data['riders'][str(year)][rider['name']] = rider
+        data['riders'][str(year)][rider['name']] = rider      
 
-    # data['wins']['ranking'][<year>] = {...}
-    data['wins']['ranking'][str(year)] = get_wins_ranking(year)
+    wins_ranking_top3 = get_wins_ranking_top3(year)
+    data['wins']['top3'][f'{year}'] = wins_ranking_top3
+
+    wins_ranking = get_wins_ranking(year)
+    data['wins']['all'][f'{year}'] = wins_ranking
 
 # Write the data as a JSON format to stdout
 sys.stdout.buffer.write(json.dumps(data, indent=4).encode('utf-8'))
