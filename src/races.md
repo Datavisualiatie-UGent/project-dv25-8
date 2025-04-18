@@ -333,7 +333,7 @@ We even highlight the top 3 fastest or longest editions, along with periods like
 ```js
 const selectedMetric = Mutable("Distance");
 const switcherElement = createSwitcher(
-  ["Distance", "Average Speed"],
+  ["Distance", "Average Speed", "Nr. of participants"],
   (value) => {
     selectedMetric.value = value;
   }
@@ -341,7 +341,8 @@ const switcherElement = createSwitcher(
 
 const metricMap = {
   "Distance": { value: "distance", label: "Distance (km)", color: "black", unit: "km" },
-  "Average Speed": { value: "average_speed", label: "Average Speed (km/h)", color: "black", unit: "km/h" }
+  "Average Speed": { value: "average_speed", label: "Average Speed (km/h)", color: "black", unit: "km/h" },
+  "Nr. of participants": { value: "participants", label: "Number of participants", color: "black", unit: "" }
 };
 ```
 
