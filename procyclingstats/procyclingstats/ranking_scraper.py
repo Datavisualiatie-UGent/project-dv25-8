@@ -179,6 +179,7 @@ class Ranking(Scraper):
             "number_riders",
             "average_age",
             "team_name",
+            "team_url",
             "rider_name",
             "rider_url",
             'min_age',
