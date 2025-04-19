@@ -221,6 +221,12 @@ class TableParser:
     def average_speed(self) -> List[str]:
         return self.parse_extra_column("Avg. speed", lambda x: float(x) if x else None)
 
+    def participants(self) -> List[str]:
+        return self.parse_extra_column("Participants", lambda x: int(x) if x.isnumeric() else None)
+
+    def dropouts(self) -> List[str]:
+        return self.parse_extra_column("No. of dropouts", lambda x: int(x) if x.isnumeric() else None)
+
     def climb_url(self) -> List[str]:
         """
         Parses all location elements hrefs from HTML. NOT only climbs, but for
