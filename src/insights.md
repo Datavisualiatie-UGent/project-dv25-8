@@ -110,8 +110,6 @@ function equipmentComparison({ width } = {}) {
     })
   ).sort((a, b) => d3.descending(a.averageWins, b.averageWins)); // Sort by average wins
 
-  console.log(equipmentStats);
-
   return Plot.plot({
     width,
     height: equipmentStats.length * 25 + 50,
