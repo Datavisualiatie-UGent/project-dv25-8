@@ -120,8 +120,6 @@ function topWinnersBarPlot({ width } = {}) {
             title: `${n.name} (${n.wins} wins)`,
         }));
 
-    console.log(nations);
-
     return Plot.plot({
         width,
         height: width * 0.6,
