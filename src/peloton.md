@@ -113,30 +113,49 @@ function topWinnersBarPlot({ width } = {}) {
     const nations = Object.values(data.nations[selectedYear])
         .filter(nation => (nation.wins || 0) > 0)
         .sort((a, b) => d3.descending(a.wins || 0, b.wins || 0))
-        .slice(0, 10); // Top 10 nations
+        .slice(0, 10) // Top 10 nations
+        .map(n => ({
+            ...n,
+            flag_url: `https://flagcdn.com/w40/${n.nationality.toLowerCase()}.png`,
+            title: `${n.name} (${n.wins} wins)`,
+        }));
+
+    console.log(nations);
+
     return Plot.plot({
         width,
         height: width * 0.6,
-        marginLeft: 100,
-        x: { label: "Wins", type: "linear" },
-        y: { label: null, domain: nations.map(nation => nation.name) },
+        marginLeft: 30,
+        x: { label: "Wins", type: "linear" , domain: [0, d3.max(nations, d => d.wins)]},
+        y: { label: null, domain: nations.map(nation => nation.name.toUpperCase()), tickFormat: () => ""},  // Hide y-axis labels 
         marks: [
-        Plot.barX(nations, { 
-            x: "wins", 
-            y: "name", 
-            fill: "steelblue", 
-        }),
+          Plot.barX(nations, { 
+              x: "wins", 
+              y: nation => nation.name.toUpperCase(),
+              fill: "steelblue", 
+              title: d => `${d.name.toUpperCase()} (${d.wins} wins)`,
+          }),
 
-        // The text labels
-        Plot.text(nations, {
-            x: nation => nation.wins + 0.2, // Slightly offset to the right of the bar
-            y: "name",
-            text: nation => nation.wins,
-            fill: "black",
-            textAnchor: "start",
-            fontWeight: "bold",
-            fontSize: 12
-        })
+          // The text labels
+          Plot.text(nations, {
+              x: nation => nation.wins + 0.1, // Slightly offset to the right of the bar
+              y: nation => nation.name.toUpperCase(),
+              text: nation => nation.wins,
+              fill: "black",
+              textAnchor: "start",
+              fontWeight: "bold",
+              fontSize: 12
+          }),
+
+          // Flags replacing the y-axis labels
+          Plot.image(nations, {
+              x: -d3.max(nations, d => d.wins) * 0.04, // Adjust as needed for spacing
+              y: nation => nation.name.toUpperCase(),
+              src: "flag_url",
+              width: 20,
+              height: 14,
+              title: d => `${d.name.toUpperCase()}`,
+          })
         ],
         title: `Top 10 winning nations in ${selectedYear}`
     });
