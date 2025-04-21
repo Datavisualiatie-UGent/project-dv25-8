@@ -185,6 +185,8 @@ class Ranking(Scraper):
             'min_age',
             'year',
             'distance',
+            'participants',
+            'dropouts',
             'average_speed',
             'bike',
             'groupset',

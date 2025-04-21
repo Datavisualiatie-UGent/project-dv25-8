@@ -167,11 +167,28 @@ def get_race_details(race: str) -> list[dict[str, Any]]:
         - Distance
         - Average Speed
     '''
-    ranking = Ranking(f'race/{race}/results/fastest-editions')
-    ranking = ranking.statistics_ranking('year', 'distance', 'average_speed')
+    ranking_fastest = Ranking(f'race/{race}/results/fastest-editions')
+    ranking_fastest = ranking_fastest.statistics_ranking('year', 'distance', 'average_speed')
 
-    return ranking
+    ranking_dropouts = Ranking(f'race/{race}/results/dropouts-per-edition')
+    ranking_dropouts = ranking_dropouts.statistics_ranking('year', 'participants', 'dropouts')
 
+    # Convert to dictionaries keyed by year
+    fastest_by_year = {entry['year']: entry for entry in ranking_fastest}
+    dropouts_by_year = {entry['year']: entry for entry in ranking_dropouts}
+
+    # Combine all unique years
+    all_years = sorted(set(fastest_by_year) | set(dropouts_by_year))
+
+    # Join data
+    merged = []
+    for year in all_years:
+        merged_entry = {'year': year}
+        merged_entry.update(fastest_by_year.get(year, {}))
+        merged_entry.update(dropouts_by_year.get(year, {}))
+        merged.append(merged_entry)
+
+    return merged
 
 @diskcache.Cache(".cache/get_equipment_for_teams").memoize()
 def get_equipment_for_teams(year: int) -> list[dict[str, Any]]:

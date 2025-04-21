@@ -319,6 +319,27 @@ const customAnnotations = [
     year: 1945,
     label: "While the race was canceled during WW I, since the war front lay right trough Flanders, during the second world war the Nazis gave permission to organize the race. They wanted the so-called 'entertainments' to continue, so as not to undermine the morale of the population too much. However, adjustments needed to be made and new roads were discovered that are still part of the route today.",
   },
+  {
+    race: "tour-de-france",
+    year: 1919,
+    label: "The first world war had just ended, and a lot of pre-war favorites had lost their lives on the battlefield. The survivors had little opportunity to train or race during war, and were therefore in poor condition. Partly because of this, there were only 69 participants at the start in Paris."
+  },
+  {
+    race: "tour-de-france",
+    year: 2018,
+    label: "In 2018, the UCI introduced a new rule that the maximum number of riders per team in a Grand Tour was reduced from 9 to 8. This was done to reduce the number of riders in the peloton and to increase the safety."
+  },
+  {
+    race: "giro-d-italia",
+    year: 2018,
+    label: "In 2018, the UCI introduced a new rule that the maximum number of riders per team in a Grand Tour was reduced from 9 to 8. This was done to reduce the number of riders in the peloton and to increase the safety."
+  },
+  {
+    race: "vuelta-a-espana",
+    year: 2018,
+    label: "In 2018, the UCI introduced a new rule that the maximum number of riders per team in a Grand Tour was reduced from 9 to 8. This was done to reduce the number of riders in the peloton and to increase the safety."
+  }
+
 ]
 
 ```
@@ -333,7 +354,7 @@ We even highlight the top 3 fastest or longest editions, along with periods like
 ```js
 const selectedMetric = Mutable("Distance");
 const switcherElement = createSwitcher(
-  ["Distance", "Average Speed"],
+  ["Distance", "Average Speed", "Nr. of participants"],
   (value) => {
     selectedMetric.value = value;
   }
@@ -341,7 +362,8 @@ const switcherElement = createSwitcher(
 
 const metricMap = {
   "Distance": { value: "distance", label: "Distance (km)", color: "black", unit: "km" },
-  "Average Speed": { value: "average_speed", label: "Average Speed (km/h)", color: "black", unit: "km/h" }
+  "Average Speed": { value: "average_speed", label: "Average Speed (km/h)", color: "black", unit: "km/h" },
+  "Nr. of participants": { value: "participants", label: "Number of participants", color: "black", unit: "" },
 };
 ```
 
