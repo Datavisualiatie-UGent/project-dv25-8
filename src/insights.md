@@ -1,5 +1,5 @@
 ```js
-const {teamsInfo} = await FileAttachment("data/insights.json").json();
+const {teamsInfo, teamsDiversity} = await FileAttachment("data/insights.json").json();
 import {createSwitcher} from "./components/inputSwitch.js";
 ```
 
@@ -70,7 +70,7 @@ const switcherElement = createSwitcher(
 ```
 
 
-<div class="chart-container">
+<div>
   <div class="header-with-switcher">
     <h2>Number of World-Tour teams using the branch for their equipment (2010-2025)</h2>
     ${switcherElement}
@@ -109,8 +109,6 @@ function equipmentComparison({ width } = {}) {
       averageWins: totalWins / teamCount // Calculate average wins per equipment type
     })
   ).sort((a, b) => d3.descending(a.averageWins, b.averageWins)); // Sort by average wins
-
-  console.log(equipmentStats);
 
   return Plot.plot({
     width,
@@ -153,13 +151,60 @@ const switcherElementBis = createSwitcher(
 ```
 
 
-<div class="chart-container">
+<div>
   <div class="header-with-switcher">
     <h2>Average number of World-Tour wins per brand (2010-2025)</h2>
     ${switcherElementBis}
   </div>
   <div id="bike-brands" style="margin-bottom: 2rem;">
     ${resize((width) => equipmentComparison({ width }))}
+  </div>
+</div>
+
+```js
+function teamsDiversityPlot({ width } = {}) {
+  const teamsDiversityData = teamsDiversity.filter(d => d.nationalities > 0);
+  return Plot.plot({
+    width: 600,
+    height: 400,
+    x: {
+      label: "Number of nationalities"
+    },
+    y: {
+      label: "Number of wins"
+    },
+    marks: [
+      Plot.dot(teamsDiversityData, {
+        x: "nationalities",
+        y: "wins",
+        stroke: "black",
+        fill: "steelblue",
+        r: 3,
+        tip: true
+      }),
+      Plot.linearRegressionY(teamsDiversityData, {
+        x: "nationalities",
+        y: "wins",
+        stroke: "red"
+      })
+    ],
+  });
+}
+```
+
+### Team Diversity: A Winning Strategy?
+In professional cycling, team dynamics are as much about diversity as they are about performance. While teams often focus on optimizing their equipment and training, the variety of nationalities within a team can also play a significant role in shaping its success. This section explores how team diversity, measured by the number of nationalities represented, correlates with race outcomes.
+
+We analyze data from WorldTour teams to see if there is any link between the number of nationalities within a team and the number of wins they achieve. The hypothesis is that greater diversity might foster a broader range of perspectives and skills, contributing to a more competitive and adaptive team. However, it’s important to note that while diversity can bring advantages, the right balance of experience, chemistry, and coordination is equally crucial.
+
+In the scatterplot below, we visualize the relationship between the number of nationalities and the number of wins across different teams. The correlation line suggests that more diverse teams tend to perform better. However, it’s important to note that these teams are typically more international in composition, often backed by larger budgets, which can provide them with a competitive advantage beyond just the diversity factor. While diversity can be an asset, the increased resources available to these teams often give them an additional competitive edge.
+
+<div class="center-container">
+  <div class="header-with-switcher" style="margin-top: 1rem;">
+    <h2>Correlation between the diversity of teams and their performance (2000-2025)</h2>
+  </div>
+  <div style="margin-bottom: 2rem;">
+    ${teamsDiversityPlot()}
   </div>
 </div>
 
@@ -175,6 +220,12 @@ const switcherElementBis = createSwitcher(
 .header-with-switcher h2 {
   margin: 0;
   font-size: 1em;
+}
+
+.center-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 </style>
