@@ -327,6 +327,11 @@ function winHistogram({width} = {}) {
     height: width / 2,
     x: { label: 'Age', type: 'linear' },
     y: { label: 'Number of wins', type: 'linear' },
+    color: {
+      legend: true,
+      domain: [""],
+      range: ["white"] // green for winners, red for non-winners
+    },
     marks: [
       Plot.rectY(
         dataList,
