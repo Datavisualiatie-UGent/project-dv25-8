@@ -305,9 +305,52 @@ function ageHistogram({width} = {}) {
 };
 ```
 
+```js
+function winHistogram({width} = {}) {
+  var dataList = [];
+  Object.values(data.riders[selectedYear]).forEach(rider => {
+    if (rider.birthdate) {
+      const age = selectedYear - rider.birthdate.split('-')[0];
+      const nameKey = rider.name.replace(/\s+/g, ' ').toUpperCase();
+      const wins = data.wins.all[selectedYear][nameKey] || 0;
+
+      if (age > 14 && wins > 0) {
+        for (let i = 0; i < wins; i++) {
+          dataList.push({age});
+        }
+      }
+    }
+  });
+
+  return Plot.plot({
+    width: width,
+    height: width / 2,
+    x: { label: 'Age', type: 'linear' },
+    y: { label: 'Number of wins', type: 'linear' },
+    marks: [
+      Plot.rectY(
+        dataList,
+        Plot.binX(
+          {y: "count"},
+          {
+            x: d => d.age,
+            fill: "steelblue",
+            thresholds: Array.from({length: 100}, (_, i) => i)
+          }
+        )
+      )
+    ],
+    title: "Age distribution of the wins in " + selectedYear
+  });
+}
+```
+
 <div class="grid grid-cols-2">
   <div class="card">
     ${resize((width) => ageHistogram({width}))}
+  </div>
+  <div class="card">
+    ${resize((width) => winHistogram({width}))}
   </div>
 </div>
 
