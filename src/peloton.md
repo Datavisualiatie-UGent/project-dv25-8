@@ -286,6 +286,12 @@ function verticalPodium({width} = {}) {
 </div>
 
 ## Age is just a number
+In the world of professional cycling, age plays a unique role in shaping the careers of athletes. While the sport demands peak physical condition, there is no strict age limit to achieving success. In this section, we explore the age distribution of riders in the World Tour peloton, highlighting how age correlates with performance and wins.
+
+The visualizations below show the age distribution of all active riders, with a focus on the riders who have achieved victories. We will see how age influences both participation and success in races. As you explore the data, you'll notice patterns that reflect the balance between experience and youthful ambition in the peloton.
+
+The first graph shows the overall age distribution of riders, with a color distinction between winners and non-winners. The second graph zooms in on the wins by age, providing insight into the age groups that are most likely to achieve victory in the World Tour.
+
 ```js
 // Define a function that creates a bar chart of the distribution of the age of the riders in the World Tour peloton over the years
 function ageHistogram({width} = {}) {
