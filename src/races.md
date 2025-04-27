@@ -128,7 +128,7 @@ function winnersRanking(race, { width } = {}) {
         <div class="ranking-container" style="max-width: ${width}px; max-height: ${width * 1.35}px; overflow-y: auto;">
             ${selectedCountryId && selectedCountryName ? html`
               <h3><strong>${selectedCountryName} (Total: ${totalWins} ${totalWins !== 1 ? 'wins' : 'win'})</strong></h3>
-            ` : ''}
+            ` : html`<h3><strong>All-time winners list</strong></h3>`}
 
             ${sortedWinners.map(winner => html`
                 <li><strong>${winner.name}</strong>: ${winner.wins} ${winner.wins > 1 ? 'wins' : 'win'}</li>
@@ -372,11 +372,19 @@ const metricMap = {
     <div style="display: flex; justify-content: flex-end;">
       ${switcherElement}
     </div>
-    ${resize((width) => raceDetails(selectedRace, metricMap[selectedMetric], { width }))}
+    <div class="plot-container-wrapper">
+      ${resize((width) => raceDetails(selectedRace, metricMap[selectedMetric], { width }))}
+    </div>
 </div>
 
 
 <style>
+
+.plot-container-wrapper {
+  aspect-ratio: 100 / 35; 
+  width: 100%;      /* Ensure width is set for aspect-ratio to work */
+  overflow: hidden; /* Prevent temporary overflow during render */
+}
 
 button {
   border: none; 

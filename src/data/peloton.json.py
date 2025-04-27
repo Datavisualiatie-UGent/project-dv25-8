@@ -35,7 +35,7 @@ for year in range(1930, 2026):
     data['riders'][str(year)] = {}
     for rider_url in get_riders(year):
         rider = get_rider(rider_url)
-        data['riders'][str(year)][rider['name']] = rider      
+        data['riders'][str(year)][rider['name']] = rider
 
     wins_ranking_top3 = get_wins_ranking_top3(year)
     data['wins']['top3'][f'{year}'] = wins_ranking_top3
