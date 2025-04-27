@@ -190,7 +190,6 @@ function verticalPodium({width} = {}) {
             ...d,
             podium_height: normalizedHeight,
             podium_color: d.rank === 1 ? "gold" : d.rank === 2 ? "silver" : d.rank === 3 ? "#cd7f32" : "grey",
-            nationality_iso: data.nations[selectedYear][d.nationality.toLowerCase()]['nationality'].toLowerCase(),
         };
     });
 
@@ -205,13 +204,6 @@ function verticalPodium({width} = {}) {
     // 4. Define constants for image placement
     const podiumImageHeightRelative = 0.8;
     const podiumImageWidthPixels = (width / podiumLayout.length) * 0.6 || 60;
-
-    // 5. Adding flag under each rider's name
-    const flagHeight = 12;
-    const flagWidth = 16;
-
-    console.log(podiumLayout);
-    console.log(data.nations[selectedYear]);
 
     return Plot.plot({
         width: width,
@@ -259,16 +251,6 @@ function verticalPodium({width} = {}) {
                 fontWeight: "bold",
                 fontSize: 24,
                 dy: -4                          // Fine-tune vertical position
-            }),
-
-            // Flags under the rider's name on the podium
-            Plot.image(podiumLayout, {
-                x: "rider_name",
-                y: d => -0.35, // Position just below the podium bar
-                src: d => `https://flagcdn.com/w20/${d.nationality_iso}.png`, // Flag URL
-                width: flagWidth,
-                height: flagHeight,
-                title: d => `${d.rider_name} (${d.nationality})`
             }),
       ],
       title: `Podium of the riders with the most World-Tour wins in ${selectedYear}`,
