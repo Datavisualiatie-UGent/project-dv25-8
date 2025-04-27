@@ -95,27 +95,34 @@ function nationsWorldTourMap({ width } = {}) {
 ```js
 // Function to display the list with riders of this country in the selected year
 function ridersList({ width } = {}) {
-    if (selectedNationId == "") return html`<p><strong>Select a country on the map to see the riders</strong></p>`;
-
-    const nation = Object.values(data.nations[selectedYear]).filter(nation => nation.ison == selectedNationId)[0];
-    const riders = Object.values(data.riders[selectedYear]).filter(rider => rider.nationality == nation.nationality);
-
+    let riders;
+    if (selectedNationId == ""){
+        riders = Object.values(data.riders[selectedYear]);
+    } else {
+        const nation = Object.values(data.nations[selectedYear]).filter(nation => nation.ison == selectedNationId)[0];
+        if (nation){
+          riders = Object.values(data.riders[selectedYear]).filter(rider => rider.nationality == nation.nationality);
+        }
+    }
+  
     // Add the number of wins to the rider object
-    riders.forEach(rider => {
-        rider.name = rider.name.replace(/\s+/g, ' '); // Normalize name format
-        const firstName = rider.name.split(" ")[0].toUpperCase();
-        const lastName = rider.name.split(" ").slice(1).join(" ").toUpperCase();
-        const nameKey = `${lastName} ${firstName} `;
-        rider.wins = data.wins.all[selectedYear][nameKey] || 0;
-    });
+    if (riders && riders.length > 0){
+      riders.forEach(rider => {
+          rider.name = rider.name.replace(/\s+/g, ' '); // Normalize name format
+          const firstName = rider.name.split(" ")[0].toUpperCase();
+          const lastName = rider.name.split(" ").slice(1).join(" ").toUpperCase();
+          const nameKey = `${lastName} ${firstName} `;
+          rider.wins = data.wins.all[selectedYear][nameKey] || 0;
+      });
 
-    // Sort the riders by number of wins
-    riders.sort((a, b) => d3.descending(a.wins, b.wins));
-
+      // Sort the riders by number of wins
+      riders.sort((a, b) => d3.descending(a.wins, b.wins));
+    }
+  
     return html`
         <div class="ranking-container" style="max-width: ${width}px; max-height: ${width * 1.35}px; overflow-y: auto;">
-            ${selectedNationId && selectedNationName ? html`<h3><strong>${selectedNationName} (Total: ${riders.length} ${riders.length !== 1 ? 'riders' : 'rider'})</strong></h3>` : ''}
-            ${riders.map(rider => html`<li><strong>${rider.name} (${rider.wins} wins)</strong></li>`)}
+            ${selectedNationId && selectedNationName ? html`<h3><strong>${selectedNationName} (Total: ${riders ? riders.length : 0} ${riders ? (riders.length !== 1 ? 'riders' : 'rider') : 'riders'})</strong></h3>` : html`<h3><strong>List of all World-Tour riders in ${selectedYear}</strong></h3>`}
+            ${riders ? riders.map(rider => html`<li><strong>${rider.name} (${rider.wins} wins)</strong></li>`) : ""}
         </ul>
     `;
 }
