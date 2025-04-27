@@ -122,7 +122,7 @@ function ridersList({ width } = {}) {
     return html`
         <div class="ranking-container" style="max-width: ${width}px; max-height: ${width * 1.35}px; overflow-y: auto;">
             ${selectedNationId && selectedNationName ? html`<h3><strong>${selectedNationName} (Total: ${riders ? riders.length : 0} ${riders ? (riders.length !== 1 ? 'riders' : 'rider') : 'riders'})</strong></h3>` : html`<h3><strong>List of all World-Tour riders in ${selectedYear}</strong></h3>`}
-            ${riders ? riders.map(rider => html`<li><strong>${rider.name} ${(rider.wins != 0) ? `(${rider.wins} ${(rider.wins == 1) ? "win" : "wins"})` : ""}</strong></li>`) : ""}
+            ${riders ? riders.map(rider => html`<li><strong>${rider.name}</strong>${(rider.wins != 0) ? `: ${rider.wins} ${(rider.wins == 1) ? "win" : "wins"}` : ""}</li>`) : ""}
         </ul>
     `;
 }
