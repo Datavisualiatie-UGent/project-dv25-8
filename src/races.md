@@ -372,11 +372,19 @@ const metricMap = {
     <div style="display: flex; justify-content: flex-end;">
       ${switcherElement}
     </div>
-    ${resize((width) => raceDetails(selectedRace, metricMap[selectedMetric], { width }))}
+    <div class="plot-container-wrapper">
+      ${resize((width) => raceDetails(selectedRace, metricMap[selectedMetric], { width }))}
+    </div>
 </div>
 
 
 <style>
+
+.plot-container-wrapper {
+  aspect-ratio: 100 / 35; 
+  width: 100%;      /* Ensure width is set for aspect-ratio to work */
+  overflow: hidden; /* Prevent temporary overflow during render */
+}
 
 button {
   border: none; 
