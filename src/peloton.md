@@ -3,7 +3,13 @@ const data = await FileAttachment('data/peloton.json').json();
 import { createYearSlider } from "./components/yearSlider.js";
 ```
 
-# Inside the WorldTour-Peloton
+
+<div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+  <h1 style="margin: 0;">Inside the WorldTour-Peloton</h1>
+  <div>${yearSlider}</div>
+</div>
+
+
 The World Tour peloton is a diverse and dynamic group of athletes, each with their own story, background, and journey to the top of professional cycling. In this section, we take a closer look at the riders who make up this elite group. Through visualizations of their ages, nationalities, teams, and other key factors, we uncover the trends and patterns that define the makeup of the peloton. Explore how cycling has become a truly global sport and discover the individuals powering the races that captivate audiences around the world.
 
 ## Tour around the world
@@ -94,19 +100,28 @@ function ridersList({ width } = {}) {
     const nation = Object.values(data.nations[selectedYear]).filter(nation => nation.ison == selectedNationId)[0];
     const riders = Object.values(data.riders[selectedYear]).filter(rider => rider.nationality == nation.nationality);
 
+    // Add the number of wins to the rider object
+    riders.forEach(rider => {
+        rider.name = rider.name.replace(/\s+/g, ' '); // Normalize name format
+        const firstName = rider.name.split(" ")[0].toUpperCase();
+        const lastName = rider.name.split(" ").slice(1).join(" ").toUpperCase();
+        const nameKey = `${lastName} ${firstName} `;
+        rider.wins = data.wins.all[selectedYear][nameKey] || 0;
+    });
+
+    // Sort the riders by number of wins
+    riders.sort((a, b) => d3.descending(a.wins, b.wins));
+
     return html`
         <div class="ranking-container" style="max-width: ${width}px; max-height: ${width * 1.35}px; overflow-y: auto;">
             ${selectedNationId && selectedNationName ? html`<h3><strong>${selectedNationName} (Total: ${riders.length} ${riders.length !== 1 ? 'riders' : 'rider'})</strong></h3>` : ''}
-            ${riders.map(rider => html`<li><strong>${rider.name}</strong></li>`)}
+            ${riders.map(rider => html`<li><strong>${rider.name} (${rider.wins} wins)</strong></li>`)}
         </ul>
     `;
 }
 ```
 
 <div>
-    <div>
-      ${yearSlider}
-    </div>
     <div class="content">
         <div class="card map-container">
             ${resize((width) => nationsWorldTourMap({width}))}
@@ -283,7 +298,10 @@ function ageHistogram({width} = {}) {
       // from the rider's age to get the age in the selected year
       if (rider.birthdate){
           const age = selectedYear - +rider.birthdate.split('-')[0];
-          const status = (data.wins.all[selectedYear][rider.name.replace(/\s+/g, ' ').toUpperCase()]) > 0 ? "winner" : "non-winner";
+          const riderName = rider.name.replace(/\s+/g, ' '); // Normalize name format
+          const firstName = riderName.split(" ")[0].toUpperCase();
+          const lastName = riderName.split(" ").slice(1).join(" ").toUpperCase();
+          const status = (data.wins.all[selectedYear][`${lastName} ${firstName} `]) > 0 ? "winner" : "non-winner";
 
           // Make sure it is a valid age (> 14):
           if (age > 14) {
@@ -329,8 +347,10 @@ function winHistogram({width} = {}) {
   Object.values(data.riders[selectedYear]).forEach(rider => {
     if (rider.birthdate) {
       const age = selectedYear - rider.birthdate.split('-')[0];
-      const nameKey = rider.name.replace(/\s+/g, ' ').toUpperCase();
-      const wins = data.wins.all[selectedYear][nameKey] || 0;
+      const riderName = rider.name.replace(/\s+/g, ' ');
+      const firstName = riderName.split(" ")[0].toUpperCase();
+      const lastName = riderName.split(" ").slice(1).join(" ").toUpperCase();
+      const wins = data.wins.all[selectedYear][`${lastName} ${firstName} `] || 0;
 
       if (age > 14 && wins > 0) {
         for (let i = 0; i < wins; i++) {

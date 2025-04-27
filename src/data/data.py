@@ -130,11 +130,11 @@ def get_wins_ranking(year: int) -> list[dict[str, Any]]:
     def swap_name(full_name: str) -> str:
         parts = full_name.split()
         for i, part in enumerate(parts):
-            if part.isupper():
-                # Assume family name starts here
-                front_name = " ".join(parts[:i+1])
-                family_name = " ".join(parts[i+1:])
-                return f"{family_name} {front_name}".upper()
+            if not part.isupper():
+                # Assume first name starts here
+                last_name = " ".join(parts[:i+1])
+                first_name = " ".join(parts[i+1:])
+                return f"{last_name} {first_name}".upper()
         return ""  # fallback if nothing is all caps
 
     lookup = {swap_name(r["rider_name"]): r["number_of_wins"] for r in ranking}
