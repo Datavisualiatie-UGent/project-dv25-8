@@ -23,21 +23,28 @@ const racesList = {
 ```
 
 ```js
-// Grid with buttons for each race
-const buttons = Inputs.button(
-  Object.keys(racesList).map(race => [html`
-    <div class="race-button">
-        <img src="${racesList[race]}" alt="${race}" />
-      </div>`, 
-      _ => race]
-  ), {value: 'tour-de-france'});
+// Selected race state
+const selectedRace = Mutable('tour-de-france');
 
-// Selected race button
-const selectedRace = Generators.input(buttons);
+function createButtons(race) {
+  return html`
+  <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-bottom: 20px;">
+    ${Object.keys(racesList).map(race => html`
+      <div
+        class="race-button ${selectedRace.value === race ? 'selected' : ''}"  // This condition is now re-evaluated on each change
+        style="cursor: pointer;"
+        onclick=${() => selectedRace.value = race} // Updates the mutable, triggering this cell to re-run
+      >
+        <img src="${racesList[race]}" alt="${race}" />
+      </div>
+    `)}
+  </div>
+  `
+}
 ```
 
 <div>
-    ${display(buttons)}
+    ${createButtons(selectedRace)}
 </div>
 
 ```js	
