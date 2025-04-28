@@ -8,24 +8,6 @@ import {createSwitcher} from "./components/inputSwitch.js";
 Welcome to an interactive journey through the most prestigious cycling races across the globe. Each button represents a major race, and by selecting one, you'll uncover intriguing insights into the history of the race. 
 
 ```js
-// Grid with buttons for each race
-const buttons = Inputs.button(
-  Object.keys(racesList).map(race => [html`
-      <div class="race-button">
-        <img src="${racesList[race]}" alt="${race}" />
-      </div>`, 
-      _ => race]
-  ), {value: 'tour-de-france'});
-
-// Selected race button
-const selectedRace = Generators.input(buttons);
-```
-
-<div>
-    ${display(buttons)}
-</div>
-
-```js
 // Mapping of the most important races to their respective logo
 const racesList = {
   'tour-de-france': 'https://i.postimg.cc/jd9tP9kP/tour-de-france.png',
@@ -39,6 +21,24 @@ const racesList = {
   'world-championship': 'https://i.postimg.cc/1Rv954GW/world-championship.png'
 }
 ```
+
+```js
+// Grid with buttons for each race
+const buttons = Inputs.button(
+  Object.keys(racesList).map(race => [html`
+    <div class="race-button">
+        <img src="${racesList[race]}" alt="${race}" />
+      </div>`, 
+      _ => race]
+  ), {value: 'tour-de-france'});
+
+// Selected race button
+const selectedRace = Generators.input(buttons);
+```
+
+<div>
+    ${display(buttons)}
+</div>
 
 ```js	
 // Load the world map
@@ -199,6 +199,8 @@ function raceDetails(race, metric, { width } = {}) {
   return Plot.plot({
     width,
     height: width * 0.35,
+    grid: true,
+
     marks: [
       // Line
       Plot.line(filteredData, {
@@ -415,6 +417,11 @@ button {
   width: 100px;
   height: 100px;
   border-radius: 8px;
+}
+
+.race-button.selected {
+  border: 3px solid #007BFF; /* Blue border for selected button */
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.6); /* Subtle glow */
 }
 
 .content {
