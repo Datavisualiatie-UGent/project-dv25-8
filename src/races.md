@@ -229,12 +229,13 @@ function raceDetails(race, metric, { width } = {}) {
       ),
 
       // Dots
-      Plot.dot(filteredData, {
+      Plot.dot(annotatedData, {
         x: "year",
         y: metric.value,
-        fill: metric.color,
+        fill: d => d.annotation ? "red" : metric.color, // Red if annotation exists
         strokeWidth: 1,
-        r: 3,
+        stroke: "black",
+        r: d => d.annotation ? 5 : 3,
       }),
       
       // Tooltip for each dot
