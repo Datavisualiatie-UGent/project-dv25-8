@@ -31,11 +31,11 @@ jobs:
 
       - run: npm ci
 
-      - id: cache-data
-        uses: actions/cache@v4
-        with:
-            path: src/.observablehq/cache
-            key: data-${{ hashFiles('src/data/*') }}
+      # - id: cache-data
+      #   uses: actions/cache@v4
+      #   with:
+      #       path: src/.observablehq/cache
+      #       key: data-${{ hashFiles('src/data/*') }}
 
       - run: npm run build
 
