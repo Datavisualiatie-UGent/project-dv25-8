@@ -378,7 +378,7 @@ const metricMap = {
 
 
 <div class="card">
-    <div style="display: flex; justify-content: flex-end;">
+    <div style="display: flex; justify-content: flex-end; margin-bottom: 10px;">
       ${switcherElement}
     </div>
     <div class="plot-container-wrapper">
