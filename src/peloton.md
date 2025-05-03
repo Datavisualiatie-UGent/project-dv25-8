@@ -51,10 +51,10 @@ function nationsWorldTourMap({ width } = {}) {
     const svg = d3.create("svg")
         .attr("width", width)
         .attr("height", width / 2.5)
-        .call(d3.zoom().scaleExtent([1, 5]) // Allow zooming between 1x and 5x
+        .call(d3.zoom().scaleExtent([1, 15]) // Allow zooming between 1x and 15x
         .on("zoom", (event) => {
-        svg.select("g").attr("transform", event.transform);
-    }));
+          svg.select("g").attr("transform", event.transform);
+        }));
 
     const g = svg.append("g");
 

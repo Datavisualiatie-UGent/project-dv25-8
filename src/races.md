@@ -8,24 +8,6 @@ import {createSwitcher} from "./components/inputSwitch.js";
 Welcome to an interactive journey through the most prestigious cycling races across the globe. Each button represents a major race, and by selecting one, you'll uncover intriguing insights into the history of the race. 
 
 ```js
-// Grid with buttons for each race
-const buttons = Inputs.button(
-  Object.keys(racesList).map(race => [html`
-      <div class="race-button">
-        <img src="${racesList[race]}" alt="${race}" />
-      </div>`, 
-      _ => race]
-  ), {value: 'tour-de-france'});
-
-// Selected race button
-const selectedRace = Generators.input(buttons);
-```
-
-<div>
-    ${display(buttons)}
-</div>
-
-```js
 // Mapping of the most important races to their respective logo
 const racesList = {
   'tour-de-france': 'https://i.postimg.cc/jd9tP9kP/tour-de-france.png',
@@ -39,6 +21,31 @@ const racesList = {
   'world-championship': 'https://i.postimg.cc/1Rv954GW/world-championship.png'
 }
 ```
+
+```js
+// Selected race state
+const selectedRace = Mutable('tour-de-france');
+
+function createButtons(race) {
+  return html`
+  <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-bottom: 20px;">
+    ${Object.keys(racesList).map(race => html`
+      <div
+        class="race-button ${selectedRace.value === race ? 'selected' : ''}"  // This condition is now re-evaluated on each change
+        style="cursor: pointer;"
+        onclick=${() => selectedRace.value = race} // Updates the mutable, triggering this cell to re-run
+      >
+        <img src="${racesList[race]}" alt="${race}" />
+      </div>
+    `)}
+  </div>
+  `
+}
+```
+
+<div>
+    ${createButtons(selectedRace)}
+</div>
 
 ```js	
 // Load the world map
@@ -69,7 +76,7 @@ function winnersRacesMap(race, { width } = {}) {
   const svg = d3.create("svg")
     .attr("width", width)
     .attr("height", width / 2.5)
-    .call(d3.zoom().scaleExtent([1, 5]) // Allow zooming between 1x and 5x
+    .call(d3.zoom().scaleExtent([1, 15]) // Allow zooming between 1x and 15x
     .on("zoom", (event) => {
       svg.select("g").attr("transform", event.transform);
     }));
@@ -199,6 +206,8 @@ function raceDetails(race, metric, { width } = {}) {
   return Plot.plot({
     width,
     height: width * 0.35,
+    grid: true,
+
     marks: [
       // Line
       Plot.line(filteredData, {
@@ -220,12 +229,13 @@ function raceDetails(race, metric, { width } = {}) {
       ),
 
       // Dots
-      Plot.dot(filteredData, {
+      Plot.dot(annotatedData, {
         x: "year",
         y: metric.value,
-        fill: metric.color,
+        fill: d => d.annotation ? "red" : metric.color, // Red if annotation exists
         strokeWidth: 1,
-        r: 3,
+        stroke: "black",
+        r: d => d.annotation ? 5 : 3,
       }),
       
       // Tooltip for each dot
@@ -369,7 +379,7 @@ const metricMap = {
 
 
 <div class="card">
-    <div style="display: flex; justify-content: flex-end;">
+    <div style="display: flex; justify-content: flex-end; margin-bottom: 10px;">
       ${switcherElement}
     </div>
     <div class="plot-container-wrapper">
@@ -415,6 +425,11 @@ button {
   width: 100px;
   height: 100px;
   border-radius: 8px;
+}
+
+.race-button.selected {
+  border: 3px solid #007BFF; /* Blue border for selected button */
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.6); /* Subtle glow */
 }
 
 .content {
