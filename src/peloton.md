@@ -351,27 +351,28 @@ function ageHistogram({width} = {}) {
 ```js
 function winHistogram({width} = {}) {
   var dataList = [];
-  Object.values(data.riders[selectedYear]).forEach(rider => {
-    if (rider.birthdate) {
-      const age = selectedYear - rider.birthdate.split('-')[0];
-      const riderName = rider.name.replace(/\s+/g, ' ');
-      const firstName = riderName.split(" ")[0].toUpperCase();
-      const lastName = riderName.split(" ").slice(1).join(" ").toUpperCase();
-      const wins = data.wins.all[selectedYear][`${lastName} ${firstName} `] || 0;
+    // Loop over all years
+  Object.keys(data.riders).forEach(year => {
+    Object.values(data.riders[year]).forEach(rider => {
+      if (rider.birthdate) {
+        const age = year - rider.birthdate.split('-')[0];
+        const riderName = rider.name.replace(/\s+/g, ' ');
+        const firstName = riderName.split(" ")[0].toUpperCase();
+        const lastName = riderName.split(" ").slice(1).join(" ").toUpperCase();
+        const wins = (data.wins.all[year] || {})[`${lastName} ${firstName} `] || 0;
 
-      if (age > 14 && wins > 0) {
-        for (let i = 0; i < wins; i++) {
-          dataList.push({age});
+        if (age > 14 && wins > 0) {
+            dataList.push({age});
         }
       }
-    }
+    });
   });
 
   return Plot.plot({
     width: width,
     height: width / 2,
     x: { label: 'Age', type: 'linear' },
-    y: { label: 'Number of wins', type: 'linear' },
+    y: { label: 'Number of winners', type: 'linear' },
     color: {
       legend: true,
       domain: [""],
@@ -390,7 +391,7 @@ function winHistogram({width} = {}) {
         )
       )
     ],
-    title: "Age distribution of the wins in " + selectedYear
+    title: "Age distribution of the winners (all time)"
   });
 }
 ```
