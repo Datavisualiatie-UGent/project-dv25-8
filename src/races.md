@@ -5,7 +5,7 @@ import {createSwitcher} from "./components/inputSwitch.js";
 
 # Race trough the years
 
-Welcome to an interactive journey through the most prestigious cycling races across the globe. Each button represents a major race, and by selecting one, you'll uncover intriguing insights into the history of the race. 
+Welcome to an **interactive journey** through the most prestigious cycling races across the globe. Each button represents a **major race**, and by selecting one, you'll uncover intriguing insights into the **history of the race**. 
 
 ```js
 // Mapping of the most important races to their respective logo
@@ -150,7 +150,9 @@ function winnersRanking(race, { width } = {}) {
 </div>
 
 ### Where winners are born
-On the left, a dynamic map highlights the countries that have produced the most winners for the selected race. On the right, you'll see a comprehensive list of all race victors.Engage with the map by clicking on any country to filter the winners list by nation. To reset and view the complete list again, simply unclick a country. Explore how different countries have made their mark on the world of cycling!
+On the left, a **dynamic map** highlights the countries that have produced the **most winners for the selected race**. On the right, you'll find a **complete list of all victors**. **Click on a country** to filter the list and see **which riders** from that nation have **claimed victory**. Want to view the full list again? Just click the country again to reset.
+Discover how different nations have left their mark on the history of cycling’s greatest races!
+
 
 <div>
     <div class="content">
@@ -355,11 +357,9 @@ const customAnnotations = [
 ```
 
 ### Measuring the madness: how tough was it?
-Every race tells a story — not just of who won, but how hard it was to win. In this section, we dive into the details that define the character of each race.
-Use the toggle to switch between **total distance** and **average speed** to explore how these iconic races have evolved.
-Were they longer in the past? Has the pace picked up over the decades?
-We even highlight the top 3 fastest or longest editions, along with periods like the World Wars that left their mark on the sport.
+Every race tells a story — not just of who won, but of how hard it was to win. In this section, we explore the defining traits that shape each race’s identity. Use the toggle to switch between **total distance**, **average speed**, and **number of participants** to see how these iconic events have evolved over time. Were races longer in the past? Has the pace increased in recent decades? Did the size of the peloton grow or shrink?
 
+We also **highlight the top three editions**, along with **historical disruptions** — such as the World Wars — that left their mark on the sport. Dive into the data behind the drama and discover how the challenge of winning has changed through the years.
 
 ```js
 const selectedMetric = Mutable("Distance");
