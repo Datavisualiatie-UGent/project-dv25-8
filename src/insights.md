@@ -4,14 +4,14 @@ import {createSwitcher} from "./components/inputSwitch.js";
 ```
 
 # Deeper Insights into the Peloton
-Cycling isn't just about physical strength — it's also a complex web of strategies, technologies, and team dynamics. On this page, we dive deeper into the data to uncover patterns and correlations that shape race outcomes. From the bikes they ride to the diversity within their teams, let's explore what gives riders their edge.
+Cycling is about more than physical strength — it’s a sport shaped by strategy, technology, and teamwork. On this page, we take a closer look at the deeper factors that influence race outcomes. From the **bikes riders use** to the **diversity of their teams**, we examine what might set top performers apart from the rest.
 
 ### Equipment Choices: A Closer Look
-Over the years, WorldTour teams have made distinct choices when it comes to the equipment they trust — from the bikes they ride to the wheels and groupsets that drive performance. These choices reflect not only technological partnerships and sponsorships but also evolving trends in the peloton.
+Over the years, WorldTour teams have made distinct choices about the equipment they rely on — from bikes to wheels to groupsets. These decisions reflect not just performance needs, but also technological partnerships, sponsorships, and evolving trends within the peloton.
 
-In this section, we examine how often different brands have been used by teams between 2010 and 2025. By counting how many teams chose each brand in a given season, we get a sense of which manufacturers have maintained a strong presence in the pro peloton — and which ones have faded or emerged over time.
+In this section, we track **how often different brands were used by teams from 2010 to 2025**. By counting how many teams selected each brand in a given season, we reveal which manufacturers have consistently maintained a strong presence — and which ones have faded or emerged over time.
 
-Use the switcher to explore the most frequently used **bike brands**, **wheels**, and **groupsets (collection of mechanical parts like brakes, derailleurs, chain, ...)**. While popularity doesn’t always equate to performance, this breakdown highlights the brands that have earned the trust of the sport's top-tier teams year after year.
+Use the toggle to explore the most commonly used **bike brands**, **wheels**, and **groupsets (collections of mechanical components like brakes, derailleurs, and chains)**. While popularity doesn’t always guarantee performance, this overview highlights the brands that have earned the trust of pro cycling’s top teams, season after season.
 
 ```js
 
@@ -83,7 +83,7 @@ const switcherElement = createSwitcher(
 ### Performance by Equipment
 In professional cycling, equipment isn't just a matter of preference — it can be a decisive factor in a team's success. From cutting-edge bikes to aerodynamic wheels and precision-engineered groupsets, every component contributes to performance on the road.
 
-In this section, we explore how equipment choices correlate with team success by comparing the performance of teams using different brands. To ensure a fair comparison, we calculate the **average number of WorldTour wins** per season for teams using each brand. This is done by dividing the total number of wins by the number of seasons those teams used that brand.
+In this section, we explore how equipment choices correlate with team success by comparing the performance of teams using different brands. To ensure a fair comparison, we calculate the **average number of WorldTour wins per season for teams using each brand**. This is done by dividing the total number of wins by the number of seasons those teams used that brand.
 
 By aggregating this data, we can identify which equipment is more commonly associated with winning performances.
 **Of course, this doesn’t imply that the gear alone makes the difference — the strength, strategy, and budget of the teams using the equipment are key factors as well**. Still, it gives us a data-driven look into how certain brands align with competitive success.
@@ -193,11 +193,11 @@ function teamsDiversityPlot({ width } = {}) {
 ```
 
 ### Team Diversity: A Winning Strategy?
-In professional cycling, team dynamics are as much about diversity as they are about performance. While teams often focus on optimizing their equipment and training, the variety of nationalities within a team can also play a significant role in shaping its success. This section explores how team diversity, measured by the number of nationalities represented, correlates with race outcomes.
+In professional cycling, team dynamics go beyond training plans and equipment — diversity within a team may also influence its success. While performance depends on many factors, the variety of nationalities represented can shape how a team communicates, adapts, and competes.
 
-We analyze data from WorldTour teams to see if there is any link between the number of nationalities within a team and the number of wins they achieve. The hypothesis is that greater diversity might foster a broader range of perspectives and skills, contributing to a more competitive and adaptive team. However, it’s important to note that while diversity can bring advantages, the right balance of experience, chemistry, and coordination is equally crucial.
+In this section, we **analyze data from WorldTour teams** to examine whether there’s a **correlation between team diversity** — measured by the number of nationalities — and **the number of wins**. The idea is that a broader mix of backgrounds might bring a wider range of skills, strategies, and perspectives to the table.
 
-In the scatterplot below, we visualize the relationship between the number of nationalities and the number of wins across different teams. The correlation line suggests that more diverse teams tend to perform better. However, it’s important to note that these teams are typically more international in composition, often backed by larger budgets, which can provide them with a competitive advantage beyond just the diversity factor. While diversity can be an asset, the increased resources available to these teams often give them an additional competitive edge.
+The scatterplot below shows the relationship between nationality diversity and team victories. A **positive trend suggests** that **more diverse teams tend to win more often**. However, it's important to **interpret this carefully**: such teams are **often backed by larger budgets and international sponsors**, which can provide advantages beyond diversity alone. In other words, while diversity may contribute to success, it's often accompanied by greater resources, experience, and organizational support.
 
 <div class="center-container">
   <div class="header-with-switcher" style="margin-top: 1rem;">

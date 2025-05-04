@@ -10,16 +10,17 @@ import { createYearSlider } from "./components/yearSlider.js";
 </div>
 
 
-The World Tour peloton is a diverse and dynamic group of athletes, each with their own story, background, and journey to the top of professional cycling. In this section, we take a closer look at the riders who make up this elite group. Through visualizations of their ages, nationalities, teams, and other key factors, we uncover the trends and patterns that define the makeup of the peloton. Explore how cycling has become a truly global sport and discover the individuals powering the races that captivate audiences around the world.
+The **World Tour peloton** is a diverse and dynamic group of athletes, each with their own story, background, and journey to the top of professional cycling. In this section, we take a closer look at the riders who make up this elite group. Through **clear visualizations** of their **nationalities, ages and other key factors**, we uncover the trends and patterns that define the makeup of the peloton. Explore how cycling has become a truly **global sport** and discover the **individuals** powering the races that captivate audiences around the world.
 
 ## Tour around the world
-To gain insight into the global reach of professional cycling, we explore the number of riders representing each country in the World Tour peloton. The map below visualizes the distribution of riders across countries for the selected year, highlighting the extent of cycling's global presence.
+To explore the **global reach** of professional cycling, we visualize the **number of World Tour riders representing each country in a selected year**. The interactive map below highlights how widely the sport is embraced around the world. **Click on a country** to reveal a detailed list of its **riders for that year** — including their **names** and **number of victories** — offering deeper insight into each nation's contribution to the peloton and their success on the road.
 
 ```js
-// Year slider
 const minYear = Math.min.apply(null, Object.keys(data.nations).map(str => +str));
 const maxYear = Math.max.apply(null, Object.keys(data.nations).map(str => +str));
 const selectedYear = Mutable(maxYear);
+
+// Year slider to select the year at the top of the page
 const yearSlider = createYearSlider(
   maxYear,
   minYear,
@@ -139,8 +140,9 @@ function ridersList({ width } = {}) {
     </div>
 </div>
 
-By sliding over the years, it is clear that the number of countries represented in the World Tour peloton has been increasing over time. This trend reflects the global nature of professional cycling and the sport's growing popularity in different regions around the world. But of course it is not only about riding for a country, it is also about winning. In the next two graphs, we take a look at the winners. The first one shows the top 10 nations with the most wins in the selected year, showing how dominant certain countries are in the world of cycling. The second one shows the podium of the riders with the most wins in the selected year, highlighting the individual achievements of these athletes.
+As you slide through the years, a clear trend emerges: the **number of countries** represented in the World Tour peloton has **steadily increased**. This growth reflects the truly global nature of modern professional cycling and its rising popularity across diverse regions.
 
+But cycling isn’t just about participation — it’s about performance. In the following two graphs, we shift our **focus to the winners**. The first chart highlights the **top 10 nations with the most victories** in the selected year, revealing the countries that dominate the sport. The second spotlights the **top three individual riders** by number of wins, celebrating the standout athletes who consistently cross the finish line first.
 ```js
 // Define a function that creates a line plot of the number of different nationalities in the World Tour peloton over the years
 function topWinnersBarPlot({ width } = {}) {
@@ -290,11 +292,12 @@ function verticalPodium({width} = {}) {
 </div>
 
 ## Age is just a number
-In the world of professional cycling, age plays a unique role in shaping the careers of athletes. While the sport demands peak physical condition, there is no strict age limit to achieving success. In this section, we explore the age distribution of riders in the World Tour peloton, highlighting how age correlates with performance and wins.
 
-The visualizations below show the age distribution of all active riders, with a focus on the riders who have achieved victories. We will see how age influences both participation and success in races. As you explore the data, you'll notice patterns that reflect the balance between experience and youthful ambition in the peloton.
+In professional cycling, **age** plays an **intriguing role** in shaping an athlete’s journey. While peak physical condition is essential, there’s no fixed age for achieving success — champions can emerge both early and late in their careers.
 
-The first graph shows the overall age distribution of riders, with a color distinction between winners and non-winners. The second graph zooms in on the wins by age, providing insight into the age groups that are most likely to achieve victory in the World Tour.
+In this section, we examine the **age distribution within the World Tour peloton** and explore how age relates to performance and victories.
+
+The **first graph** visualizes the **overall age distribution** of riders, distinguishing between **winners and non-winners**. The **second graph** takes a broader view, showing **how the age of winners has evolved over time**. Together, these insights shed light on how age impacts success in the high-stakes world of professional cycling.
 
 ```js
 // Define a function that creates a bar chart of the distribution of the age of the riders in the World Tour peloton over the years
@@ -308,7 +311,7 @@ function ageHistogram({width} = {}) {
           const riderName = rider.name.replace(/\s+/g, ' '); // Normalize name format
           const firstName = riderName.split(" ")[0].toUpperCase();
           const lastName = riderName.split(" ").slice(1).join(" ").toUpperCase();
-          const status = (data.wins.all[selectedYear][`${lastName} ${firstName} `]) > 0 ? "winner" : "non-winner";
+          const status = (data.wins.all[selectedYear][`${lastName} ${firstName} `]) > 0 ? "Winner" : "Non-winner";
 
           // Make sure it is a valid age (> 14):
           if (age > 14) {
@@ -318,7 +321,7 @@ function ageHistogram({width} = {}) {
   });
 
   // Sort so "non-winner" comes first -> they are drawn later (on top)
-  dataList.sort((a, b) => a.status === "winner" ? -1 : 1);
+  dataList.sort((a, b) => a.status === "Winner" ? -1 : 1);
 
   return Plot.plot({
     width: width,
@@ -327,7 +330,7 @@ function ageHistogram({width} = {}) {
     y: { label: 'Number of riders', type: 'linear' },
     color: {
       legend: true,
-      domain: ["winner", "non-winner"],
+      domain: ["Winner", "Non-winner"],
       range: ["gold", "steelblue"] // green for winners, red for non-winners
     },
     marks: [
@@ -391,7 +394,7 @@ function winHistogram({width} = {}) {
         )
       )
     ],
-    title: "Age distribution of the winners (all time)"
+    title: "Age distribution of the winners (All Time)"
   });
 }
 ```
