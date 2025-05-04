@@ -180,13 +180,20 @@ function teamsDiversityPlot({ width } = {}) {
         stroke: "black",
         fill: "steelblue",
         r: 3,
-        tip: true
       }),
+
+      Plot.tip(teamsDiversityData, Plot.pointer({
+        x: "nationalities",
+        y: "wins",
+        title: (d) => `Team: ${d.team_name} (${d.year})\nNumber of nationalities: ${d.nationalities}\nNumber of wins: ${d.wins}`
+
+      })),
+
       Plot.linearRegressionY(teamsDiversityData, {
         x: "nationalities",
         y: "wins",
         stroke: "red"
-      })
+      }),
     ],
   });
 }

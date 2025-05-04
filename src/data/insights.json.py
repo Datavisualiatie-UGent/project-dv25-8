@@ -64,6 +64,7 @@ for year in range(2000, 2026):
                 'team_name': team_data['name'],
                 'wins': wins_dict.get(team_data['name'], {}).get('number_of_wins', 0),
                 'nationalities': len(nationalities),
+                'year': year
             }
             data['teamsDiversity'].append(combined_data)
 
