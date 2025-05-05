@@ -78,7 +78,7 @@ def get_rider(rider_url: str) -> dict[str, Any]:
         rider = Rider(rider_url.strip())
     except Exception as e:
         print(e)
-        sys.exit()
+        return {}
 
     data = {}
     data['name'] = rider.name()
