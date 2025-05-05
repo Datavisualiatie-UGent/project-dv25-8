@@ -26,10 +26,10 @@ for year in range(1930, 2026):
         data['nations'][str(year)][nation['name']] = nation
 
     # data['teams'][<year>][<name>] = {...}
-    data['teams'][str(year)] = {}
-    for team_url in get_teams(year):
-        team = get_team(team_url)
-        data['teams'][str(year)][team['name']] = team
+    # data['teams'][str(year)] = {}
+    # for team_url in get_teams(year):
+    #     team = get_team(team_url)
+    #     data['teams'][str(year)][team['name']] = team
 
     # data['riders'][<year>][<name>] = {...}
     data['riders'][str(year)] = {}
