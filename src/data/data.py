@@ -76,8 +76,7 @@ def get_riders(year: int) -> list[str]:
 def get_rider(rider_url: str) -> dict[str, Any]:
     try:
         rider = Rider(rider_url.strip())
-    except Exception as e:
-        print(e)
+    except Exception:
         return {}
 
     data = {}
