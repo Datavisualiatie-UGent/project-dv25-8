@@ -246,6 +246,7 @@ function raceDetails(race, metric, { width } = {}) {
         y: metric.value,
         title: (d) => [`Year: ${d.year}\n${metric.label}: ${d[metric.value]} ${metric.unit}` +
                        `${d.annotation ? '\nNote: ' + d.annotation : ""}`],
+        fontSize: 14,
       })),
 
       // Medal annotations for top 3

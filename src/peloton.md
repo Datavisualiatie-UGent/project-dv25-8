@@ -301,24 +301,44 @@ The **first graph** visualizes the **overall age distribution** of riders, disti
 
 ```js
 // Define a function that creates a bar chart of the distribution of the age of the riders in the World Tour peloton over the years
-function ageHistogram({width} = {}) {
+function ageHistogram(filterOnYear, {width} = {}) {
   var dataList = [];
-  Object.values(data.riders[selectedYear]).forEach(rider => {
-      // Subtract the difference between the current year and the selected year
-      // from the rider's age to get the age in the selected year
-      if (rider.birthdate){
-          const age = selectedYear - +rider.birthdate.split('-')[0];
-          const riderName = rider.name.replace(/\s+/g, ' '); // Normalize name format
-          const firstName = riderName.split(" ")[0].toUpperCase();
-          const lastName = riderName.split(" ").slice(1).join(" ").toUpperCase();
-          const status = (data.wins.all[selectedYear][`${lastName} ${firstName} `]) > 0 ? "Winner" : "Non-winner";
 
-          // Make sure it is a valid age (> 14):
-          if (age > 14) {
-            dataList.push({age, status});
-          }
+  if (filterOnYear){
+    // Filter based on the selected year
+    Object.values(data.riders[selectedYear]).forEach(rider => {
+      if (rider.birthdate) {
+        const age = selectedYear - +rider.birthdate.split('-')[0];
+        const riderName = rider.name.replace(/\s+/g, ' '); // Normalize name format
+        const firstName = riderName.split(" ")[0].toUpperCase();
+        const lastName = riderName.split(" ").slice(1).join(" ").toUpperCase();
+        const status = (data.wins.all[selectedYear][`${lastName} ${firstName} `]) > 0 ? "Winner" : "Non-winner";
+
+        // Make sure it is a valid age (> 14):
+        if (age > 14) {
+          dataList.push({age, status});
+        }
       }
-  });
+    });
+  } else {
+    // Loop over all years
+    Object.keys(data.riders).forEach(year => {
+      Object.values(data.riders[year]).forEach(rider => {
+        if (rider.birthdate) {
+            const age = year - +rider.birthdate.split('-')[0];
+            const riderName = rider.name.replace(/\s+/g, ' '); // Normalize name format
+            const firstName = riderName.split(" ")[0].toUpperCase();
+            const lastName = riderName.split(" ").slice(1).join(" ").toUpperCase();
+            const status = (data.wins.all[year][`${lastName} ${firstName} `]) > 0 ? "Winner" : "Non-winner";
+
+            // Make sure it is a valid age (> 14):
+            if (age > 14) {
+              dataList.push({age, status});
+            }
+        }
+      });
+    });
+  }
 
   // Sort so "non-winner" comes first -> they are drawn later (on top)
   dataList.sort((a, b) => a.status === "Winner" ? -1 : 1);
@@ -346,65 +366,17 @@ function ageHistogram({width} = {}) {
         )
       )
     ],
-    title: "Age distribution of the active riders in " + selectedYear
+    title: filterOnYear ? "Age distribution of the active riders in " + selectedYear : "Age distribution of the riders (All Time)"
   })
 };
 ```
 
-```js
-function winHistogram({width} = {}) {
-  var dataList = [];
-    // Loop over all years
-  Object.keys(data.riders).forEach(year => {
-    Object.values(data.riders[year]).forEach(rider => {
-      if (rider.birthdate) {
-        const age = year - rider.birthdate.split('-')[0];
-        const riderName = rider.name.replace(/\s+/g, ' ');
-        const firstName = riderName.split(" ")[0].toUpperCase();
-        const lastName = riderName.split(" ").slice(1).join(" ").toUpperCase();
-        const wins = (data.wins.all[year] || {})[`${lastName} ${firstName} `] || 0;
-
-        if (age > 14 && wins > 0) {
-            dataList.push({age});
-        }
-      }
-    });
-  });
-
-  return Plot.plot({
-    width: width,
-    height: width / 2,
-    x: { label: 'Age', type: 'linear' },
-    y: { label: 'Number of winners', type: 'linear' },
-    color: {
-      legend: true,
-      domain: [""],
-      range: ["white"] // green for winners, red for non-winners
-    },
-    marks: [
-      Plot.rectY(
-        dataList,
-        Plot.binX(
-          {y: "count"},
-          {
-            x: d => d.age,
-            fill: "steelblue",
-            thresholds: Array.from({length: 100}, (_, i) => i)
-          }
-        )
-      )
-    ],
-    title: "Age distribution of the winners (All Time)"
-  });
-}
-```
-
 <div class="grid grid-cols-2">
   <div class="card">
-    ${resize((width) => ageHistogram({width}))}
+    ${resize((width) => ageHistogram(true, {width}))}
   </div>
   <div class="card">
-    ${resize((width) => winHistogram({width}))}
+    ${resize((width) => ageHistogram(false, {width}))}
   </div>
 </div>
 
