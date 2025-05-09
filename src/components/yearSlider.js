@@ -60,7 +60,7 @@ if (!document.getElementById("year-slider-styles-primevue-skip")) { // New uniqu
         }
 
         .year-label-prime-skip {
-            font-size: 1em;
+            font-size: 1.5em;
             font-weight: bold; /* --- Change 1: Make label bold --- */
             color: #343a40; /* Slightly darker color for emphasis */
             padding: 0.1em 0.3em;
