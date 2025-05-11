@@ -1,0 +1,5091 @@
+{
+    "teamsInfo": [
+        {
+            "team_name": "Team HTC - Columbia",
+            "bike": "SCOTT",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 28
+        },
+        {
+            "team_name": "Saxo Bank",
+            "bike": "Specialized",
+            "groupset": "SRAM",
+            "wheels": "Zipp",
+            "wins": 16
+        },
+        {
+            "team_name": "Liquigas - Doimo",
+            "bike": "Cannondale",
+            "groupset": "Campagnolo",
+            "wheels": "Mavic",
+            "wins": 10
+        },
+        {
+            "team_name": "Astana",
+            "bike": "Specialized",
+            "groupset": "SRAM",
+            "wheels": "Zipp",
+            "wins": 9
+        },
+        {
+            "team_name": "Team Garmin - Transitions",
+            "bike": "Felt",
+            "groupset": "Shimano",
+            "wheels": "Mavic",
+            "wins": 9
+        },
+        {
+            "team_name": "Caisse d'Epargne",
+            "bike": "Pinarello",
+            "groupset": "Campagnolo",
+            "wheels": "Campagnolo",
+            "wins": 9
+        },
+        {
+            "team_name": "Team Katusha",
+            "bike": "Ridley",
+            "groupset": "Campagnolo",
+            "wheels": "Campagnolo",
+            "wins": 8
+        },
+        {
+            "team_name": "Lampre - Farnese Vini",
+            "bike": "Wilier Triestina",
+            "groupset": "Campagnolo",
+            "wheels": "Fulcrum",
+            "wins": 8
+        },
+        {
+            "team_name": "Quickstep - Innergetic",
+            "bike": "Eddy Merckx",
+            "groupset": "Campagnolo",
+            "wheels": "Fast Forward Wheels",
+            "wins": 7
+        },
+        {
+            "team_name": "Rabobank ProTeam",
+            "bike": "Giant",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 6
+        },
+        {
+            "team_name": "Sky Procycling",
+            "bike": "Pinarello",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 6
+        },
+        {
+            "team_name": "Omega Pharma-Lotto",
+            "bike": "Canyon",
+            "groupset": "Campagnolo",
+            "wheels": "Mavic",
+            "wins": 5
+        },
+        {
+            "team_name": "RadioShack",
+            "bike": "Trek",
+            "groupset": "SRAM",
+            "wheels": "Bontrager",
+            "wins": 5
+        },
+        {
+            "team_name": "Euskaltel - Euskadi",
+            "bike": "Orbea",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 4
+        },
+        {
+            "team_name": "Francaise des Jeux",
+            "bike": "Lapierre",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 3
+        },
+        {
+            "team_name": "Milram",
+            "bike": "Focus",
+            "groupset": "SRAM",
+            "wheels": "Lightweight",
+            "wins": 2
+        },
+        {
+            "team_name": "AG2R La Mondiale",
+            "bike": "Kuota",
+            "groupset": "SRAM",
+            "wheels": "Reynolds",
+            "wins": 1
+        },
+        {
+            "team_name": "Footon-Servetto",
+            "bike": "Fuji",
+            "groupset": "SRAM",
+            "wheels": "Reynolds",
+            "wins": 1
+        },
+        {
+            "team_name": "HTC - High Road",
+            "bike": "Specialized",
+            "groupset": null,
+            "wheels": null,
+            "wins": 24
+        },
+        {
+            "team_name": "Omega Pharma-Lotto",
+            "bike": "Canyon",
+            "groupset": "Campagnolo",
+            "wheels": "Mavic",
+            "wins": 14
+        },
+        {
+            "team_name": "Team Garmin - Cerv\u00e9lo",
+            "bike": "Cerv\u00e9lo",
+            "groupset": "SRAM",
+            "wheels": "Mavic",
+            "wins": 14
+        },
+        {
+            "team_name": "Sky Procycling",
+            "bike": "Pinarello",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 12
+        },
+        {
+            "team_name": "Liquigas - Cannondale",
+            "bike": "Cannondale",
+            "groupset": "SRAM",
+            "wheels": "Mavic",
+            "wins": 10
+        },
+        {
+            "team_name": "Movistar Team",
+            "bike": "Pinarello",
+            "groupset": "Campagnolo",
+            "wheels": "Campagnolo",
+            "wins": 9
+        },
+        {
+            "team_name": "Lampre - ISD",
+            "bike": "Wilier Triestina",
+            "groupset": "Campagnolo",
+            "wheels": "Fulcrum",
+            "wins": 9
+        },
+        {
+            "team_name": "Saxo Bank - Sungard",
+            "bike": "Specialized",
+            "groupset": "SRAM",
+            "wheels": "Zipp",
+            "wins": 8
+        },
+        {
+            "team_name": "Team Katusha",
+            "bike": "Focus",
+            "groupset": "SRAM",
+            "wheels": "Vision",
+            "wins": 8
+        },
+        {
+            "team_name": "Leopard Trek",
+            "bike": "Trek",
+            "groupset": "Shimano",
+            "wheels": "Bontrager",
+            "wins": 7
+        },
+        {
+            "team_name": "BMC Racing Team",
+            "bike": "BMC",
+            "groupset": "Shimano",
+            "wheels": "Easton",
+            "wins": 6
+        },
+        {
+            "team_name": "Euskaltel - Euskadi",
+            "bike": "Orbea",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 6
+        },
+        {
+            "team_name": "Rabobank Cycling Team",
+            "bike": "Giant",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 6
+        },
+        {
+            "team_name": "RadioShack",
+            "bike": "Trek",
+            "groupset": "SRAM",
+            "wheels": "Bontrager",
+            "wins": 5
+        },
+        {
+            "team_name": "Pro Team Astana",
+            "bike": "Specialized",
+            "groupset": "SRAM",
+            "wheels": "Corima",
+            "wins": 4
+        },
+        {
+            "team_name": "Vacansoleil - DCM",
+            "bike": "Ridley",
+            "groupset": "SRAM",
+            "wheels": "Fast Forward Wheels",
+            "wins": 3
+        },
+        {
+            "team_name": "AG2R La Mondiale",
+            "bike": "Kuota",
+            "groupset": "SRAM",
+            "wheels": "Reynolds",
+            "wins": 2
+        },
+        {
+            "team_name": "Quickstep Cycling Team",
+            "bike": "Eddy Merckx",
+            "groupset": "Campagnolo",
+            "wheels": "Campagnolo",
+            "wins": 1
+        },
+        {
+            "team_name": "Sky Procycling",
+            "bike": "Pinarello",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 26
+        },
+        {
+            "team_name": "Team Katusha",
+            "bike": "Canyon",
+            "groupset": "Shimano",
+            "wheels": "Mavic",
+            "wins": 16
+        },
+        {
+            "team_name": "Orica GreenEDGE",
+            "bike": "SCOTT",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 15
+        },
+        {
+            "team_name": "Liquigas - Cannondale",
+            "bike": "Cannondale",
+            "groupset": "SRAM",
+            "wheels": "Mavic",
+            "wins": 14
+        },
+        {
+            "team_name": "Movistar Team",
+            "bike": "Pinarello",
+            "groupset": "Campagnolo",
+            "wheels": "Campagnolo",
+            "wins": 12
+        },
+        {
+            "team_name": "Omega Pharma - Quick-Step",
+            "bike": "Specialized",
+            "groupset": "SRAM",
+            "wheels": "Zipp",
+            "wins": 10
+        },
+        {
+            "team_name": "Astana Pro Team",
+            "bike": "Specialized",
+            "groupset": "SRAM",
+            "wheels": "Corima",
+            "wins": 9
+        },
+        {
+            "team_name": "Lotto Belisol Team",
+            "bike": "Ridley",
+            "groupset": "Campagnolo",
+            "wheels": "Campagnolo",
+            "wins": 8
+        },
+        {
+            "team_name": "BMC Racing Team",
+            "bike": "BMC",
+            "groupset": "Shimano",
+            "wheels": "Easton",
+            "wins": 8
+        },
+        {
+            "team_name": "Rabobank Cycling Team",
+            "bike": "Giant",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 7
+        },
+        {
+            "team_name": "Euskaltel - Euskadi",
+            "bike": "Orbea",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 5
+        },
+        {
+            "team_name": "FDJ - BigMat",
+            "bike": "Lapierre",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 4
+        },
+        {
+            "team_name": "RadioShack - Nissan",
+            "bike": "Trek",
+            "groupset": "Shimano",
+            "wheels": "Bontrager",
+            "wins": 4
+        },
+        {
+            "team_name": "Vacansoleil - DCM",
+            "bike": "Bianchi",
+            "groupset": "Shimano",
+            "wheels": "Fast Forward Wheels",
+            "wins": 4
+        },
+        {
+            "team_name": "Team Saxo Bank - Tinkoff Bank",
+            "bike": "Specialized",
+            "groupset": "SRAM",
+            "wheels": "Zipp",
+            "wins": 2
+        },
+        {
+            "team_name": "Lampre - ISD",
+            "bike": "Wilier Triestina",
+            "groupset": "Campagnolo",
+            "wheels": "Fulcrum",
+            "wins": 0
+        },
+        {
+            "team_name": "AG2R La Mondiale",
+            "bike": "Kuota",
+            "groupset": "SRAM",
+            "wheels": "Reynolds",
+            "wins": 0
+        },
+        {
+            "team_name": "Omega Pharma - Quick-Step",
+            "bike": "Specialized",
+            "groupset": "SRAM",
+            "wheels": "Zipp",
+            "wins": 25
+        },
+        {
+            "team_name": "Sky Procycling",
+            "bike": "Pinarello",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 21
+        },
+        {
+            "team_name": "Movistar Team",
+            "bike": "Pinarello",
+            "groupset": "Campagnolo",
+            "wheels": "Campagnolo",
+            "wins": 15
+        },
+        {
+            "team_name": "Orica GreenEDGE",
+            "bike": "SCOTT",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 12
+        },
+        {
+            "team_name": "Team Argos - Shimano",
+            "bike": "Felt",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 11
+        },
+        {
+            "team_name": "RadioShack - Leopard",
+            "bike": "Trek",
+            "groupset": "Shimano",
+            "wheels": "Bontrager",
+            "wins": 10
+        },
+        {
+            "team_name": "Team Katusha",
+            "bike": "Canyon",
+            "groupset": "Shimano",
+            "wheels": "Mavic",
+            "wins": 10
+        },
+        {
+            "team_name": "Cannondale Pro Cycling Team",
+            "bike": "Cannondale",
+            "groupset": "SRAM",
+            "wheels": "Vision",
+            "wins": 10
+        },
+        {
+            "team_name": "Garmin Sharp",
+            "bike": "Cerv\u00e9lo",
+            "groupset": "Shimano",
+            "wheels": "Mavic",
+            "wins": 7
+        },
+        {
+            "team_name": "Lotto Belisol Team",
+            "bike": "Ridley",
+            "groupset": "Campagnolo",
+            "wheels": "Campagnolo",
+            "wins": 6
+        },
+        {
+            "team_name": "Astana Pro Team",
+            "bike": "Specialized",
+            "groupset": "Campagnolo",
+            "wheels": "Corima",
+            "wins": 5
+        },
+        {
+            "team_name": "BMC Racing Team",
+            "bike": "BMC",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 5
+        },
+        {
+            "team_name": "Team Saxo - Tinkoff",
+            "bike": "Specialized",
+            "groupset": "SRAM",
+            "wheels": "Zipp",
+            "wins": 3
+        },
+        {
+            "team_name": "Lampre - Merida",
+            "bike": "Merida",
+            "groupset": "Shimano",
+            "wheels": "Fulcrum",
+            "wins": 2
+        },
+        {
+            "team_name": "AG2R La Mondiale",
+            "bike": "Focus",
+            "groupset": "Campagnolo",
+            "wheels": "Fulcrum",
+            "wins": 2
+        },
+        {
+            "team_name": "Euskaltel - Euskadi",
+            "bike": "Orbea",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 1
+        },
+        {
+            "team_name": "Vacansoleil - DCM",
+            "bike": "Bianchi",
+            "groupset": "Campagnolo",
+            "wheels": "Fast Forward Wheels",
+            "wins": 1
+        },
+        {
+            "team_name": "Omega Pharma - Quick-Step",
+            "bike": "Specialized",
+            "groupset": "SRAM",
+            "wheels": "Zipp",
+            "wins": 20
+        },
+        {
+            "team_name": "Team Giant - Shimano",
+            "bike": "Giant",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 19
+        },
+        {
+            "team_name": "Tinkoff - Saxo",
+            "bike": "Specialized",
+            "groupset": "SRAM",
+            "wheels": "Zipp",
+            "wins": 16
+        },
+        {
+            "team_name": "Orica GreenEDGE",
+            "bike": "SCOTT",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 15
+        },
+        {
+            "team_name": "Astana Pro Team",
+            "bike": "Specialized",
+            "groupset": "Campagnolo",
+            "wheels": "Corima",
+            "wins": 11
+        },
+        {
+            "team_name": "Movistar Team",
+            "bike": "Pinarello",
+            "groupset": "Campagnolo",
+            "wheels": "Campagnolo",
+            "wins": 9
+        },
+        {
+            "team_name": "Team Katusha",
+            "bike": "Canyon",
+            "groupset": "Shimano",
+            "wheels": "Mavic",
+            "wins": 9
+        },
+        {
+            "team_name": "Lampre - Merida",
+            "bike": "Merida",
+            "groupset": "Shimano",
+            "wheels": "Fulcrum",
+            "wins": 9
+        },
+        {
+            "team_name": "Garmin Sharp",
+            "bike": "Cerv\u00e9lo",
+            "groupset": "Shimano",
+            "wheels": "Mavic",
+            "wins": 8
+        },
+        {
+            "team_name": "Lotto Belisol",
+            "bike": "Ridley",
+            "groupset": "Campagnolo",
+            "wheels": "Campagnolo",
+            "wins": 8
+        },
+        {
+            "team_name": "FDJ.fr",
+            "bike": "Lapierre",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 8
+        },
+        {
+            "team_name": "BMC Racing Team",
+            "bike": "BMC",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 7
+        },
+        {
+            "team_name": "Team Sky",
+            "bike": "Pinarello",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 7
+        },
+        {
+            "team_name": "AG2R La Mondiale",
+            "bike": "Focus",
+            "groupset": "Campagnolo",
+            "wheels": "Fulcrum",
+            "wins": 5
+        },
+        {
+            "team_name": "Cannondale",
+            "bike": "Cannondale",
+            "groupset": "SRAM",
+            "wheels": "Vision",
+            "wins": 4
+        },
+        {
+            "team_name": "Belkin-Pro Cycling Team",
+            "bike": "Bianchi",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 4
+        },
+        {
+            "team_name": "Trek Factory Racing",
+            "bike": "Trek",
+            "groupset": "Shimano",
+            "wheels": "Bontrager",
+            "wins": 3
+        },
+        {
+            "team_name": "Team Europcar",
+            "bike": "Colnago",
+            "groupset": "Campagnolo",
+            "wheels": "Campagnolo",
+            "wins": 0
+        },
+        {
+            "team_name": "Team Sky",
+            "bike": "Pinarello",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 19
+        },
+        {
+            "team_name": "Team Katusha",
+            "bike": "Canyon",
+            "groupset": "Shimano",
+            "wheels": "Mavic",
+            "wins": 15
+        },
+        {
+            "team_name": "BMC Racing Team",
+            "bike": "BMC",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 15
+        },
+        {
+            "team_name": "Lotto Soudal",
+            "bike": "Ridley",
+            "groupset": "Campagnolo",
+            "wheels": "Campagnolo",
+            "wins": 14
+        },
+        {
+            "team_name": "Movistar Team",
+            "bike": "Canyon",
+            "groupset": "Campagnolo",
+            "wheels": "Campagnolo",
+            "wins": 12
+        },
+        {
+            "team_name": "Astana Pro Team",
+            "bike": "Specialized",
+            "groupset": "Campagnolo",
+            "wheels": "Corima",
+            "wins": 11
+        },
+        {
+            "team_name": "Orica GreenEDGE",
+            "bike": "SCOTT",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 11
+        },
+        {
+            "team_name": "Team Giant - Alpecin",
+            "bike": "Giant",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 10
+        },
+        {
+            "team_name": "Lampre - Merida",
+            "bike": "Merida",
+            "groupset": "Shimano",
+            "wheels": "Fulcrum",
+            "wins": 10
+        },
+        {
+            "team_name": "Etixx - Quick Step",
+            "bike": "Specialized",
+            "groupset": "SRAM",
+            "wheels": "Zipp",
+            "wins": 9
+        },
+        {
+            "team_name": "Tinkoff - Saxo",
+            "bike": "Specialized",
+            "groupset": "Shimano",
+            "wheels": "Roval",
+            "wins": 7
+        },
+        {
+            "team_name": "AG2R La Mondiale",
+            "bike": "Focus",
+            "groupset": "SRAM",
+            "wheels": "Zipp",
+            "wins": 5
+        },
+        {
+            "team_name": "Trek Factory Racing",
+            "bike": "Trek",
+            "groupset": "Shimano",
+            "wheels": "Bontrager",
+            "wins": 5
+        },
+        {
+            "team_name": "FDJ",
+            "bike": "Lapierre",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 4
+        },
+        {
+            "team_name": "Team LottoNL-Jumbo",
+            "bike": "Bianchi",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 2
+        },
+        {
+            "team_name": "IAM Cycling",
+            "bike": "SCOTT",
+            "groupset": "Shimano",
+            "wheels": "DT Swiss ",
+            "wins": 2
+        },
+        {
+            "team_name": "Team Cannondale - Garmin",
+            "bike": "Cannondale",
+            "groupset": "Shimano",
+            "wheels": "Mavic",
+            "wins": 1
+        },
+        {
+            "team_name": "Etixx - Quick Step",
+            "bike": "Specialized",
+            "groupset": "Shimano",
+            "wheels": "Roval",
+            "wins": 19
+        },
+        {
+            "team_name": "Team Sky",
+            "bike": "Pinarello",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 15
+        },
+        {
+            "team_name": "Tinkoff",
+            "bike": "Specialized",
+            "groupset": "Shimano",
+            "wheels": "Roval",
+            "wins": 14
+        },
+        {
+            "team_name": "Movistar Team",
+            "bike": "Canyon",
+            "groupset": "Campagnolo",
+            "wheels": "Campagnolo",
+            "wins": 12
+        },
+        {
+            "team_name": "BMC Racing Team",
+            "bike": "BMC",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 12
+        },
+        {
+            "team_name": "Lotto Soudal",
+            "bike": "Ridley",
+            "groupset": "Campagnolo",
+            "wheels": "Campagnolo",
+            "wins": 10
+        },
+        {
+            "team_name": "Team Dimension Data",
+            "bike": "Cerv\u00e9lo",
+            "groupset": "Shimano",
+            "wheels": "ENVE",
+            "wins": 10
+        },
+        {
+            "team_name": "Astana Pro Team",
+            "bike": "Specialized",
+            "groupset": "Campagnolo",
+            "wheels": "Corima",
+            "wins": 7
+        },
+        {
+            "team_name": "IAM Cycling",
+            "bike": "SCOTT",
+            "groupset": "Shimano",
+            "wheels": "DT Swiss ",
+            "wins": 6
+        },
+        {
+            "team_name": "FDJ",
+            "bike": "Lapierre",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 5
+        },
+        {
+            "team_name": "Team Katusha",
+            "bike": "Canyon",
+            "groupset": "SRAM",
+            "wheels": "Zipp",
+            "wins": 5
+        },
+        {
+            "team_name": "Lampre - Merida",
+            "bike": "Merida",
+            "groupset": "Shimano",
+            "wheels": "Fulcrum",
+            "wins": 5
+        },
+        {
+            "team_name": "Trek - Segafredo",
+            "bike": "Trek",
+            "groupset": "Shimano",
+            "wheels": "Bontrager",
+            "wins": 4
+        },
+        {
+            "team_name": "Team Giant - Alpecin",
+            "bike": "Giant",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 4
+        },
+        {
+            "team_name": "Team LottoNL-Jumbo",
+            "bike": "Bianchi",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 3
+        },
+        {
+            "team_name": "AG2R La Mondiale",
+            "bike": "Focus",
+            "groupset": "SRAM",
+            "wheels": "Zipp",
+            "wins": 2
+        },
+        {
+            "team_name": "Quick-Step Floors",
+            "bike": "Specialized",
+            "groupset": "Shimano",
+            "wheels": "Specialized",
+            "wins": 30
+        },
+        {
+            "team_name": "BMC Racing Team",
+            "bike": "BMC",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 22
+        },
+        {
+            "team_name": "BORA - hansgrohe",
+            "bike": "Specialized",
+            "groupset": "Shimano",
+            "wheels": "Specialized",
+            "wins": 19
+        },
+        {
+            "team_name": "Team Sky",
+            "bike": "Pinarello",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 18
+        },
+        {
+            "team_name": "Team Sunweb",
+            "bike": "Giant",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 13
+        },
+        {
+            "team_name": "ORICA-Scott",
+            "bike": "SCOTT",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 13
+        },
+        {
+            "team_name": "Movistar Team",
+            "bike": "Canyon",
+            "groupset": "Campagnolo",
+            "wheels": "Campagnolo",
+            "wins": 12
+        },
+        {
+            "team_name": "Lotto Soudal",
+            "bike": "Ridley",
+            "groupset": "Campagnolo",
+            "wheels": "Campagnolo",
+            "wins": 10
+        },
+        {
+            "team_name": "Team LottoNL-Jumbo",
+            "bike": "Bianchi",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 10
+        },
+        {
+            "team_name": "UAE Team Emirates",
+            "bike": "Colnago",
+            "groupset": "Campagnolo",
+            "wheels": "Campagnolo",
+            "wins": 8
+        },
+        {
+            "team_name": "Astana Pro Team",
+            "bike": "Argon 18",
+            "groupset": "Shimano",
+            "wheels": "Vision",
+            "wins": 7
+        },
+        {
+            "team_name": "Trek - Segafredo",
+            "bike": "Trek",
+            "groupset": "Shimano",
+            "wheels": "Bontrager",
+            "wins": 6
+        },
+        {
+            "team_name": "FDJ",
+            "bike": "Lapierre",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 5
+        },
+        {
+            "team_name": "Team Katusha Alpecin",
+            "bike": "Canyon",
+            "groupset": "SRAM",
+            "wheels": "Zipp",
+            "wins": 4
+        },
+        {
+            "team_name": "Bahrain Merida Pro Cycling Team",
+            "bike": "Merida",
+            "groupset": "Shimano",
+            "wheels": "Fulcrum",
+            "wins": 4
+        },
+        {
+            "team_name": "Team Dimension Data",
+            "bike": "Cerv\u00e9lo",
+            "groupset": "Shimano",
+            "wheels": "ENVE",
+            "wins": 3
+        },
+        {
+            "team_name": "Cannondale - Drapac Pro Cycling Team",
+            "bike": "Cannondale",
+            "groupset": "Shimano",
+            "wheels": "Mavic",
+            "wins": 3
+        },
+        {
+            "team_name": "AG2R La Mondiale",
+            "bike": "Factor",
+            "groupset": "Shimano",
+            "wheels": "Mavic",
+            "wins": 2
+        },
+        {
+            "team_name": "Quick-Step Floors",
+            "bike": "Specialized",
+            "groupset": "Shimano",
+            "wheels": "Roval",
+            "wins": 38
+        },
+        {
+            "team_name": "BORA - hansgrohe",
+            "bike": "Specialized",
+            "groupset": "Shimano",
+            "wheels": "Roval",
+            "wins": 22
+        },
+        {
+            "team_name": "Team Sky",
+            "bike": "Pinarello",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 21
+        },
+        {
+            "team_name": "Mitchelton-Scott",
+            "bike": "SCOTT",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 17
+        },
+        {
+            "team_name": "BMC Racing Team",
+            "bike": "BMC",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 14
+        },
+        {
+            "team_name": "Movistar Team",
+            "bike": "Canyon",
+            "groupset": "Campagnolo",
+            "wheels": "Campagnolo",
+            "wins": 12
+        },
+        {
+            "team_name": "Team LottoNL-Jumbo",
+            "bike": "Bianchi",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 10
+        },
+        {
+            "team_name": "Astana Pro Team",
+            "bike": "Argon 18",
+            "groupset": "Shimano",
+            "wheels": "Corima",
+            "wins": 10
+        },
+        {
+            "team_name": "Team Sunweb",
+            "bike": "Giant",
+            "groupset": "Shimano",
+            "wheels": "Giant",
+            "wins": 8
+        },
+        {
+            "team_name": "Groupama - FDJ",
+            "bike": "Lapierre",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 8
+        },
+        {
+            "team_name": "Lotto Soudal",
+            "bike": "Ridley",
+            "groupset": "Campagnolo",
+            "wheels": "Campagnolo",
+            "wins": 7
+        },
+        {
+            "team_name": "UAE Team Emirates",
+            "bike": "Colnago",
+            "groupset": "Campagnolo",
+            "wheels": "Campagnolo",
+            "wins": 6
+        },
+        {
+            "team_name": "Bahrain Merida Pro Cycling Team",
+            "bike": "Merida",
+            "groupset": "Shimano",
+            "wheels": "Fulcrum",
+            "wins": 4
+        },
+        {
+            "team_name": "Trek - Segafredo",
+            "bike": "Trek",
+            "groupset": "Shimano",
+            "wheels": "Bontrager",
+            "wins": 4
+        },
+        {
+            "team_name": "AG2R La Mondiale",
+            "bike": "Factor",
+            "groupset": "Shimano",
+            "wheels": "Mavic",
+            "wins": 3
+        },
+        {
+            "team_name": "Team Dimension Data",
+            "bike": "Cerv\u00e9lo",
+            "groupset": "Shimano",
+            "wheels": "ENVE",
+            "wins": 2
+        },
+        {
+            "team_name": "Team EF Education First - Drapac p/b Cannondale",
+            "bike": "Cannondale",
+            "groupset": "Shimano",
+            "wheels": "Vision",
+            "wins": 2
+        },
+        {
+            "team_name": "Team Katusha Alpecin",
+            "bike": "Canyon",
+            "groupset": "SRAM",
+            "wheels": "Zipp",
+            "wins": 2
+        },
+        {
+            "team_name": "Deceuninck - Quick Step",
+            "bike": "Specialized",
+            "groupset": "Shimano",
+            "wheels": "Roval",
+            "wins": 35
+        },
+        {
+            "team_name": "BORA - hansgrohe",
+            "bike": "Specialized",
+            "groupset": "Shimano",
+            "wheels": "Roval",
+            "wins": 31
+        },
+        {
+            "team_name": "Team Jumbo-Visma",
+            "bike": "Bianchi",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 25
+        },
+        {
+            "team_name": "Astana Pro Team",
+            "bike": "Argon 18",
+            "groupset": "Shimano",
+            "wheels": "Corima",
+            "wins": 15
+        },
+        {
+            "team_name": "Mitchelton-Scott",
+            "bike": "SCOTT",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 13
+        },
+        {
+            "team_name": "Lotto Soudal",
+            "bike": "Ridley",
+            "groupset": "Campagnolo",
+            "wheels": "Campagnolo",
+            "wins": 12
+        },
+        {
+            "team_name": "UAE Team Emirates",
+            "bike": "Colnago",
+            "groupset": "Campagnolo",
+            "wheels": "Campagnolo",
+            "wins": 11
+        },
+        {
+            "team_name": "Movistar Team",
+            "bike": "Canyon",
+            "groupset": "Campagnolo",
+            "wheels": "Campagnolo",
+            "wins": 7
+        },
+        {
+            "team_name": "Bahrain Merida",
+            "bike": "Merida",
+            "groupset": "Shimano",
+            "wheels": "Fulcrum",
+            "wins": 7
+        },
+        {
+            "team_name": "EF Education First",
+            "bike": "Cannondale",
+            "groupset": "Shimano",
+            "wheels": "Vision",
+            "wins": 6
+        },
+        {
+            "team_name": "Team Sunweb",
+            "bike": "Cerv\u00e9lo",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 6
+        },
+        {
+            "team_name": "Groupama - FDJ",
+            "bike": "Lapierre",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 4
+        },
+        {
+            "team_name": "Trek - Segafredo",
+            "bike": "Trek",
+            "groupset": "SRAM",
+            "wheels": "Bontrager",
+            "wins": 3
+        },
+        {
+            "team_name": "CCC Team",
+            "bike": "Giant",
+            "groupset": "Shimano",
+            "wheels": "Giant",
+            "wins": 2
+        },
+        {
+            "team_name": "AG2R La Mondiale",
+            "bike": "Eddy Merckx",
+            "groupset": "Shimano",
+            "wheels": "Mavic",
+            "wins": 2
+        },
+        {
+            "team_name": "Team Katusha Alpecin",
+            "bike": "Canyon",
+            "groupset": "SRAM",
+            "wheels": "Zipp",
+            "wins": 1
+        },
+        {
+            "team_name": "Team Dimension Data",
+            "bike": "BMC",
+            "groupset": "Shimano",
+            "wheels": "ENVE",
+            "wins": 1
+        },
+        {
+            "team_name": "Team Jumbo-Visma",
+            "bike": "Bianchi",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 15
+        },
+        {
+            "team_name": "UAE Team Emirates",
+            "bike": "Colnago",
+            "groupset": "Campagnolo",
+            "wheels": "Campagnolo",
+            "wins": 11
+        },
+        {
+            "team_name": "Deceuninck - Quick Step",
+            "bike": "Specialized",
+            "groupset": "Shimano",
+            "wheels": "Roval",
+            "wins": 11
+        },
+        {
+            "team_name": "BORA - hansgrohe",
+            "bike": "Specialized",
+            "groupset": "Shimano",
+            "wheels": "Roval",
+            "wins": 10
+        },
+        {
+            "team_name": "Team Sunweb",
+            "bike": "Cerv\u00e9lo",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 9
+        },
+        {
+            "team_name": "EF Pro Cycling",
+            "bike": "Cannondale",
+            "groupset": "Shimano",
+            "wheels": "Vision",
+            "wins": 8
+        },
+        {
+            "team_name": "Lotto Soudal",
+            "bike": "Ridley",
+            "groupset": "Campagnolo",
+            "wheels": "Campagnolo",
+            "wins": 8
+        },
+        {
+            "team_name": "Trek - Segafredo",
+            "bike": "Trek",
+            "groupset": "SRAM",
+            "wheels": "Bontrager",
+            "wins": 6
+        },
+        {
+            "team_name": "Groupama - FDJ",
+            "bike": "Lapierre",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 6
+        },
+        {
+            "team_name": "Mitchelton-Scott",
+            "bike": "SCOTT",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 5
+        },
+        {
+            "team_name": "Astana Pro Team",
+            "bike": "Wilier Triestina",
+            "groupset": "Shimano",
+            "wheels": "Corima",
+            "wins": 4
+        },
+        {
+            "team_name": "NTT Pro Cycling",
+            "bike": "BMC",
+            "groupset": "Shimano",
+            "wheels": "ENVE",
+            "wins": 3
+        },
+        {
+            "team_name": "Israel Start-Up Nation",
+            "bike": "Factor",
+            "groupset": "Shimano",
+            "wheels": "Black Inc",
+            "wins": 2
+        },
+        {
+            "team_name": "Bahrain - McLaren",
+            "bike": "Merida",
+            "groupset": "Shimano",
+            "wheels": "Vision",
+            "wins": 2
+        },
+        {
+            "team_name": "AG2R La Mondiale",
+            "bike": "Eddy Merckx",
+            "groupset": "Shimano",
+            "wheels": "Mavic",
+            "wins": 1
+        },
+        {
+            "team_name": "Movistar Team",
+            "bike": "Canyon",
+            "groupset": "SRAM",
+            "wheels": "Zipp",
+            "wins": 1
+        },
+        {
+            "team_name": "CCC Team",
+            "bike": "Giant",
+            "groupset": "Shimano",
+            "wheels": "Cadex",
+            "wins": 1
+        },
+        {
+            "team_name": "Cofidis",
+            "bike": "De Rosa",
+            "groupset": "Campagnolo",
+            "wheels": "Fulcrum",
+            "wins": 0
+        },
+        {
+            "team_name": "Deceuninck - Quick Step",
+            "bike": "Specialized",
+            "groupset": "Shimano",
+            "wheels": "Roval",
+            "wins": 25
+        },
+        {
+            "team_name": "Team Jumbo-Visma",
+            "bike": "Cerv\u00e9lo",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 19
+        },
+        {
+            "team_name": "INEOS Grenadiers",
+            "bike": "Pinarello",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 16
+        },
+        {
+            "team_name": "Bahrain - Victorious",
+            "bike": "Merida",
+            "groupset": "Shimano",
+            "wheels": "Vision",
+            "wins": 16
+        },
+        {
+            "team_name": "UAE Team Emirates",
+            "bike": "Colnago",
+            "groupset": "Campagnolo",
+            "wheels": "Campagnolo",
+            "wins": 14
+        },
+        {
+            "team_name": "EF Education - Nippo",
+            "bike": "Cannondale",
+            "groupset": "Shimano",
+            "wheels": "Vision",
+            "wins": 11
+        },
+        {
+            "team_name": "BORA - hansgrohe",
+            "bike": "Specialized",
+            "groupset": "Shimano",
+            "wheels": "Roval",
+            "wins": 8
+        },
+        {
+            "team_name": "Lotto Soudal",
+            "bike": "Ridley",
+            "groupset": "Campagnolo",
+            "wheels": "Campagnolo",
+            "wins": 8
+        },
+        {
+            "team_name": "Team DSM",
+            "bike": "SCOTT",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 5
+        },
+        {
+            "team_name": "AG2R Citro\u00ebn Team",
+            "bike": "BMC",
+            "groupset": "Campagnolo",
+            "wheels": "Campagnolo",
+            "wins": 4
+        },
+        {
+            "team_name": "Intermarch\u00e9 - Wanty - Gobert Mat\u00e9riaux",
+            "bike": "Cube",
+            "groupset": "Shimano",
+            "wheels": "Newmen",
+            "wins": 3
+        },
+        {
+            "team_name": "Movistar Team",
+            "bike": "Canyon",
+            "groupset": "SRAM",
+            "wheels": "Zipp",
+            "wins": 3
+        },
+        {
+            "team_name": "Israel Start-Up Nation",
+            "bike": "Factor",
+            "groupset": "Shimano",
+            "wheels": "Black Inc",
+            "wins": 3
+        },
+        {
+            "team_name": "Astana - Premier Tech",
+            "bike": "Wilier Triestina",
+            "groupset": "Shimano",
+            "wheels": "Corima",
+            "wins": 3
+        },
+        {
+            "team_name": "Trek - Segafredo",
+            "bike": "Trek",
+            "groupset": "SRAM",
+            "wheels": "Bontrager",
+            "wins": 2
+        },
+        {
+            "team_name": "Team BikeExchange",
+            "bike": "Bianchi",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 2
+        },
+        {
+            "team_name": "Groupama - FDJ",
+            "bike": "Lapierre",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 2
+        },
+        {
+            "team_name": "Cofidis",
+            "bike": "De Rosa",
+            "groupset": "Campagnolo",
+            "wheels": "Fulcrum",
+            "wins": 1
+        },
+        {
+            "team_name": "Jumbo-Visma",
+            "bike": "Cerv\u00e9lo",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 24
+        },
+        {
+            "team_name": "UAE Team Emirates",
+            "bike": "Colnago",
+            "groupset": "Campagnolo",
+            "wheels": "Campagnolo",
+            "wins": 18
+        },
+        {
+            "team_name": "INEOS Grenadiers",
+            "bike": "Pinarello",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 16
+        },
+        {
+            "team_name": "Quick-Step Alpha Vinyl Team",
+            "bike": "Specialized",
+            "groupset": "Shimano",
+            "wheels": "Roval",
+            "wins": 14
+        },
+        {
+            "team_name": "BORA - hansgrohe",
+            "bike": "Specialized",
+            "groupset": "Shimano",
+            "wheels": "Roval",
+            "wins": 13
+        },
+        {
+            "team_name": "Team BikeExchange - Jayco",
+            "bike": "Giant",
+            "groupset": "Shimano",
+            "wheels": "Cadex",
+            "wins": 9
+        },
+        {
+            "team_name": "Bahrain - Victorious",
+            "bike": "Merida",
+            "groupset": "Shimano",
+            "wheels": "Vision",
+            "wins": 8
+        },
+        {
+            "team_name": "Trek - Segafredo",
+            "bike": "Trek",
+            "groupset": "SRAM",
+            "wheels": "Bontrager",
+            "wins": 6
+        },
+        {
+            "team_name": "Groupama - FDJ",
+            "bike": "Lapierre",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 6
+        },
+        {
+            "team_name": "Intermarch\u00e9 - Wanty - Gobert Mat\u00e9riaux",
+            "bike": "Cube",
+            "groupset": "Shimano",
+            "wheels": "Newmen",
+            "wins": 5
+        },
+        {
+            "team_name": "Team DSM",
+            "bike": "SCOTT",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 5
+        },
+        {
+            "team_name": "Israel - Premier Tech",
+            "bike": "Factor",
+            "groupset": "Shimano",
+            "wheels": "Black Inc",
+            "wins": 4
+        },
+        {
+            "team_name": "AG2R Citro\u00ebn Team",
+            "bike": "BMC",
+            "groupset": "Campagnolo",
+            "wheels": "Campagnolo",
+            "wins": 3
+        },
+        {
+            "team_name": "EF Education - EasyPost",
+            "bike": "Cannondale",
+            "groupset": "Shimano",
+            "wheels": "Vision",
+            "wins": 3
+        },
+        {
+            "team_name": "Cofidis",
+            "bike": "De Rosa",
+            "groupset": "Campagnolo",
+            "wheels": "Corima",
+            "wins": 2
+        },
+        {
+            "team_name": "Lotto Soudal",
+            "bike": "Ridley",
+            "groupset": "Shimano",
+            "wheels": "DT Swiss ",
+            "wins": 2
+        },
+        {
+            "team_name": "Movistar Team",
+            "bike": "Canyon",
+            "groupset": "SRAM",
+            "wheels": "Zipp",
+            "wins": 1
+        },
+        {
+            "team_name": "Astana Qazaqstan Team",
+            "bike": "Wilier Triestina",
+            "groupset": "Shimano",
+            "wheels": "Corima",
+            "wins": 0
+        },
+        {
+            "team_name": "Jumbo-Visma",
+            "bike": "Cerv\u00e9lo",
+            "groupset": "SRAM",
+            "wheels": "Reserve Wheels",
+            "wins": 38
+        },
+        {
+            "team_name": "UAE Team Emirates",
+            "bike": "Colnago",
+            "groupset": "Shimano",
+            "wheels": "ENVE",
+            "wins": 28
+        },
+        {
+            "team_name": "Soudal Quick-Step",
+            "bike": "Specialized",
+            "groupset": "Shimano",
+            "wheels": "Roval",
+            "wins": 23
+        },
+        {
+            "team_name": "Alpecin - Deceuninck",
+            "bike": "Canyon",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 17
+        },
+        {
+            "team_name": "Bahrain - Victorious",
+            "bike": "Merida",
+            "groupset": "Shimano",
+            "wheels": "Vision",
+            "wins": 12
+        },
+        {
+            "team_name": "INEOS Grenadiers",
+            "bike": "Pinarello",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 9
+        },
+        {
+            "team_name": "Bora - Hansgrohe",
+            "bike": "Specialized",
+            "groupset": "Shimano",
+            "wheels": "Roval",
+            "wins": 7
+        },
+        {
+            "team_name": "Cofidis",
+            "bike": "LOOK",
+            "groupset": "Shimano",
+            "wheels": "Corima",
+            "wins": 4
+        },
+        {
+            "team_name": "EF Education - EasyPost",
+            "bike": "Cannondale",
+            "groupset": "Shimano",
+            "wheels": "Vision",
+            "wins": 4
+        },
+        {
+            "team_name": "Team Jayco AlUla",
+            "bike": "Giant",
+            "groupset": "Shimano",
+            "wheels": "Cadex",
+            "wins": 4
+        },
+        {
+            "team_name": "Intermarch\u00e9 - Circus - Wanty",
+            "bike": "Cube",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 4
+        },
+        {
+            "team_name": "AG2R Citro\u00ebn Team",
+            "bike": "BMC",
+            "groupset": "Campagnolo",
+            "wheels": "Campagnolo",
+            "wins": 3
+        },
+        {
+            "team_name": "Movistar Team",
+            "bike": "Canyon",
+            "groupset": "SRAM",
+            "wheels": "Zipp",
+            "wins": 3
+        },
+        {
+            "team_name": "Groupama - FDJ",
+            "bike": "Lapierre",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 2
+        },
+        {
+            "team_name": "Astana Qazaqstan Team",
+            "bike": "Wilier Triestina",
+            "groupset": "Shimano",
+            "wheels": "Corima",
+            "wins": 1
+        },
+        {
+            "team_name": "Team Ark\u00e9a Samsic",
+            "bike": "Bianchi",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 0
+        },
+        {
+            "team_name": "UAE Team Emirates",
+            "bike": "Colnago",
+            "groupset": "Shimano",
+            "wheels": "ENVE",
+            "wins": 41
+        },
+        {
+            "team_name": "Team Visma | Lease a Bike",
+            "bike": "Cerv\u00e9lo",
+            "groupset": "SRAM",
+            "wheels": "Reserve Wheels",
+            "wins": 18
+        },
+        {
+            "team_name": "Alpecin - Deceuninck",
+            "bike": "Canyon",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 15
+        },
+        {
+            "team_name": "Lidl - Trek",
+            "bike": "Trek",
+            "groupset": "SRAM",
+            "wheels": "Bontrager",
+            "wins": 15
+        },
+        {
+            "team_name": "Soudal Quick-Step",
+            "bike": "Specialized",
+            "groupset": "Shimano",
+            "wheels": "Roval",
+            "wins": 13
+        },
+        {
+            "team_name": "Decathlon AG2R La Mondiale Team",
+            "bike": "Van Rysel",
+            "groupset": "Shimano",
+            "wheels": "Swiss Side",
+            "wins": 7
+        },
+        {
+            "team_name": "INEOS Grenadiers",
+            "bike": "Pinarello",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 6
+        },
+        {
+            "team_name": "Team Jayco AlUla",
+            "bike": "Giant",
+            "groupset": "Shimano",
+            "wheels": "Cadex",
+            "wins": 4
+        },
+        {
+            "team_name": "Intermarch\u00e9 - Wanty",
+            "bike": "Cube",
+            "groupset": "Shimano",
+            "wheels": "Newmen",
+            "wins": 4
+        },
+        {
+            "team_name": "EF Education - EasyPost",
+            "bike": "Cannondale",
+            "groupset": "Shimano",
+            "wheels": "Vision",
+            "wins": 4
+        },
+        {
+            "team_name": "Bahrain - Victorious",
+            "bike": "Merida",
+            "groupset": "Shimano",
+            "wheels": "Vision",
+            "wins": 4
+        },
+        {
+            "team_name": "Groupama - FDJ",
+            "bike": "Wilier Triestina",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 3
+        },
+        {
+            "team_name": "Team dsm-firmenich PostNL",
+            "bike": "SCOTT",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 3
+        },
+        {
+            "team_name": "Cofidis",
+            "bike": "LOOK",
+            "groupset": "Shimano",
+            "wheels": "Corima",
+            "wins": 2
+        },
+        {
+            "team_name": "Ark\u00e9a - B&B Hotels",
+            "bike": "Bianchi",
+            "groupset": "Shimano",
+            "wheels": "Vision",
+            "wins": 1
+        },
+        {
+            "team_name": "Astana Qazaqstan Team",
+            "bike": "Wilier Triestina",
+            "groupset": "Shimano",
+            "wheels": "Vision",
+            "wins": 1
+        },
+        {
+            "team_name": "Movistar Team",
+            "bike": "Canyon",
+            "groupset": "SRAM",
+            "wheels": "Zipp",
+            "wins": 1
+        },
+        {
+            "team_name": "UAE Team Emirates - XRG",
+            "bike": "Colnago",
+            "groupset": "Shimano",
+            "wheels": "ENVE",
+            "wins": 12
+        },
+        {
+            "team_name": "Lidl - Trek",
+            "bike": "Trek",
+            "groupset": "SRAM",
+            "wheels": "Bontrager",
+            "wins": 7
+        },
+        {
+            "team_name": "Red Bull - BORA - hansgrohe",
+            "bike": "Specialized",
+            "groupset": "SRAM",
+            "wheels": "Roval",
+            "wins": 6
+        },
+        {
+            "team_name": "Team Visma | Lease a Bike",
+            "bike": "Cerv\u00e9lo",
+            "groupset": "SRAM",
+            "wheels": "Reserve Wheels",
+            "wins": 5
+        },
+        {
+            "team_name": "Soudal Quick-Step",
+            "bike": "Specialized",
+            "groupset": "Shimano",
+            "wheels": "Roval",
+            "wins": 5
+        },
+        {
+            "team_name": "INEOS Grenadiers",
+            "bike": "Pinarello",
+            "groupset": "Shimano",
+            "wheels": "Princeton Carbonworks",
+            "wins": 3
+        },
+        {
+            "team_name": "Alpecin - Deceuninck",
+            "bike": "Canyon",
+            "groupset": "Shimano",
+            "wheels": "Shimano",
+            "wins": 2
+        },
+        {
+            "team_name": "EF Education - EasyPost",
+            "bike": "Cannondale",
+            "groupset": "Shimano",
+            "wheels": "Vision",
+            "wins": 1
+        },
+        {
+            "team_name": "Team Jayco AlUla",
+            "bike": "Giant",
+            "groupset": "Shimano",
+            "wheels": "Cadex",
+            "wins": 1
+        },
+        {
+            "team_name": "Decathlon AG2R La Mondiale Team",
+            "bike": "Van Rysel",
+            "groupset": "Shimano",
+            "wheels": "Swiss Side",
+            "wins": 1
+        },
+        {
+            "team_name": "Cofidis",
+            "bike": "LOOK",
+            "groupset": "Campagnolo",
+            "wheels": "Campagnolo",
+            "wins": 1
+        },
+        {
+            "team_name": "Bahrain - Victorious",
+            "bike": "Merida",
+            "groupset": "Shimano",
+            "wheels": "Vision",
+            "wins": 1
+        },
+        {
+            "team_name": "Movistar Team",
+            "bike": "Canyon",
+            "groupset": "SRAM",
+            "wheels": "Zipp",
+            "wins": 1
+        },
+        {
+            "team_name": "XDS Astana Team",
+            "bike": "XDS",
+            "groupset": "Shimano",
+            "wheels": "Vision",
+            "wins": 0
+        },
+        {
+            "team_name": "Team Picnic PostNL",
+            "bike": "Lapierre",
+            "groupset": "Shimano",
+            "wheels": "Ursus",
+            "wins": 0
+        },
+        {
+            "team_name": "Groupama - FDJ",
+            "bike": "Wilier Triestina",
+            "groupset": "Shimano",
+            "wheels": "Miche",
+            "wins": 0
+        },
+        {
+            "team_name": "Intermarch\u00e9 - Wanty",
+            "bike": "Cube",
+            "groupset": "Shimano",
+            "wheels": "Newmen",
+            "wins": 0
+        },
+        {
+            "team_name": "Ark\u00e9a - B&B Hotels",
+            "bike": "Bianchi",
+            "groupset": "Shimano",
+            "wheels": "Vision",
+            "wins": 0
+        }
+    ],
+    "teamsDiversity": [
+        {
+            "team_name": "AG2R Prevoyance",
+            "wins": 2,
+            "nationalities": 5,
+            "year": 2000
+        },
+        {
+            "team_name": "Banesto",
+            "wins": 6,
+            "nationalities": 6,
+            "year": 2000
+        },
+        {
+            "team_name": "Cofidis",
+            "wins": 1,
+            "nationalities": 8,
+            "year": 2000
+        },
+        {
+            "team_name": "Farm Frites",
+            "wins": 2,
+            "nationalities": 7,
+            "year": 2000
+        },
+        {
+            "team_name": "Fassa Bortolo",
+            "wins": 8,
+            "nationalities": 5,
+            "year": 2000
+        },
+        {
+            "team_name": "Festina - Lotus",
+            "wins": 2,
+            "nationalities": 7,
+            "year": 2000
+        },
+        {
+            "team_name": "Kelme - Costa Blanca",
+            "wins": 7,
+            "nationalities": 2,
+            "year": 2000
+        },
+        {
+            "team_name": "La Fran\u00e7aise des Jeux",
+            "wins": 2,
+            "nationalities": 7,
+            "year": 2000
+        },
+        {
+            "team_name": "Lampre - Daikin",
+            "wins": 12,
+            "nationalities": 9,
+            "year": 2000
+        },
+        {
+            "team_name": "Liquigas - Pata",
+            "wins": 2,
+            "nationalities": 4,
+            "year": 2000
+        },
+        {
+            "team_name": "Lotto - Adecco",
+            "wins": 1,
+            "nationalities": 2,
+            "year": 2000
+        },
+        {
+            "team_name": "Mapei - Quickstep",
+            "wins": 20,
+            "nationalities": 10,
+            "year": 2000
+        },
+        {
+            "team_name": "MemoryCard - Jack & Jones",
+            "wins": 1,
+            "nationalities": 6,
+            "year": 2000
+        },
+        {
+            "team_name": "Mercatone Uno - Albacom",
+            "wins": 5,
+            "nationalities": 3,
+            "year": 2000
+        },
+        {
+            "team_name": "O.N.C.E. - Deutsche Bank",
+            "wins": 10,
+            "nationalities": 3,
+            "year": 2000
+        },
+        {
+            "team_name": "Polti",
+            "wins": 5,
+            "nationalities": 4,
+            "year": 2000
+        },
+        {
+            "team_name": "Rabobank ProTeam",
+            "wins": 6,
+            "nationalities": 6,
+            "year": 2000
+        },
+        {
+            "team_name": "Saeco",
+            "wins": 10,
+            "nationalities": 9,
+            "year": 2000
+        },
+        {
+            "team_name": "Team Telekom",
+            "wins": 14,
+            "nationalities": 6,
+            "year": 2000
+        },
+        {
+            "team_name": "US Postal Service",
+            "wins": 7,
+            "nationalities": 10,
+            "year": 2000
+        },
+        {
+            "team_name": "Vini Caldirola - Sidermec",
+            "wins": 3,
+            "nationalities": 5,
+            "year": 2000
+        },
+        {
+            "team_name": "Vitalicio Seguros - Grupo Generali",
+            "wins": 5,
+            "nationalities": 4,
+            "year": 2000
+        },
+        {
+            "team_name": "Cofidis",
+            "wins": 5,
+            "nationalities": 10,
+            "year": 2001
+        },
+        {
+            "team_name": "Cr\u00e9dit Agricole",
+            "wins": 4,
+            "nationalities": 7,
+            "year": 2001
+        },
+        {
+            "team_name": "CSC ProTeam - Tiscali",
+            "wins": 3,
+            "nationalities": 7,
+            "year": 2001
+        },
+        {
+            "team_name": "Domo - Farm Frites",
+            "wins": 7,
+            "nationalities": 11,
+            "year": 2001
+        },
+        {
+            "team_name": "Euskaltel - Euskadi",
+            "wins": 4,
+            "nationalities": 2,
+            "year": 2001
+        },
+        {
+            "team_name": "Fassa Bortolo",
+            "wins": 11,
+            "nationalities": 6,
+            "year": 2001
+        },
+        {
+            "team_name": "Festina",
+            "wins": 4,
+            "nationalities": 6,
+            "year": 2001
+        },
+        {
+            "team_name": "iBanesto.com",
+            "wins": 6,
+            "nationalities": 5,
+            "year": 2001
+        },
+        {
+            "team_name": "Kelme - Costa Blanca",
+            "wins": 3,
+            "nationalities": 3,
+            "year": 2001
+        },
+        {
+            "team_name": "Lampre - Daikin",
+            "wins": 9,
+            "nationalities": 10,
+            "year": 2001
+        },
+        {
+            "team_name": "Linda McCartney - Jacob's Creek - Jaguar",
+            "wins": 0,
+            "nationalities": 9,
+            "year": 2001
+        },
+        {
+            "team_name": "Liquigas - Pata",
+            "wins": 6,
+            "nationalities": 3,
+            "year": 2001
+        },
+        {
+            "team_name": "Lotto - Adecco",
+            "wins": 6,
+            "nationalities": 4,
+            "year": 2001
+        },
+        {
+            "team_name": "Mapei - Quickstep",
+            "wins": 5,
+            "nationalities": 11,
+            "year": 2001
+        },
+        {
+            "team_name": "Mercatone Uno - Stream TV",
+            "wins": 1,
+            "nationalities": 3,
+            "year": 2001
+        },
+        {
+            "team_name": "Mercury - Viatel",
+            "wins": 4,
+            "nationalities": 12,
+            "year": 2001
+        },
+        {
+            "team_name": "O.N.C.E. - Eroski",
+            "wins": 5,
+            "nationalities": 5,
+            "year": 2001
+        },
+        {
+            "team_name": "Rabobank ProTeam",
+            "wins": 6,
+            "nationalities": 5,
+            "year": 2001
+        },
+        {
+            "team_name": "Saeco",
+            "wins": 8,
+            "nationalities": 9,
+            "year": 2001
+        },
+        {
+            "team_name": "Tacconi Sport - Vini Caldirola",
+            "wins": 3,
+            "nationalities": 8,
+            "year": 2001
+        },
+        {
+            "team_name": "Team Coast",
+            "wins": 1,
+            "nationalities": 7,
+            "year": 2001
+        },
+        {
+            "team_name": "Team Telekom",
+            "wins": 14,
+            "nationalities": 6,
+            "year": 2001
+        },
+        {
+            "team_name": "US Postal Service",
+            "wins": 9,
+            "nationalities": 11,
+            "year": 2001
+        },
+        {
+            "team_name": "Acqua & Sapone",
+            "wins": 16,
+            "nationalities": 6,
+            "year": 2002
+        },
+        {
+            "team_name": "AG2R Pr\u00e9voyance",
+            "wins": 1,
+            "nationalities": 7,
+            "year": 2002
+        },
+        {
+            "team_name": "Alessio",
+            "wins": 4,
+            "nationalities": 7,
+            "year": 2002
+        },
+        {
+            "team_name": "BigMat - Auber 93",
+            "wins": 1,
+            "nationalities": 5,
+            "year": 2002
+        },
+        {
+            "team_name": "Bonjour",
+            "wins": 0,
+            "nationalities": 1,
+            "year": 2002
+        },
+        {
+            "team_name": "Cage Maglierie - Olmo ",
+            "wins": 0,
+            "nationalities": 4,
+            "year": 2002
+        },
+        {
+            "team_name": "Cofidis",
+            "wins": 3,
+            "nationalities": 10,
+            "year": 2002
+        },
+        {
+            "team_name": "Cr\u00e9dit Agricole",
+            "wins": 1,
+            "nationalities": 6,
+            "year": 2002
+        },
+        {
+            "team_name": "CSC ProTeam - Tiscali",
+            "wins": 4,
+            "nationalities": 11,
+            "year": 2002
+        },
+        {
+            "team_name": "Domo - Farm Frites",
+            "wins": 4,
+            "nationalities": 9,
+            "year": 2002
+        },
+        {
+            "team_name": "Euskaltel - Euskadi",
+            "wins": 2,
+            "nationalities": 2,
+            "year": 2002
+        },
+        {
+            "team_name": "Fassa Bortolo",
+            "wins": 6,
+            "nationalities": 6,
+            "year": 2002
+        },
+        {
+            "team_name": "Gerolsteiner",
+            "wins": 1,
+            "nationalities": 6,
+            "year": 2002
+        },
+        {
+            "team_name": "iBanesto.com",
+            "wins": 7,
+            "nationalities": 4,
+            "year": 2002
+        },
+        {
+            "team_name": "Index - Alexia Alluminio",
+            "wins": 1,
+            "nationalities": 3,
+            "year": 2002
+        },
+        {
+            "team_name": "Jean Delatour",
+            "wins": 2,
+            "nationalities": 4,
+            "year": 2002
+        },
+        {
+            "team_name": "Kelme - Costa Blanca",
+            "wins": 12,
+            "nationalities": 2,
+            "year": 2002
+        },
+        {
+            "team_name": "La Fran\u00e7aise des Jeux",
+            "wins": 4,
+            "nationalities": 4,
+            "year": 2002
+        },
+        {
+            "team_name": "Lampre - Daikin",
+            "wins": 3,
+            "nationalities": 11,
+            "year": 2002
+        },
+        {
+            "team_name": "Lotto - Adecco",
+            "wins": 9,
+            "nationalities": 5,
+            "year": 2002
+        },
+        {
+            "team_name": "Mapei - Quickstep",
+            "wins": 9,
+            "nationalities": 10,
+            "year": 2002
+        },
+        {
+            "team_name": "Mercatone Uno",
+            "wins": 0,
+            "nationalities": 3,
+            "year": 2002
+        },
+        {
+            "team_name": "Milaneza - Mss",
+            "wins": 0,
+            "nationalities": 4,
+            "year": 2002
+        },
+        {
+            "team_name": "O.N.C.E. - Eroski",
+            "wins": 2,
+            "nationalities": 6,
+            "year": 2002
+        },
+        {
+            "team_name": "Phonak Hearing Systems",
+            "wins": 2,
+            "nationalities": 8,
+            "year": 2002
+        },
+        {
+            "team_name": "Rabobank ProTeam",
+            "wins": 5,
+            "nationalities": 6,
+            "year": 2002
+        },
+        {
+            "team_name": "Saeco - Longoni Sport",
+            "wins": 4,
+            "nationalities": 9,
+            "year": 2002
+        },
+        {
+            "team_name": "Tacconi Sport",
+            "wins": 5,
+            "nationalities": 6,
+            "year": 2002
+        },
+        {
+            "team_name": "Team Coast",
+            "wins": 5,
+            "nationalities": 7,
+            "year": 2002
+        },
+        {
+            "team_name": "Team Telekom",
+            "wins": 8,
+            "nationalities": 5,
+            "year": 2002
+        },
+        {
+            "team_name": "US Postal Service",
+            "wins": 11,
+            "nationalities": 11,
+            "year": 2002
+        },
+        {
+            "team_name": "AG2R Pr\u00e9voyance",
+            "wins": 1,
+            "nationalities": 5,
+            "year": 2003
+        },
+        {
+            "team_name": "Alessio",
+            "wins": 3,
+            "nationalities": 4,
+            "year": 2003
+        },
+        {
+            "team_name": "Brioches La Boulang\u00e8re",
+            "wins": 0,
+            "nationalities": 1,
+            "year": 2003
+        },
+        {
+            "team_name": "CCC - Polsat ",
+            "wins": 0,
+            "nationalities": 6,
+            "year": 2003
+        },
+        {
+            "team_name": "Cofidis",
+            "wins": 5,
+            "nationalities": 11,
+            "year": 2003
+        },
+        {
+            "team_name": "Cr\u00e9dit Agricole",
+            "wins": 1,
+            "nationalities": 7,
+            "year": 2003
+        },
+        {
+            "team_name": "Domina Vacanze - Elitron",
+            "wins": 6,
+            "nationalities": 7,
+            "year": 2003
+        },
+        {
+            "team_name": "Euskaltel - Euskadi",
+            "wins": 8,
+            "nationalities": 2,
+            "year": 2003
+        },
+        {
+            "team_name": "Fassa Bortolo",
+            "wins": 25,
+            "nationalities": 9,
+            "year": 2003
+        },
+        {
+            "team_name": "Fdjeux.com",
+            "wins": 5,
+            "nationalities": 5,
+            "year": 2003
+        },
+        {
+            "team_name": "Gerolsteiner",
+            "wins": 1,
+            "nationalities": 4,
+            "year": 2003
+        },
+        {
+            "team_name": "iBanesto.com",
+            "wins": 3,
+            "nationalities": 3,
+            "year": 2003
+        },
+        {
+            "team_name": "Jean Delatour",
+            "wins": 3,
+            "nationalities": 3,
+            "year": 2003
+        },
+        {
+            "team_name": "Kelme - Costa Blanca",
+            "wins": 4,
+            "nationalities": 2,
+            "year": 2003
+        },
+        {
+            "team_name": "Lampre",
+            "wins": 4,
+            "nationalities": 8,
+            "year": 2003
+        },
+        {
+            "team_name": "Landbouwkrediet - Colnago",
+            "wins": 0,
+            "nationalities": 5,
+            "year": 2003
+        },
+        {
+            "team_name": "Lotto - Domo",
+            "wins": 5,
+            "nationalities": 3,
+            "year": 2003
+        },
+        {
+            "team_name": "Milaneza - Mss",
+            "wins": 2,
+            "nationalities": 4,
+            "year": 2003
+        },
+        {
+            "team_name": "O.N.C.E. - Eroski",
+            "wins": 8,
+            "nationalities": 6,
+            "year": 2003
+        },
+        {
+            "team_name": "Palmans - Collstrop",
+            "wins": 0,
+            "nationalities": 4,
+            "year": 2003
+        },
+        {
+            "team_name": "Phonak Hearing Systems",
+            "wins": 1,
+            "nationalities": 6,
+            "year": 2003
+        },
+        {
+            "team_name": "Quickstep - Davitamon",
+            "wins": 5,
+            "nationalities": 11,
+            "year": 2003
+        },
+        {
+            "team_name": "Rabobank ProTeam",
+            "wins": 4,
+            "nationalities": 9,
+            "year": 2003
+        },
+        {
+            "team_name": "Saeco",
+            "wins": 7,
+            "nationalities": 7,
+            "year": 2003
+        },
+        {
+            "team_name": "Team Bianchi",
+            "wins": 1,
+            "nationalities": 7,
+            "year": 2003
+        },
+        {
+            "team_name": "Team CSC",
+            "wins": 6,
+            "nationalities": 11,
+            "year": 2003
+        },
+        {
+            "team_name": "Team Fakta",
+            "wins": 1,
+            "nationalities": 6,
+            "year": 2003
+        },
+        {
+            "team_name": "Team Telekom",
+            "wins": 12,
+            "nationalities": 8,
+            "year": 2003
+        },
+        {
+            "team_name": "US Postal Service p/b Berry Floor",
+            "wins": 7,
+            "nationalities": 10,
+            "year": 2003
+        },
+        {
+            "team_name": "Vini Caldirola - So.di",
+            "wins": 2,
+            "nationalities": 7,
+            "year": 2003
+        },
+        {
+            "team_name": "AG2R Pr\u00e9voyance",
+            "wins": 3,
+            "nationalities": 6,
+            "year": 2004
+        },
+        {
+            "team_name": "Alessio - Bianchi",
+            "wins": 1,
+            "nationalities": 7,
+            "year": 2004
+        },
+        {
+            "team_name": "Bankgiroloterij",
+            "wins": 0,
+            "nationalities": 2,
+            "year": 2004
+        },
+        {
+            "team_name": "Brioches La Boulang\u00e8re",
+            "wins": 1,
+            "nationalities": 2,
+            "year": 2004
+        },
+        {
+            "team_name": "Chocolade Jacques - Wincor Nixdorf",
+            "wins": 0,
+            "nationalities": 8,
+            "year": 2004
+        },
+        {
+            "team_name": "Cofidis, le Cr\u00e9dit par T\u00e9l\u00e9phone",
+            "wins": 5,
+            "nationalities": 10,
+            "year": 2004
+        },
+        {
+            "team_name": "Cr\u00e9dit Agricole",
+            "wins": 2,
+            "nationalities": 6,
+            "year": 2004
+        },
+        {
+            "team_name": "De Nardi",
+            "wins": 1,
+            "nationalities": 6,
+            "year": 2004
+        },
+        {
+            "team_name": "Euskaltel - Euskadi",
+            "wins": 3,
+            "nationalities": 2,
+            "year": 2004
+        },
+        {
+            "team_name": "Fassa Bortolo",
+            "wins": 22,
+            "nationalities": 8,
+            "year": 2004
+        },
+        {
+            "team_name": "Fdjeux.com",
+            "wins": 2,
+            "nationalities": 5,
+            "year": 2004
+        },
+        {
+            "team_name": "Gerolsteiner",
+            "wins": 6,
+            "nationalities": 4,
+            "year": 2004
+        },
+        {
+            "team_name": "Illes Balears - Banesto",
+            "wins": 6,
+            "nationalities": 3,
+            "year": 2004
+        },
+        {
+            "team_name": "Lampre",
+            "wins": 1,
+            "nationalities": 7,
+            "year": 2004
+        },
+        {
+            "team_name": "Landbouwkrediet - Colnago",
+            "wins": 0,
+            "nationalities": 7,
+            "year": 2004
+        },
+        {
+            "team_name": "Liberty Seguros",
+            "wins": 2,
+            "nationalities": 6,
+            "year": 2004
+        },
+        {
+            "team_name": "Lotto - Domo",
+            "wins": 6,
+            "nationalities": 4,
+            "year": 2004
+        },
+        {
+            "team_name": "Milaneza Maia",
+            "wins": 0,
+            "nationalities": 3,
+            "year": 2004
+        },
+        {
+            "team_name": "MrBookmaker.com - Palmans",
+            "wins": 0,
+            "nationalities": 6,
+            "year": 2004
+        },
+        {
+            "team_name": "Phonak Hearing Systems",
+            "wins": 10,
+            "nationalities": 8,
+            "year": 2004
+        },
+        {
+            "team_name": "Quickstep - Davitamon",
+            "wins": 10,
+            "nationalities": 9,
+            "year": 2004
+        },
+        {
+            "team_name": "Rabobank ProTeam",
+            "wins": 7,
+            "nationalities": 8,
+            "year": 2004
+        },
+        {
+            "team_name": "RAGT Semence - MG Rover",
+            "wins": 0,
+            "nationalities": 5,
+            "year": 2004
+        },
+        {
+            "team_name": "Relax - Bodysol",
+            "wins": 0,
+            "nationalities": 3,
+            "year": 2004
+        },
+        {
+            "team_name": "Saeco",
+            "wins": 7,
+            "nationalities": 9,
+            "year": 2004
+        },
+        {
+            "team_name": "Saunier Duval - Prodir",
+            "wins": 8,
+            "nationalities": 5,
+            "year": 2004
+        },
+        {
+            "team_name": "T-Mobile Team",
+            "wins": 7,
+            "nationalities": 10,
+            "year": 2004
+        },
+        {
+            "team_name": "Team CSC",
+            "wins": 5,
+            "nationalities": 11,
+            "year": 2004
+        },
+        {
+            "team_name": "US Postal Service p/b Berry Floor",
+            "wins": 10,
+            "nationalities": 10,
+            "year": 2004
+        },
+        {
+            "team_name": "Vini Caldirola - Nobili Rubinetterie",
+            "wins": 3,
+            "nationalities": 5,
+            "year": 2004
+        },
+        {
+            "team_name": "Bouygues Telecom",
+            "wins": 1,
+            "nationalities": 2,
+            "year": 2005
+        },
+        {
+            "team_name": "Cofidis, le Cr\u00e9dit par T\u00e9l\u00e9phone",
+            "wins": 3,
+            "nationalities": 9,
+            "year": 2005
+        },
+        {
+            "team_name": "Cr\u00e9dit Agricole",
+            "wins": 5,
+            "nationalities": 9,
+            "year": 2005
+        },
+        {
+            "team_name": "CSC ProTeam",
+            "wins": 11,
+            "nationalities": 11,
+            "year": 2005
+        },
+        {
+            "team_name": "Davitamon - Lotto",
+            "wins": 10,
+            "nationalities": 5,
+            "year": 2005
+        },
+        {
+            "team_name": "Discovery Channel Pro Cycling Team ",
+            "wins": 0,
+            "nationalities": 15,
+            "year": 2005
+        },
+        {
+            "team_name": "Domina Vacanze",
+            "wins": 2,
+            "nationalities": 8,
+            "year": 2005
+        },
+        {
+            "team_name": "Euskaltel - Euskadi",
+            "wins": 5,
+            "nationalities": 2,
+            "year": 2005
+        },
+        {
+            "team_name": "Fassa Bortolo",
+            "wins": 19,
+            "nationalities": 9,
+            "year": 2005
+        },
+        {
+            "team_name": "Fran\u00e7aise des Jeux",
+            "wins": 3,
+            "nationalities": 7,
+            "year": 2005
+        },
+        {
+            "team_name": "Gerolsteiner",
+            "wins": 5,
+            "nationalities": 7,
+            "year": 2005
+        },
+        {
+            "team_name": "Illes Balears - Caisse d'Epargne",
+            "wins": 7,
+            "nationalities": 3,
+            "year": 2005
+        },
+        {
+            "team_name": "Lampre-Caffita",
+            "wins": 8,
+            "nationalities": 9,
+            "year": 2005
+        },
+        {
+            "team_name": "Liberty Seguros - W\u00fcrth Team",
+            "wins": 8,
+            "nationalities": 8,
+            "year": 2005
+        },
+        {
+            "team_name": "Liquigas",
+            "wins": 8,
+            "nationalities": 8,
+            "year": 2005
+        },
+        {
+            "team_name": "Phonak Hearing Systems",
+            "wins": 7,
+            "nationalities": 10,
+            "year": 2005
+        },
+        {
+            "team_name": "Quickstep - Innergetic",
+            "wins": 15,
+            "nationalities": 8,
+            "year": 2005
+        },
+        {
+            "team_name": "Rabobank ProTeam",
+            "wins": 12,
+            "nationalities": 8,
+            "year": 2005
+        },
+        {
+            "team_name": "Saunier Duval - Prodir",
+            "wins": 4,
+            "nationalities": 6,
+            "year": 2005
+        },
+        {
+            "team_name": "T-Mobile Team",
+            "wins": 8,
+            "nationalities": 9,
+            "year": 2005
+        },
+        {
+            "team_name": "AG2R Pr\u00e9voyance",
+            "wins": 4,
+            "nationalities": 8,
+            "year": 2006
+        },
+        {
+            "team_name": "Astana",
+            "wins": 11,
+            "nationalities": 8,
+            "year": 2006
+        },
+        {
+            "team_name": "Bouygues Telecom",
+            "wins": 3,
+            "nationalities": 3,
+            "year": 2006
+        },
+        {
+            "team_name": "Caisse d'Epargne - Illes Balears",
+            "wins": 7,
+            "nationalities": 4,
+            "year": 2006
+        },
+        {
+            "team_name": "Cofidis, le Cr\u00e9dit par T\u00e9l\u00e9phone",
+            "wins": 4,
+            "nationalities": 10,
+            "year": 2006
+        },
+        {
+            "team_name": "Cr\u00e9dit Agricole",
+            "wins": 7,
+            "nationalities": 9,
+            "year": 2006
+        },
+        {
+            "team_name": "CSC ProTeam",
+            "wins": 20,
+            "nationalities": 13,
+            "year": 2006
+        },
+        {
+            "team_name": "Davitamon - Lotto",
+            "wins": 10,
+            "nationalities": 5,
+            "year": 2006
+        },
+        {
+            "team_name": "Discovery Channel Pro Cycling Team ",
+            "wins": 0,
+            "nationalities": 15,
+            "year": 2006
+        },
+        {
+            "team_name": "Euskaltel - Euskadi",
+            "wins": 6,
+            "nationalities": 2,
+            "year": 2006
+        },
+        {
+            "team_name": "Fran\u00e7aise des Jeux",
+            "wins": 3,
+            "nationalities": 8,
+            "year": 2006
+        },
+        {
+            "team_name": "Gerolsteiner",
+            "wins": 14,
+            "nationalities": 7,
+            "year": 2006
+        },
+        {
+            "team_name": "Lampre-Fondital",
+            "wins": 4,
+            "nationalities": 10,
+            "year": 2006
+        },
+        {
+            "team_name": "Liquigas",
+            "wins": 6,
+            "nationalities": 8,
+            "year": 2006
+        },
+        {
+            "team_name": "Phonak Hearing Systems",
+            "wins": 5,
+            "nationalities": 12,
+            "year": 2006
+        },
+        {
+            "team_name": "Quickstep - Innergetic",
+            "wins": 17,
+            "nationalities": 9,
+            "year": 2006
+        },
+        {
+            "team_name": "Rabobank ProTeam",
+            "wins": 12,
+            "nationalities": 9,
+            "year": 2006
+        },
+        {
+            "team_name": "Saunier Duval - Prodir",
+            "wins": 8,
+            "nationalities": 9,
+            "year": 2006
+        },
+        {
+            "team_name": "T-Mobile Team",
+            "wins": 6,
+            "nationalities": 12,
+            "year": 2006
+        },
+        {
+            "team_name": "Team Milram",
+            "wins": 3,
+            "nationalities": 6,
+            "year": 2006
+        },
+        {
+            "team_name": "AG2R Pr\u00e9voyance",
+            "wins": 4,
+            "nationalities": 9,
+            "year": 2007
+        },
+        {
+            "team_name": "Astana",
+            "wins": 9,
+            "nationalities": 12,
+            "year": 2007
+        },
+        {
+            "team_name": "Bouygues Telecom",
+            "wins": 1,
+            "nationalities": 5,
+            "year": 2007
+        },
+        {
+            "team_name": "Caisse d'Epargne",
+            "wins": 8,
+            "nationalities": 4,
+            "year": 2007
+        },
+        {
+            "team_name": "Cofidis, le Cr\u00e9dit par T\u00e9l\u00e9phone",
+            "wins": 4,
+            "nationalities": 12,
+            "year": 2007
+        },
+        {
+            "team_name": "Cr\u00e9dit Agricole",
+            "wins": 1,
+            "nationalities": 9,
+            "year": 2007
+        },
+        {
+            "team_name": "CSC ProTeam",
+            "wins": 14,
+            "nationalities": 13,
+            "year": 2007
+        },
+        {
+            "team_name": "Discovery Channel Pro Cycling Team ",
+            "wins": 0,
+            "nationalities": 15,
+            "year": 2007
+        },
+        {
+            "team_name": "Euskaltel - Euskadi",
+            "wins": 7,
+            "nationalities": 2,
+            "year": 2007
+        },
+        {
+            "team_name": "Fran\u00e7aise des Jeux",
+            "wins": 1,
+            "nationalities": 7,
+            "year": 2007
+        },
+        {
+            "team_name": "Gerolsteiner",
+            "wins": 8,
+            "nationalities": 6,
+            "year": 2007
+        },
+        {
+            "team_name": "Lampre-Fondital",
+            "wins": 15,
+            "nationalities": 6,
+            "year": 2007
+        },
+        {
+            "team_name": "Liquigas",
+            "wins": 11,
+            "nationalities": 14,
+            "year": 2007
+        },
+        {
+            "team_name": "Predictor - Lotto",
+            "wins": 8,
+            "nationalities": 5,
+            "year": 2007
+        },
+        {
+            "team_name": "Quickstep - Innergetic",
+            "wins": 8,
+            "nationalities": 7,
+            "year": 2007
+        },
+        {
+            "team_name": "Rabobank ProTeam",
+            "wins": 13,
+            "nationalities": 7,
+            "year": 2007
+        },
+        {
+            "team_name": "Saunier Duval",
+            "wins": 12,
+            "nationalities": 9,
+            "year": 2007
+        },
+        {
+            "team_name": "T-Mobile Team",
+            "wins": 10,
+            "nationalities": 15,
+            "year": 2007
+        },
+        {
+            "team_name": "Team Milram",
+            "wins": 11,
+            "nationalities": 7,
+            "year": 2007
+        },
+        {
+            "team_name": "Unibet.com",
+            "wins": 1,
+            "nationalities": 14,
+            "year": 2007
+        },
+        {
+            "team_name": "AG2R La Mondiale",
+            "wins": 3,
+            "nationalities": 12,
+            "year": 2008
+        },
+        {
+            "team_name": "Astana",
+            "wins": 13,
+            "nationalities": 14,
+            "year": 2008
+        },
+        {
+            "team_name": "Bouygues Telecom",
+            "wins": 3,
+            "nationalities": 6,
+            "year": 2008
+        },
+        {
+            "team_name": "Caisse d'Epargne",
+            "wins": 14,
+            "nationalities": 5,
+            "year": 2008
+        },
+        {
+            "team_name": "Cofidis, le Cr\u00e9dit par T\u00e9l\u00e9phone",
+            "wins": 6,
+            "nationalities": 7,
+            "year": 2008
+        },
+        {
+            "team_name": "Cr\u00e9dit Agricole",
+            "wins": 9,
+            "nationalities": 10,
+            "year": 2008
+        },
+        {
+            "team_name": "CSC ProTeam",
+            "wins": 15,
+            "nationalities": 15,
+            "year": 2008
+        },
+        {
+            "team_name": "Euskaltel - Euskadi",
+            "wins": 1,
+            "nationalities": 1,
+            "year": 2008
+        },
+        {
+            "team_name": "Fran\u00e7aise des Jeux",
+            "wins": 1,
+            "nationalities": 6,
+            "year": 2008
+        },
+        {
+            "team_name": "Gerolsteiner",
+            "wins": 7,
+            "nationalities": 6,
+            "year": 2008
+        },
+        {
+            "team_name": "Lampre",
+            "wins": 5,
+            "nationalities": 8,
+            "year": 2008
+        },
+        {
+            "team_name": "Liquigas",
+            "wins": 14,
+            "nationalities": 13,
+            "year": 2008
+        },
+        {
+            "team_name": "Milram",
+            "wins": 2,
+            "nationalities": 7,
+            "year": 2008
+        },
+        {
+            "team_name": "Quickstep - Innergetic",
+            "wins": 14,
+            "nationalities": 8,
+            "year": 2008
+        },
+        {
+            "team_name": "Rabobank ProTeam",
+            "wins": 6,
+            "nationalities": 6,
+            "year": 2008
+        },
+        {
+            "team_name": "Scott - American Beef",
+            "wins": 7,
+            "nationalities": 6,
+            "year": 2008
+        },
+        {
+            "team_name": "Silence - Lotto",
+            "wins": 7,
+            "nationalities": 5,
+            "year": 2008
+        },
+        {
+            "team_name": "Team Columbia",
+            "wins": 28,
+            "nationalities": 16,
+            "year": 2008
+        },
+        {
+            "team_name": "AG2R La Mondiale",
+            "wins": 0,
+            "nationalities": 12,
+            "year": 2009
+        },
+        {
+            "team_name": "Astana",
+            "wins": 10,
+            "nationalities": 9,
+            "year": 2009
+        },
+        {
+            "team_name": "Bbox Bouygues Telecom",
+            "wins": 4,
+            "nationalities": 4,
+            "year": 2009
+        },
+        {
+            "team_name": "Caisse d'Epargne",
+            "wins": 9,
+            "nationalities": 6,
+            "year": 2009
+        },
+        {
+            "team_name": "Cofidis, le Cr\u00e9dit en Ligne",
+            "wins": 3,
+            "nationalities": 5,
+            "year": 2009
+        },
+        {
+            "team_name": "Euskaltel - Euskadi",
+            "wins": 1,
+            "nationalities": 1,
+            "year": 2009
+        },
+        {
+            "team_name": "Fran\u00e7aise des Jeux",
+            "wins": 2,
+            "nationalities": 6,
+            "year": 2009
+        },
+        {
+            "team_name": "Fuji-Servetto",
+            "wins": 2,
+            "nationalities": 7,
+            "year": 2009
+        },
+        {
+            "team_name": "Lampre - NGC",
+            "wins": 6,
+            "nationalities": 6,
+            "year": 2009
+        },
+        {
+            "team_name": "Liquigas",
+            "wins": 6,
+            "nationalities": 11,
+            "year": 2009
+        },
+        {
+            "team_name": "Milram",
+            "wins": 2,
+            "nationalities": 5,
+            "year": 2009
+        },
+        {
+            "team_name": "Quickstep - Innergetic",
+            "wins": 10,
+            "nationalities": 9,
+            "year": 2009
+        },
+        {
+            "team_name": "Rabobank ProTeam",
+            "wins": 9,
+            "nationalities": 7,
+            "year": 2009
+        },
+        {
+            "team_name": "Saxo Bank ",
+            "wins": 0,
+            "nationalities": 13,
+            "year": 2009
+        },
+        {
+            "team_name": "Silence - Lotto",
+            "wins": 3,
+            "nationalities": 7,
+            "year": 2009
+        },
+        {
+            "team_name": "Team Columbia - HTC",
+            "wins": 40,
+            "nationalities": 16,
+            "year": 2009
+        },
+        {
+            "team_name": "Team Garmin - Slipstream",
+            "wins": 9,
+            "nationalities": 8,
+            "year": 2009
+        },
+        {
+            "team_name": "Team Katusha ",
+            "wins": 0,
+            "nationalities": 8,
+            "year": 2009
+        },
+        {
+            "team_name": "AG2R La Mondiale",
+            "wins": 1,
+            "nationalities": 13,
+            "year": 2010
+        },
+        {
+            "team_name": "Astana",
+            "wins": 9,
+            "nationalities": 7,
+            "year": 2010
+        },
+        {
+            "team_name": "Caisse d'Epargne",
+            "wins": 9,
+            "nationalities": 7,
+            "year": 2010
+        },
+        {
+            "team_name": "Euskaltel - Euskadi",
+            "wins": 4,
+            "nationalities": 2,
+            "year": 2010
+        },
+        {
+            "team_name": "Footon-Servetto",
+            "wins": 1,
+            "nationalities": 10,
+            "year": 2010
+        },
+        {
+            "team_name": "Francaise des Jeux",
+            "wins": 3,
+            "nationalities": 7,
+            "year": 2010
+        },
+        {
+            "team_name": "Lampre - Farnese Vini",
+            "wins": 8,
+            "nationalities": 7,
+            "year": 2010
+        },
+        {
+            "team_name": "Liquigas - Doimo",
+            "wins": 10,
+            "nationalities": 10,
+            "year": 2010
+        },
+        {
+            "team_name": "Milram",
+            "wins": 2,
+            "nationalities": 5,
+            "year": 2010
+        },
+        {
+            "team_name": "Omega Pharma-Lotto ",
+            "wins": 0,
+            "nationalities": 8,
+            "year": 2010
+        },
+        {
+            "team_name": "Quickstep - Innergetic",
+            "wins": 7,
+            "nationalities": 8,
+            "year": 2010
+        },
+        {
+            "team_name": "Rabobank ProTeam",
+            "wins": 6,
+            "nationalities": 7,
+            "year": 2010
+        },
+        {
+            "team_name": "RadioShack",
+            "wins": 5,
+            "nationalities": 16,
+            "year": 2010
+        },
+        {
+            "team_name": "Saxo Bank ",
+            "wins": 0,
+            "nationalities": 9,
+            "year": 2010
+        },
+        {
+            "team_name": "Sky Procycling",
+            "wins": 6,
+            "nationalities": 12,
+            "year": 2010
+        },
+        {
+            "team_name": "Team Garmin - Transitions",
+            "wins": 9,
+            "nationalities": 11,
+            "year": 2010
+        },
+        {
+            "team_name": "Team HTC - Columbia ",
+            "wins": 0,
+            "nationalities": 15,
+            "year": 2010
+        },
+        {
+            "team_name": "Team Katusha ",
+            "wins": 0,
+            "nationalities": 9,
+            "year": 2010
+        },
+        {
+            "team_name": "AG2R La Mondiale",
+            "wins": 2,
+            "nationalities": 7,
+            "year": 2011
+        },
+        {
+            "team_name": "BMC Racing Team",
+            "wins": 6,
+            "nationalities": 9,
+            "year": 2011
+        },
+        {
+            "team_name": "Euskaltel - Euskadi",
+            "wins": 6,
+            "nationalities": 2,
+            "year": 2011
+        },
+        {
+            "team_name": "HTC - High Road",
+            "wins": 24,
+            "nationalities": 15,
+            "year": 2011
+        },
+        {
+            "team_name": "Lampre - ISD",
+            "wins": 9,
+            "nationalities": 9,
+            "year": 2011
+        },
+        {
+            "team_name": "Leopard Trek",
+            "wins": 7,
+            "nationalities": 11,
+            "year": 2011
+        },
+        {
+            "team_name": "Liquigas - Cannondale",
+            "wins": 10,
+            "nationalities": 7,
+            "year": 2011
+        },
+        {
+            "team_name": "Movistar Team",
+            "wins": 9,
+            "nationalities": 8,
+            "year": 2011
+        },
+        {
+            "team_name": "Omega Pharma-Lotto ",
+            "wins": 0,
+            "nationalities": 6,
+            "year": 2011
+        },
+        {
+            "team_name": "Pro Team Astana",
+            "wins": 4,
+            "nationalities": 14,
+            "year": 2011
+        },
+        {
+            "team_name": "Quickstep Cycling Team",
+            "wins": 1,
+            "nationalities": 7,
+            "year": 2011
+        },
+        {
+            "team_name": "Rabobank Cycling Team",
+            "wins": 6,
+            "nationalities": 6,
+            "year": 2011
+        },
+        {
+            "team_name": "RadioShack",
+            "wins": 5,
+            "nationalities": 17,
+            "year": 2011
+        },
+        {
+            "team_name": "Saxo Bank - Sungard",
+            "wins": 8,
+            "nationalities": 12,
+            "year": 2011
+        },
+        {
+            "team_name": "Sky Procycling",
+            "wins": 12,
+            "nationalities": 13,
+            "year": 2011
+        },
+        {
+            "team_name": "Team Garmin - Cerv\u00e9lo",
+            "wins": 14,
+            "nationalities": 13,
+            "year": 2011
+        },
+        {
+            "team_name": "Team Katusha ",
+            "wins": 0,
+            "nationalities": 6,
+            "year": 2011
+        },
+        {
+            "team_name": "Vacansoleil - DCM",
+            "wins": 3,
+            "nationalities": 10,
+            "year": 2011
+        },
+        {
+            "team_name": "AG2R La Mondiale",
+            "wins": 0,
+            "nationalities": 9,
+            "year": 2012
+        },
+        {
+            "team_name": "Astana Pro Team",
+            "wins": 9,
+            "nationalities": 11,
+            "year": 2012
+        },
+        {
+            "team_name": "BMC Racing Team",
+            "wins": 8,
+            "nationalities": 9,
+            "year": 2012
+        },
+        {
+            "team_name": "Euskaltel - Euskadi",
+            "wins": 5,
+            "nationalities": 2,
+            "year": 2012
+        },
+        {
+            "team_name": "FDJ - BigMat",
+            "wins": 4,
+            "nationalities": 7,
+            "year": 2012
+        },
+        {
+            "team_name": "Garmin Sharp",
+            "wins": 3,
+            "nationalities": 15,
+            "year": 2012
+        },
+        {
+            "team_name": "Lampre - ISD",
+            "wins": 0,
+            "nationalities": 7,
+            "year": 2012
+        },
+        {
+            "team_name": "Liquigas - Cannondale",
+            "wins": 14,
+            "nationalities": 8,
+            "year": 2012
+        },
+        {
+            "team_name": "Lotto Belisol Team",
+            "wins": 8,
+            "nationalities": 8,
+            "year": 2012
+        },
+        {
+            "team_name": "Movistar Team",
+            "wins": 12,
+            "nationalities": 8,
+            "year": 2012
+        },
+        {
+            "team_name": "Omega Pharma - Quick-Step",
+            "wins": 10,
+            "nationalities": 11,
+            "year": 2012
+        },
+        {
+            "team_name": "Orica GreenEDGE",
+            "wins": 15,
+            "nationalities": 10,
+            "year": 2012
+        },
+        {
+            "team_name": "Rabobank Cycling Team",
+            "wins": 7,
+            "nationalities": 6,
+            "year": 2012
+        },
+        {
+            "team_name": "RadioShack - Nissan",
+            "wins": 4,
+            "nationalities": 14,
+            "year": 2012
+        },
+        {
+            "team_name": "Sky Procycling",
+            "wins": 26,
+            "nationalities": 12,
+            "year": 2012
+        },
+        {
+            "team_name": "Team Katusha ",
+            "wins": 0,
+            "nationalities": 10,
+            "year": 2012
+        },
+        {
+            "team_name": "Team Saxo Bank - Tinkoff Bank",
+            "wins": 2,
+            "nationalities": 12,
+            "year": 2012
+        },
+        {
+            "team_name": "Vacansoleil - DCM",
+            "wins": 4,
+            "nationalities": 11,
+            "year": 2012
+        },
+        {
+            "team_name": "AG2R La Mondiale",
+            "wins": 2,
+            "nationalities": 10,
+            "year": 2013
+        },
+        {
+            "team_name": "Astana Pro Team",
+            "wins": 5,
+            "nationalities": 11,
+            "year": 2013
+        },
+        {
+            "team_name": "Belkin-Pro Cycling Team",
+            "wins": 6,
+            "nationalities": 6,
+            "year": 2013
+        },
+        {
+            "team_name": "BMC Racing Team",
+            "wins": 5,
+            "nationalities": 11,
+            "year": 2013
+        },
+        {
+            "team_name": "Cannondale Pro Cycling Team",
+            "wins": 10,
+            "nationalities": 13,
+            "year": 2013
+        },
+        {
+            "team_name": "Euskaltel - Euskadi",
+            "wins": 1,
+            "nationalities": 8,
+            "year": 2013
+        },
+        {
+            "team_name": "FDJ.fr ",
+            "wins": 0,
+            "nationalities": 5,
+            "year": 2013
+        },
+        {
+            "team_name": "Garmin Sharp",
+            "wins": 7,
+            "nationalities": 13,
+            "year": 2013
+        },
+        {
+            "team_name": "Lampre - Merida",
+            "wins": 2,
+            "nationalities": 9,
+            "year": 2013
+        },
+        {
+            "team_name": "Lotto Belisol Team",
+            "wins": 6,
+            "nationalities": 7,
+            "year": 2013
+        },
+        {
+            "team_name": "Movistar Team",
+            "wins": 15,
+            "nationalities": 8,
+            "year": 2013
+        },
+        {
+            "team_name": "Omega Pharma - Quick-Step",
+            "wins": 25,
+            "nationalities": 10,
+            "year": 2013
+        },
+        {
+            "team_name": "Orica GreenEDGE",
+            "wins": 12,
+            "nationalities": 11,
+            "year": 2013
+        },
+        {
+            "team_name": "RadioShack - Leopard",
+            "wins": 10,
+            "nationalities": 13,
+            "year": 2013
+        },
+        {
+            "team_name": "Sky Procycling",
+            "wins": 21,
+            "nationalities": 10,
+            "year": 2013
+        },
+        {
+            "team_name": "Team Argos - Shimano",
+            "wins": 11,
+            "nationalities": 12,
+            "year": 2013
+        },
+        {
+            "team_name": "Team Katusha ",
+            "wins": 0,
+            "nationalities": 9,
+            "year": 2013
+        },
+        {
+            "team_name": "Team Saxo - Tinkoff",
+            "wins": 3,
+            "nationalities": 14,
+            "year": 2013
+        },
+        {
+            "team_name": "Vacansoleil - DCM",
+            "wins": 1,
+            "nationalities": 10,
+            "year": 2013
+        },
+        {
+            "team_name": "AG2R La Mondiale",
+            "wins": 5,
+            "nationalities": 8,
+            "year": 2014
+        },
+        {
+            "team_name": "Astana Pro Team",
+            "wins": 11,
+            "nationalities": 11,
+            "year": 2014
+        },
+        {
+            "team_name": "Belkin-Pro Cycling Team",
+            "wins": 4,
+            "nationalities": 7,
+            "year": 2014
+        },
+        {
+            "team_name": "BMC Racing Team",
+            "wins": 7,
+            "nationalities": 13,
+            "year": 2014
+        },
+        {
+            "team_name": "Cannondale ",
+            "wins": 0,
+            "nationalities": 12,
+            "year": 2014
+        },
+        {
+            "team_name": "FDJ.fr ",
+            "wins": 0,
+            "nationalities": 4,
+            "year": 2014
+        },
+        {
+            "team_name": "Garmin Sharp",
+            "wins": 8,
+            "nationalities": 15,
+            "year": 2014
+        },
+        {
+            "team_name": "Lampre - Merida",
+            "wins": 9,
+            "nationalities": 11,
+            "year": 2014
+        },
+        {
+            "team_name": "Lotto Belisol ",
+            "wins": 0,
+            "nationalities": 8,
+            "year": 2014
+        },
+        {
+            "team_name": "Movistar Team",
+            "wins": 9,
+            "nationalities": 8,
+            "year": 2014
+        },
+        {
+            "team_name": "Omega Pharma - Quick-Step",
+            "wins": 20,
+            "nationalities": 12,
+            "year": 2014
+        },
+        {
+            "team_name": "Orica GreenEDGE",
+            "wins": 15,
+            "nationalities": 12,
+            "year": 2014
+        },
+        {
+            "team_name": "Team Europcar",
+            "wins": 0,
+            "nationalities": 8,
+            "year": 2014
+        },
+        {
+            "team_name": "Team Giant - Shimano",
+            "wins": 19,
+            "nationalities": 11,
+            "year": 2014
+        },
+        {
+            "team_name": "Team Katusha ",
+            "wins": 0,
+            "nationalities": 9,
+            "year": 2014
+        },
+        {
+            "team_name": "Team Sky",
+            "wins": 7,
+            "nationalities": 11,
+            "year": 2014
+        },
+        {
+            "team_name": "Tinkoff - Saxo",
+            "wins": 16,
+            "nationalities": 14,
+            "year": 2014
+        },
+        {
+            "team_name": "Trek Factory Racing ",
+            "wins": 0,
+            "nationalities": 17,
+            "year": 2014
+        },
+        {
+            "team_name": "AG2R La Mondiale",
+            "wins": 5,
+            "nationalities": 8,
+            "year": 2015
+        },
+        {
+            "team_name": "Astana Pro Team",
+            "wins": 11,
+            "nationalities": 10,
+            "year": 2015
+        },
+        {
+            "team_name": "BMC Racing Team",
+            "wins": 15,
+            "nationalities": 12,
+            "year": 2015
+        },
+        {
+            "team_name": "Etixx - Quick Step",
+            "wins": 9,
+            "nationalities": 12,
+            "year": 2015
+        },
+        {
+            "team_name": "FDJ",
+            "wins": 4,
+            "nationalities": 5,
+            "year": 2015
+        },
+        {
+            "team_name": "IAM Cycling",
+            "wins": 2,
+            "nationalities": 13,
+            "year": 2015
+        },
+        {
+            "team_name": "Lampre - Merida",
+            "wins": 10,
+            "nationalities": 12,
+            "year": 2015
+        },
+        {
+            "team_name": "Lotto Soudal",
+            "wins": 14,
+            "nationalities": 8,
+            "year": 2015
+        },
+        {
+            "team_name": "Movistar Team",
+            "wins": 12,
+            "nationalities": 8,
+            "year": 2015
+        },
+        {
+            "team_name": "Orica GreenEDGE",
+            "wins": 11,
+            "nationalities": 11,
+            "year": 2015
+        },
+        {
+            "team_name": "Team Cannondale - Garmin ",
+            "wins": 0,
+            "nationalities": 14,
+            "year": 2015
+        },
+        {
+            "team_name": "Team Giant - Alpecin",
+            "wins": 10,
+            "nationalities": 9,
+            "year": 2015
+        },
+        {
+            "team_name": "Team Katusha ",
+            "wins": 0,
+            "nationalities": 11,
+            "year": 2015
+        },
+        {
+            "team_name": "Team LottoNL-Jumbo",
+            "wins": 2,
+            "nationalities": 4,
+            "year": 2015
+        },
+        {
+            "team_name": "Team Sky",
+            "wins": 19,
+            "nationalities": 13,
+            "year": 2015
+        },
+        {
+            "team_name": "Tinkoff - Saxo",
+            "wins": 7,
+            "nationalities": 14,
+            "year": 2015
+        },
+        {
+            "team_name": "Trek Factory Racing ",
+            "wins": 0,
+            "nationalities": 16,
+            "year": 2015
+        },
+        {
+            "team_name": "AG2R La Mondiale",
+            "wins": 2,
+            "nationalities": 8,
+            "year": 2016
+        },
+        {
+            "team_name": "Astana Pro Team",
+            "wins": 7,
+            "nationalities": 10,
+            "year": 2016
+        },
+        {
+            "team_name": "BMC Racing Team",
+            "wins": 12,
+            "nationalities": 12,
+            "year": 2016
+        },
+        {
+            "team_name": "Cannondale - Drapac Pro Cycling Team",
+            "wins": 0,
+            "nationalities": 17,
+            "year": 2016
+        },
+        {
+            "team_name": "Etixx - Quick Step",
+            "wins": 19,
+            "nationalities": 15,
+            "year": 2016
+        },
+        {
+            "team_name": "FDJ",
+            "wins": 5,
+            "nationalities": 5,
+            "year": 2016
+        },
+        {
+            "team_name": "IAM Cycling",
+            "wins": 6,
+            "nationalities": 13,
+            "year": 2016
+        },
+        {
+            "team_name": "Lampre - Merida",
+            "wins": 5,
+            "nationalities": 11,
+            "year": 2016
+        },
+        {
+            "team_name": "Lotto Soudal",
+            "wins": 10,
+            "nationalities": 10,
+            "year": 2016
+        },
+        {
+            "team_name": "Movistar Team",
+            "wins": 12,
+            "nationalities": 9,
+            "year": 2016
+        },
+        {
+            "team_name": "ORICA-BikeExchange",
+            "wins": 17,
+            "nationalities": 12,
+            "year": 2016
+        },
+        {
+            "team_name": "Team Dimension Data",
+            "wins": 10,
+            "nationalities": 15,
+            "year": 2016
+        },
+        {
+            "team_name": "Team Giant - Alpecin",
+            "wins": 4,
+            "nationalities": 10,
+            "year": 2016
+        },
+        {
+            "team_name": "Team Katusha ",
+            "wins": 0,
+            "nationalities": 13,
+            "year": 2016
+        },
+        {
+            "team_name": "Team LottoNL-Jumbo",
+            "wins": 3,
+            "nationalities": 8,
+            "year": 2016
+        },
+        {
+            "team_name": "Team Sky",
+            "wins": 15,
+            "nationalities": 12,
+            "year": 2016
+        },
+        {
+            "team_name": "Tinkoff",
+            "wins": 14,
+            "nationalities": 12,
+            "year": 2016
+        },
+        {
+            "team_name": "Trek - Segafredo",
+            "wins": 4,
+            "nationalities": 15,
+            "year": 2016
+        },
+        {
+            "team_name": "AG2R La Mondiale",
+            "wins": 2,
+            "nationalities": 9,
+            "year": 2017
+        },
+        {
+            "team_name": "Astana Pro Team",
+            "wins": 7,
+            "nationalities": 10,
+            "year": 2017
+        },
+        {
+            "team_name": "Bahrain Merida Pro Cycling Team",
+            "wins": 4,
+            "nationalities": 13,
+            "year": 2017
+        },
+        {
+            "team_name": "BMC Racing Team",
+            "wins": 22,
+            "nationalities": 10,
+            "year": 2017
+        },
+        {
+            "team_name": "BORA - hansgrohe",
+            "wins": 19,
+            "nationalities": 11,
+            "year": 2017
+        },
+        {
+            "team_name": "Cannondale - Drapac Pro Cycling Team",
+            "wins": 3,
+            "nationalities": 13,
+            "year": 2017
+        },
+        {
+            "team_name": "FDJ",
+            "wins": 5,
+            "nationalities": 6,
+            "year": 2017
+        },
+        {
+            "team_name": "Lotto Soudal",
+            "wins": 10,
+            "nationalities": 9,
+            "year": 2017
+        },
+        {
+            "team_name": "Movistar Team",
+            "wins": 12,
+            "nationalities": 9,
+            "year": 2017
+        },
+        {
+            "team_name": "ORICA-Scott",
+            "wins": 13,
+            "nationalities": 14,
+            "year": 2017
+        },
+        {
+            "team_name": "Quick-Step Floors",
+            "wins": 30,
+            "nationalities": 14,
+            "year": 2017
+        },
+        {
+            "team_name": "Team Dimension Data",
+            "wins": 3,
+            "nationalities": 12,
+            "year": 2017
+        },
+        {
+            "team_name": "Team Katusha Alpecin",
+            "wins": 4,
+            "nationalities": 14,
+            "year": 2017
+        },
+        {
+            "team_name": "Team LottoNL-Jumbo",
+            "wins": 10,
+            "nationalities": 9,
+            "year": 2017
+        },
+        {
+            "team_name": "Team Sky",
+            "wins": 18,
+            "nationalities": 11,
+            "year": 2017
+        },
+        {
+            "team_name": "Team Sunweb",
+            "wins": 13,
+            "nationalities": 9,
+            "year": 2017
+        },
+        {
+            "team_name": "Trek - Segafredo",
+            "wins": 6,
+            "nationalities": 15,
+            "year": 2017
+        },
+        {
+            "team_name": "UAE Team Emirates",
+            "wins": 8,
+            "nationalities": 13,
+            "year": 2017
+        },
+        {
+            "team_name": "AG2R La Mondiale",
+            "wins": 3,
+            "nationalities": 7,
+            "year": 2018
+        },
+        {
+            "team_name": "Astana Pro Team",
+            "wins": 10,
+            "nationalities": 12,
+            "year": 2018
+        },
+        {
+            "team_name": "Bahrain Merida Pro Cycling Team",
+            "wins": 4,
+            "nationalities": 14,
+            "year": 2018
+        },
+        {
+            "team_name": "BMC Racing Team",
+            "wins": 14,
+            "nationalities": 9,
+            "year": 2018
+        },
+        {
+            "team_name": "BORA - hansgrohe",
+            "wins": 22,
+            "nationalities": 10,
+            "year": 2018
+        },
+        {
+            "team_name": "Groupama - FDJ",
+            "wins": 8,
+            "nationalities": 9,
+            "year": 2018
+        },
+        {
+            "team_name": "Lotto Soudal",
+            "wins": 7,
+            "nationalities": 7,
+            "year": 2018
+        },
+        {
+            "team_name": "Mitchelton-Scott",
+            "wins": 17,
+            "nationalities": 14,
+            "year": 2018
+        },
+        {
+            "team_name": "Movistar Team",
+            "wins": 12,
+            "nationalities": 8,
+            "year": 2018
+        },
+        {
+            "team_name": "Quick-Step Floors",
+            "wins": 38,
+            "nationalities": 14,
+            "year": 2018
+        },
+        {
+            "team_name": "Team Dimension Data",
+            "wins": 2,
+            "nationalities": 12,
+            "year": 2018
+        },
+        {
+            "team_name": "Team EF Education First - Drapac p/b Cannondale",
+            "wins": 2,
+            "nationalities": 14,
+            "year": 2018
+        },
+        {
+            "team_name": "Team Katusha Alpecin",
+            "wins": 2,
+            "nationalities": 16,
+            "year": 2018
+        },
+        {
+            "team_name": "Team LottoNL-Jumbo",
+            "wins": 10,
+            "nationalities": 8,
+            "year": 2018
+        },
+        {
+            "team_name": "Team Sky",
+            "wins": 21,
+            "nationalities": 11,
+            "year": 2018
+        },
+        {
+            "team_name": "Team Sunweb",
+            "wins": 8,
+            "nationalities": 6,
+            "year": 2018
+        },
+        {
+            "team_name": "Trek - Segafredo",
+            "wins": 4,
+            "nationalities": 18,
+            "year": 2018
+        },
+        {
+            "team_name": "UAE Team Emirates",
+            "wins": 6,
+            "nationalities": 14,
+            "year": 2018
+        },
+        {
+            "team_name": "AG2R La Mondiale",
+            "wins": 2,
+            "nationalities": 8,
+            "year": 2019
+        },
+        {
+            "team_name": "Astana Pro Team",
+            "wins": 15,
+            "nationalities": 9,
+            "year": 2019
+        },
+        {
+            "team_name": "Bahrain Merida",
+            "wins": 7,
+            "nationalities": 12,
+            "year": 2019
+        },
+        {
+            "team_name": "BORA - hansgrohe",
+            "wins": 31,
+            "nationalities": 11,
+            "year": 2019
+        },
+        {
+            "team_name": "CCC Team",
+            "wins": 2,
+            "nationalities": 13,
+            "year": 2019
+        },
+        {
+            "team_name": "Deceuninck - Quick Step",
+            "wins": 35,
+            "nationalities": 13,
+            "year": 2019
+        },
+        {
+            "team_name": "EF Education First",
+            "wins": 6,
+            "nationalities": 13,
+            "year": 2019
+        },
+        {
+            "team_name": "Groupama - FDJ",
+            "wins": 4,
+            "nationalities": 12,
+            "year": 2019
+        },
+        {
+            "team_name": "Lotto Soudal",
+            "wins": 12,
+            "nationalities": 8,
+            "year": 2019
+        },
+        {
+            "team_name": "Mitchelton-Scott",
+            "wins": 13,
+            "nationalities": 13,
+            "year": 2019
+        },
+        {
+            "team_name": "Movistar Team",
+            "wins": 7,
+            "nationalities": 9,
+            "year": 2019
+        },
+        {
+            "team_name": "Team Dimension Data",
+            "wins": 1,
+            "nationalities": 14,
+            "year": 2019
+        },
+        {
+            "team_name": "Team INEOS",
+            "wins": 8,
+            "nationalities": 12,
+            "year": 2019
+        },
+        {
+            "team_name": "Team Jumbo-Visma",
+            "wins": 25,
+            "nationalities": 8,
+            "year": 2019
+        },
+        {
+            "team_name": "Team Katusha Alpecin",
+            "wins": 1,
+            "nationalities": 15,
+            "year": 2019
+        },
+        {
+            "team_name": "Team Sunweb",
+            "wins": 6,
+            "nationalities": 8,
+            "year": 2019
+        },
+        {
+            "team_name": "Trek - Segafredo",
+            "wins": 3,
+            "nationalities": 17,
+            "year": 2019
+        },
+        {
+            "team_name": "UAE Team Emirates",
+            "wins": 11,
+            "nationalities": 13,
+            "year": 2019
+        },
+        {
+            "team_name": "AG2R La Mondiale",
+            "wins": 1,
+            "nationalities": 8,
+            "year": 2020
+        },
+        {
+            "team_name": "Astana Pro Team",
+            "wins": 4,
+            "nationalities": 9,
+            "year": 2020
+        },
+        {
+            "team_name": "Bahrain - McLaren",
+            "wins": 2,
+            "nationalities": 14,
+            "year": 2020
+        },
+        {
+            "team_name": "BORA - hansgrohe",
+            "wins": 10,
+            "nationalities": 9,
+            "year": 2020
+        },
+        {
+            "team_name": "CCC Team",
+            "wins": 1,
+            "nationalities": 11,
+            "year": 2020
+        },
+        {
+            "team_name": "Cofidis",
+            "wins": 0,
+            "nationalities": 8,
+            "year": 2020
+        },
+        {
+            "team_name": "Deceuninck - Quick Step",
+            "wins": 11,
+            "nationalities": 14,
+            "year": 2020
+        },
+        {
+            "team_name": "EF Pro Cycling",
+            "wins": 8,
+            "nationalities": 17,
+            "year": 2020
+        },
+        {
+            "team_name": "Groupama - FDJ",
+            "wins": 6,
+            "nationalities": 10,
+            "year": 2020
+        },
+        {
+            "team_name": "INEOS Grenadiers",
+            "wins": 11,
+            "nationalities": 13,
+            "year": 2020
+        },
+        {
+            "team_name": "Israel Start-Up Nation",
+            "wins": 2,
+            "nationalities": 16,
+            "year": 2020
+        },
+        {
+            "team_name": "Lotto Soudal",
+            "wins": 8,
+            "nationalities": 9,
+            "year": 2020
+        },
+        {
+            "team_name": "Mitchelton-Scott",
+            "wins": 5,
+            "nationalities": 14,
+            "year": 2020
+        },
+        {
+            "team_name": "Movistar Team",
+            "wins": 1,
+            "nationalities": 11,
+            "year": 2020
+        },
+        {
+            "team_name": "NTT Pro Cycling",
+            "wins": 3,
+            "nationalities": 14,
+            "year": 2020
+        },
+        {
+            "team_name": "Team Jumbo-Visma",
+            "wins": 15,
+            "nationalities": 9,
+            "year": 2020
+        },
+        {
+            "team_name": "Team Sunweb",
+            "wins": 9,
+            "nationalities": 11,
+            "year": 2020
+        },
+        {
+            "team_name": "Trek - Segafredo",
+            "wins": 6,
+            "nationalities": 12,
+            "year": 2020
+        },
+        {
+            "team_name": "UAE Team Emirates",
+            "wins": 11,
+            "nationalities": 13,
+            "year": 2020
+        },
+        {
+            "team_name": "AG2R Citro\u00ebn Team",
+            "wins": 4,
+            "nationalities": 8,
+            "year": 2021
+        },
+        {
+            "team_name": "Astana - Premier Tech",
+            "wins": 3,
+            "nationalities": 9,
+            "year": 2021
+        },
+        {
+            "team_name": "Bahrain - Victorious",
+            "wins": 16,
+            "nationalities": 16,
+            "year": 2021
+        },
+        {
+            "team_name": "BORA - hansgrohe",
+            "wins": 8,
+            "nationalities": 10,
+            "year": 2021
+        },
+        {
+            "team_name": "Cofidis",
+            "wins": 1,
+            "nationalities": 11,
+            "year": 2021
+        },
+        {
+            "team_name": "Deceuninck - Quick Step",
+            "wins": 25,
+            "nationalities": 13,
+            "year": 2021
+        },
+        {
+            "team_name": "EF Education - Nippo",
+            "wins": 11,
+            "nationalities": 15,
+            "year": 2021
+        },
+        {
+            "team_name": "Groupama - FDJ",
+            "wins": 2,
+            "nationalities": 11,
+            "year": 2021
+        },
+        {
+            "team_name": "INEOS Grenadiers",
+            "wins": 16,
+            "nationalities": 12,
+            "year": 2021
+        },
+        {
+            "team_name": "Intermarch\u00e9 - Wanty - Gobert Mat\u00e9riaux",
+            "wins": 3,
+            "nationalities": 11,
+            "year": 2021
+        },
+        {
+            "team_name": "Israel Start-Up Nation",
+            "wins": 3,
+            "nationalities": 17,
+            "year": 2021
+        },
+        {
+            "team_name": "Lotto Soudal",
+            "wins": 8,
+            "nationalities": 7,
+            "year": 2021
+        },
+        {
+            "team_name": "Movistar Team",
+            "wins": 3,
+            "nationalities": 11,
+            "year": 2021
+        },
+        {
+            "team_name": "Team BikeExchange",
+            "wins": 2,
+            "nationalities": 15,
+            "year": 2021
+        },
+        {
+            "team_name": "Team DSM",
+            "wins": 5,
+            "nationalities": 13,
+            "year": 2021
+        },
+        {
+            "team_name": "Team Jumbo-Visma",
+            "wins": 19,
+            "nationalities": 10,
+            "year": 2021
+        },
+        {
+            "team_name": "Team Qhubeka NextHash",
+            "wins": 3,
+            "nationalities": 16,
+            "year": 2021
+        },
+        {
+            "team_name": "Trek - Segafredo",
+            "wins": 2,
+            "nationalities": 12,
+            "year": 2021
+        },
+        {
+            "team_name": "UAE Team Emirates",
+            "wins": 14,
+            "nationalities": 16,
+            "year": 2021
+        },
+        {
+            "team_name": "AG2R Citro\u00ebn Team",
+            "wins": 3,
+            "nationalities": 9,
+            "year": 2022
+        },
+        {
+            "team_name": "Astana Qazaqstan Team",
+            "wins": 0,
+            "nationalities": 8,
+            "year": 2022
+        },
+        {
+            "team_name": "Bahrain - Victorious",
+            "wins": 8,
+            "nationalities": 17,
+            "year": 2022
+        },
+        {
+            "team_name": "BORA - hansgrohe",
+            "wins": 13,
+            "nationalities": 14,
+            "year": 2022
+        },
+        {
+            "team_name": "Cofidis",
+            "wins": 2,
+            "nationalities": 11,
+            "year": 2022
+        },
+        {
+            "team_name": "EF Education - EasyPost",
+            "wins": 3,
+            "nationalities": 19,
+            "year": 2022
+        },
+        {
+            "team_name": "Groupama - FDJ",
+            "wins": 6,
+            "nationalities": 11,
+            "year": 2022
+        },
+        {
+            "team_name": "INEOS Grenadiers",
+            "wins": 16,
+            "nationalities": 14,
+            "year": 2022
+        },
+        {
+            "team_name": "Intermarch\u00e9 - Wanty - Gobert Mat\u00e9riaux",
+            "wins": 5,
+            "nationalities": 12,
+            "year": 2022
+        },
+        {
+            "team_name": "Israel - Premier Tech",
+            "wins": 4,
+            "nationalities": 16,
+            "year": 2022
+        },
+        {
+            "team_name": "Jumbo-Visma",
+            "wins": 24,
+            "nationalities": 11,
+            "year": 2022
+        },
+        {
+            "team_name": "Lotto Soudal",
+            "wins": 2,
+            "nationalities": 9,
+            "year": 2022
+        },
+        {
+            "team_name": "Movistar Team",
+            "wins": 1,
+            "nationalities": 10,
+            "year": 2022
+        },
+        {
+            "team_name": "Quick-Step Alpha Vinyl Team",
+            "wins": 14,
+            "nationalities": 10,
+            "year": 2022
+        },
+        {
+            "team_name": "Team BikeExchange - Jayco",
+            "wins": 9,
+            "nationalities": 14,
+            "year": 2022
+        },
+        {
+            "team_name": "Team DSM",
+            "wins": 5,
+            "nationalities": 11,
+            "year": 2022
+        },
+        {
+            "team_name": "Trek - Segafredo",
+            "wins": 6,
+            "nationalities": 13,
+            "year": 2022
+        },
+        {
+            "team_name": "UAE Team Emirates",
+            "wins": 18,
+            "nationalities": 18,
+            "year": 2022
+        },
+        {
+            "team_name": "AG2R Citro\u00ebn Team",
+            "wins": 3,
+            "nationalities": 8,
+            "year": 2023
+        },
+        {
+            "team_name": "Alpecin - Deceuninck",
+            "wins": 17,
+            "nationalities": 10,
+            "year": 2023
+        },
+        {
+            "team_name": "Astana Qazaqstan Team",
+            "wins": 1,
+            "nationalities": 10,
+            "year": 2023
+        },
+        {
+            "team_name": "Bahrain - Victorious",
+            "wins": 12,
+            "nationalities": 17,
+            "year": 2023
+        },
+        {
+            "team_name": "Bora - Hansgrohe",
+            "wins": 7,
+            "nationalities": 15,
+            "year": 2023
+        },
+        {
+            "team_name": "Cofidis",
+            "wins": 4,
+            "nationalities": 9,
+            "year": 2023
+        },
+        {
+            "team_name": "EF Education - EasyPost",
+            "wins": 4,
+            "nationalities": 18,
+            "year": 2023
+        },
+        {
+            "team_name": "Groupama - FDJ",
+            "wins": 2,
+            "nationalities": 9,
+            "year": 2023
+        },
+        {
+            "team_name": "INEOS Grenadiers",
+            "wins": 9,
+            "nationalities": 13,
+            "year": 2023
+        },
+        {
+            "team_name": "Intermarch\u00e9 - Circus - Wanty",
+            "wins": 4,
+            "nationalities": 12,
+            "year": 2023
+        },
+        {
+            "team_name": "Jumbo-Visma",
+            "wins": 38,
+            "nationalities": 12,
+            "year": 2023
+        },
+        {
+            "team_name": "Lidl - Trek",
+            "wins": 8,
+            "nationalities": 14,
+            "year": 2023
+        },
+        {
+            "team_name": "Movistar Team",
+            "wins": 3,
+            "nationalities": 10,
+            "year": 2023
+        },
+        {
+            "team_name": "Soudal Quick-Step",
+            "wins": 23,
+            "nationalities": 10,
+            "year": 2023
+        },
+        {
+            "team_name": "Team Ark\u00e9a Samsic",
+            "wins": 0,
+            "nationalities": 10,
+            "year": 2023
+        },
+        {
+            "team_name": "Team dsm - firmenich",
+            "wins": 5,
+            "nationalities": 12,
+            "year": 2023
+        },
+        {
+            "team_name": "Team Jayco AlUla",
+            "wins": 4,
+            "nationalities": 16,
+            "year": 2023
+        },
+        {
+            "team_name": "UAE Team Emirates",
+            "wins": 28,
+            "nationalities": 18,
+            "year": 2023
+        },
+        {
+            "team_name": "Alpecin - Deceuninck",
+            "wins": 15,
+            "nationalities": 10,
+            "year": 2024
+        },
+        {
+            "team_name": "Ark\u00e9a - B&B Hotels",
+            "wins": 1,
+            "nationalities": 9,
+            "year": 2024
+        },
+        {
+            "team_name": "Astana Qazaqstan Team",
+            "wins": 1,
+            "nationalities": 12,
+            "year": 2024
+        },
+        {
+            "team_name": "Bahrain - Victorious",
+            "wins": 4,
+            "nationalities": 18,
+            "year": 2024
+        },
+        {
+            "team_name": "Cofidis",
+            "wins": 2,
+            "nationalities": 7,
+            "year": 2024
+        },
+        {
+            "team_name": "Decathlon AG2R La Mondiale Team",
+            "wins": 7,
+            "nationalities": 9,
+            "year": 2024
+        },
+        {
+            "team_name": "EF Education - EasyPost",
+            "wins": 4,
+            "nationalities": 17,
+            "year": 2024
+        },
+        {
+            "team_name": "Groupama - FDJ",
+            "wins": 3,
+            "nationalities": 9,
+            "year": 2024
+        },
+        {
+            "team_name": "INEOS Grenadiers",
+            "wins": 6,
+            "nationalities": 14,
+            "year": 2024
+        },
+        {
+            "team_name": "Intermarch\u00e9 - Wanty",
+            "wins": 4,
+            "nationalities": 10,
+            "year": 2024
+        },
+        {
+            "team_name": "Lidl - Trek",
+            "wins": 15,
+            "nationalities": 14,
+            "year": 2024
+        },
+        {
+            "team_name": "Movistar Team",
+            "wins": 1,
+            "nationalities": 10,
+            "year": 2024
+        },
+        {
+            "team_name": "Red Bull - BORA - hansgrohe",
+            "wins": 12,
+            "nationalities": 14,
+            "year": 2024
+        },
+        {
+            "team_name": "Soudal Quick-Step",
+            "wins": 13,
+            "nationalities": 10,
+            "year": 2024
+        },
+        {
+            "team_name": "Team dsm-firmenich PostNL",
+            "wins": 3,
+            "nationalities": 10,
+            "year": 2024
+        },
+        {
+            "team_name": "Team Jayco AlUla",
+            "wins": 4,
+            "nationalities": 15,
+            "year": 2024
+        },
+        {
+            "team_name": "Team Visma | Lease a Bike",
+            "wins": 18,
+            "nationalities": 11,
+            "year": 2024
+        },
+        {
+            "team_name": "UAE Team Emirates",
+            "wins": 41,
+            "nationalities": 19,
+            "year": 2024
+        },
+        {
+            "team_name": "Alpecin - Deceuninck",
+            "wins": 2,
+            "nationalities": 10,
+            "year": 2025
+        },
+        {
+            "team_name": "Ark\u00e9a - B&B Hotels",
+            "wins": 0,
+            "nationalities": 7,
+            "year": 2025
+        },
+        {
+            "team_name": "Bahrain - Victorious",
+            "wins": 1,
+            "nationalities": 17,
+            "year": 2025
+        },
+        {
+            "team_name": "Cofidis",
+            "wins": 1,
+            "nationalities": 8,
+            "year": 2025
+        },
+        {
+            "team_name": "Decathlon AG2R La Mondiale Team",
+            "wins": 1,
+            "nationalities": 9,
+            "year": 2025
+        },
+        {
+            "team_name": "EF Education - EasyPost",
+            "wins": 1,
+            "nationalities": 15,
+            "year": 2025
+        },
+        {
+            "team_name": "Groupama - FDJ",
+            "wins": 0,
+            "nationalities": 7,
+            "year": 2025
+        },
+        {
+            "team_name": "INEOS Grenadiers",
+            "wins": 3,
+            "nationalities": 15,
+            "year": 2025
+        },
+        {
+            "team_name": "Intermarch\u00e9 - Wanty",
+            "wins": 0,
+            "nationalities": 9,
+            "year": 2025
+        },
+        {
+            "team_name": "Lidl - Trek",
+            "wins": 7,
+            "nationalities": 15,
+            "year": 2025
+        },
+        {
+            "team_name": "Movistar Team",
+            "wins": 1,
+            "nationalities": 11,
+            "year": 2025
+        },
+        {
+            "team_name": "Red Bull - BORA - hansgrohe",
+            "wins": 6,
+            "nationalities": 14,
+            "year": 2025
+        },
+        {
+            "team_name": "Soudal Quick-Step",
+            "wins": 5,
+            "nationalities": 11,
+            "year": 2025
+        },
+        {
+            "team_name": "Team Jayco AlUla",
+            "wins": 1,
+            "nationalities": 13,
+            "year": 2025
+        },
+        {
+            "team_name": "Team Picnic PostNL",
+            "wins": 0,
+            "nationalities": 10,
+            "year": 2025
+        },
+        {
+            "team_name": "Team Visma | Lease a Bike",
+            "wins": 5,
+            "nationalities": 10,
+            "year": 2025
+        },
+        {
+            "team_name": "UAE Team Emirates - XRG",
+            "wins": 12,
+            "nationalities": 18,
+            "year": 2025
+        },
+        {
+            "team_name": "XDS Astana Team",
+            "wins": 0,
+            "nationalities": 11,
+            "year": 2025
+        }
+    ]
+}

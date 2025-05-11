@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Observable Framework v1.13.2">
+<title>Deeper Insights into the Peloton | Tour de Data</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
+<link rel="preload" as="style" href="./_import/custom-style.d74c78f4.css">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
+<link rel="stylesheet" type="text/css" href="./_import/custom-style.d74c78f4.css">
+<link rel="modulepreload" href="./_observablehq/client.e6a8ae95.js">
+<link rel="modulepreload" href="./_observablehq/runtime.e080113b.js">
+<link rel="modulepreload" href="./_observablehq/stdlib.82806664.js">
+<link rel="modulepreload" href="./_import/components/inputSwitch.7207f3bb.js">
+<link rel="modulepreload" href="./_npm/d3@7.9.0/e780feca.js">
+<link rel="modulepreload" href="./_npm/@observablehq/plot@0.6.17/d761ef9b.js">
+<link rel="modulepreload" href="./_node/htl@0.3.1/index.0caf36e7.js">
+<link rel="modulepreload" href="./_npm/d3-array@3.2.4/e93ca09f.js">
+<link rel="modulepreload" href="./_npm/d3-axis@3.0.0/0f2de24d.js">
+<link rel="modulepreload" href="./_npm/d3-brush@3.0.0/65eb105b.js">
+<link rel="modulepreload" href="./_npm/d3-chord@3.0.1/7ef8fb2e.js">
+<link rel="modulepreload" href="./_npm/d3-color@3.1.0/aeb57b94.js">
+<link rel="modulepreload" href="./_npm/d3-contour@4.0.2/1d2aed74.js">
+<link rel="modulepreload" href="./_npm/d3-delaunay@6.0.4/5ced1d52.js">
+<link rel="modulepreload" href="./_npm/d3-dispatch@3.0.1/9ba9c7f3.js">
+<link rel="modulepreload" href="./_npm/d3-drag@3.0.0/4202580c.js">
+<link rel="modulepreload" href="./_npm/d3-dsv@3.0.1/9cffc2bd.js">
+<link rel="modulepreload" href="./_npm/d3-ease@3.0.1/cdd7e898.js">
+<link rel="modulepreload" href="./_npm/d3-fetch@3.0.1/b4e2ad9a.js">
+<link rel="modulepreload" href="./_npm/d3-force@3.0.0/5e804d15.js">
+<link rel="modulepreload" href="./_npm/d3-format@3.1.0/86074ef6.js">
+<link rel="modulepreload" href="./_npm/d3-geo@3.1.1/40599fb3.js">
+<link rel="modulepreload" href="./_npm/d3-hierarchy@3.1.2/e49e792c.js">
+<link rel="modulepreload" href="./_npm/d3-interpolate@3.0.1/8d1e5425.js">
+<link rel="modulepreload" href="./_npm/d3-path@3.1.0/20d3f133.js">
+<link rel="modulepreload" href="./_npm/d3-polygon@3.0.1/7553081f.js">
+<link rel="modulepreload" href="./_npm/d3-quadtree@3.0.1/0dfd751c.js">
+<link rel="modulepreload" href="./_npm/d3-random@3.0.1/3c90ee06.js">
+<link rel="modulepreload" href="./_npm/d3-scale@4.0.2/843b6a76.js">
+<link rel="modulepreload" href="./_npm/d3-scale-chromatic@3.1.0/ba24c2e7.js">
+<link rel="modulepreload" href="./_npm/d3-selection@3.0.0/4d94e5b7.js">
+<link rel="modulepreload" href="./_npm/d3-shape@3.2.0/6d3a6726.js">
+<link rel="modulepreload" href="./_npm/d3-time@3.1.0/9f03c579.js">
+<link rel="modulepreload" href="./_npm/d3-time-format@4.1.0/07c9626f.js">
+<link rel="modulepreload" href="./_npm/d3-timer@3.0.1/b58a267d.js">
+<link rel="modulepreload" href="./_npm/d3-transition@3.0.1/004da2ac.js">
+<link rel="modulepreload" href="./_npm/d3-zoom@3.0.0/b5786b3f.js">
+<link rel="modulepreload" href="./_npm/isoformat@0.2.1/18cbf477.js">
+<link rel="modulepreload" href="./_npm/interval-tree-1d@1.0.4/53fe8176.js">
+<link rel="modulepreload" href="./_npm/internmap@2.0.3/e08981d9.js">
+<link rel="modulepreload" href="./_npm/delaunator@5.0.1/02d43215.js">
+<link rel="modulepreload" href="./_npm/binary-search-bounds@2.0.5/cbf6ba23.js">
+<link rel="modulepreload" href="./_npm/robust-predicates@3.0.2/aa00730b.js">
+<link rel="icon" href="./_file/logo.6b894ad5.png" type="image/png" sizes="32x32">
+<script type="module">
+
+import {define} from "./_observablehq/client.e6a8ae95.js";
+import {registerFile} from "./_observablehq/stdlib.82806664.js";
+
+registerFile("./data/insights.json", {"name":"./data/insights.json","mimeType":"application/json","path":"./_file/data/insights.fbf533a4.json","lastModified":1746392045126,"size":129805});
+
+define({id: "6a13741f", inputs: ["FileAttachment"], outputs: ["teamsInfo","teamsDiversity","createSwitcher"], body: async (FileAttachment) => {
+const {createSwitcher} = await import("./_import/components/inputSwitch.7207f3bb.js");
+const {teamsInfo, teamsDiversity} = await FileAttachment("./data/insights.json").json();
+
+return {teamsInfo,teamsDiversity,createSwitcher};
+}});
+
+define({id: "a7ac4491", inputs: ["teamsInfo","d3","selectedEquipment","Plot"], outputs: ["absoluteNumbersEquipment"], body: (teamsInfo,d3,selectedEquipment,Plot) => {
+function absoluteNumbersEquipment({ width } = {} ){
+    // Filter the teamInfo data to include only teams with a bike brand, wheels, or groupset
+    const filteredTeamsInfo = teamsInfo.filter(d => d.bike && d.wheels && d.groupset);
+    
+    // Aggregate total number of teams with this brand
+    const brandCounts = Array.from(
+        d3.rollup(
+            filteredTeamsInfo,
+            v => v.length,
+            d => selectedEquipment === "Bike Brand" ? d.bike : selectedEquipment === "Wheels" ? d.wheels : d.groupset
+        ),
+        ([brand, count]) => ({ brand, count })
+    ).sort((a, b) => d3.descending(a.count, b.count));
+
+  return Plot.plot({
+    width,
+    height: brandCounts.length * 25 + 50,
+    marginLeft: 120,
+    marginRight: 50,
+    x: { label: "Number of Teams", nice: true },
+    y: {
+      label: null,
+      domain: brandCounts.map(d => d.brand),
+    },
+    marks: [
+      Plot.barX(brandCounts, {
+        x: "count",
+        y: "brand",
+        fill: "steelblue",
+      }),
+      Plot.text(brandCounts, {
+        x: "count",
+        y: "brand",
+        text: d => d.count,
+        dx: 5,
+        dy: 3,
+        textAnchor: "start",
+        fill: "black"
+      })
+    ]
+  });
+}
+return {absoluteNumbersEquipment};
+}});
+
+define({id: "43aa99c5", inputs: ["Mutable","createSwitcher"], outputs: ["selectedEquipment","switcherElement"], body: (Mutable,createSwitcher) => {
+const selectedEquipment = Mutable("Bike Brand");
+const switcherElement = createSwitcher(
+  ["Bike Brand", "Wheels", "Groupset"],
+  (value) => {
+    selectedEquipment.value = value;
+  }
+);
+return {selectedEquipment,switcherElement};
+}});
+
+define({id: "5fbf6a2c", mode: "inline", inputs: ["switcherElement","display"], body: async (switcherElement,display) => {
+display(await(
+switcherElement
+))
+}});
+
+define({id: "ed3896c0", mode: "inline", inputs: ["resize","absoluteNumbersEquipment","display"], body: async (resize,absoluteNumbersEquipment,display) => {
+display(await(
+resize((width) => absoluteNumbersEquipment({ width }))
+))
+}});
+
+define({id: "df70628f", inputs: ["teamsInfo","d3","selectedEquipmentBis","Plot"], outputs: ["equipmentComparison"], body: (teamsInfo,d3,selectedEquipmentBis,Plot) => {
+function equipmentComparison({ width } = {}) {
+  // Filter the teamInfo data to include only teams with a bike brand, wheels, or groupset
+  const filteredTeamsInfo = teamsInfo.filter(d => d.bike && d.wheels && d.groupset);
+
+  // Aggregate total number of wins and number of teams for each equipment type
+  const equipmentStats = Array.from(
+    d3.rollup(
+      filteredTeamsInfo,
+      (v) => {
+        const totalWins = v.reduce((acc, team) => acc + team.wins, 0);
+        const teamCount = v.length;
+        return { totalWins, teamCount };
+      },
+      d => selectedEquipmentBis === "Bike Brand" ? d.bike : selectedEquipmentBis === "Wheels" ? d.wheels : d.groupset
+    ),
+    ([equipment, { totalWins, teamCount }]) => ({
+      equipment,
+      averageWins: totalWins / teamCount // Calculate average wins per equipment type
+    })
+  ).sort((a, b) => d3.descending(a.averageWins, b.averageWins)); // Sort by average wins
+
+  return Plot.plot({
+    width,
+    height: equipmentStats.length * 25 + 50,
+    marginLeft: 120,
+    marginRight: 50,
+    x: { label: "Average Wins per Equipment", nice: true },
+    y: {
+      label: null,
+      domain: equipmentStats.map(d => d.equipment),
+    },
+    marks: [
+      Plot.barX(equipmentStats, {
+        x: "averageWins",
+        y: "equipment",
+        fill: "steelblue"
+      }),
+      Plot.text(equipmentStats, {
+        x: "averageWins",
+        y: "equipment",
+        text: d => d.averageWins.toFixed(2), // Display average wins
+        dx: 5,
+        dy: 3,
+        textAnchor: "start",
+        fill: "black"
+      })
+    ]
+  });
+}
+return {equipmentComparison};
+}});
+
+define({id: "726d8fa9", inputs: ["Mutable","createSwitcher"], outputs: ["selectedEquipmentBis","switcherElementBis"], body: (Mutable,createSwitcher) => {
+const selectedEquipmentBis = Mutable("Bike Brand");
+const switcherElementBis = createSwitcher(
+  ["Bike Brand", "Wheels", "Groupset"],
+  (value) => {
+    selectedEquipmentBis.value = value;
+  }
+);
+return {selectedEquipmentBis,switcherElementBis};
+}});
+
+define({id: "1d2e2b3b", mode: "inline", inputs: ["switcherElementBis","display"], body: async (switcherElementBis,display) => {
+display(await(
+switcherElementBis
+))
+}});
+
+define({id: "09f992a8", mode: "inline", inputs: ["resize","equipmentComparison","display"], body: async (resize,equipmentComparison,display) => {
+display(await(
+resize((width) => equipmentComparison({ width }))
+))
+}});
+
+define({id: "4fe411d7", inputs: ["teamsDiversity","Plot"], outputs: ["teamsDiversityPlot"], body: (teamsDiversity,Plot) => {
+function teamsDiversityPlot({ width } = {}) {
+  const teamsDiversityData = teamsDiversity.filter(d => d.nationalities > 0);
+  return Plot.plot({
+    width: 600,
+    height: 400,
+    x: {
+      label: "Number of nationalities"
+    },
+    y: {
+      label: "Number of wins"
+    },
+    marks: [
+      Plot.dot(teamsDiversityData, {
+        x: "nationalities",
+        y: "wins",
+        stroke: "black",
+        fill: "steelblue",
+        r: 3,
+      }),
+
+      Plot.tip(teamsDiversityData, Plot.pointer({
+        x: "nationalities",
+        y: "wins",
+        title: (d) => `Team: ${d.team_name} (${d.year})\nNumber of nationalities: ${d.nationalities}\nNumber of wins: ${d.wins}`,
+        fontSize: 14,
+      })),
+
+      Plot.linearRegressionY(teamsDiversityData, {
+        x: "nationalities",
+        y: "wins",
+        stroke: "red"
+      }),
+    ],
+  });
+}
+return {teamsDiversityPlot};
+}});
+
+define({id: "e9de844c", mode: "inline", inputs: ["teamsDiversityPlot","display"], body: async (teamsDiversityPlot,display) => {
+display(await(
+teamsDiversityPlot()
+))
+}});
+
+</script>
+</head>
+<body>
+<div id="observablehq-center">
+<header id="observablehq-header">
+
+  <div class="header">
+    <div class="header-centered">
+      <a href="./">Overview</a>
+      <a href="./peloton">Peloton</a>
+      <a href="./races">Races</a>
+      <a href="./insights">Insights</a>
+    </div>
+  </div>
+
+</header>
+<main id="observablehq-main" class="observablehq">
+<div class="observablehq observablehq--block"><!--:6a13741f:--></div>
+<h1 id="deeper-insights-into-the-peloton" tabindex="-1"><a class="observablehq-header-anchor" href="#deeper-insights-into-the-peloton">Deeper Insights into the Peloton</a></h1>
+<p>Cycling is about more than physical strength — it’s a sport shaped by strategy, technology, and teamwork. On this page, we take a closer look at the deeper factors that influence race outcomes. From the <strong>bikes riders use</strong> to the <strong>diversity of their teams</strong>, we examine what might set top performers apart from the rest.</p>
+<h3 id="equipment-choices-a-closer-look" tabindex="-1"><a class="observablehq-header-anchor" href="#equipment-choices-a-closer-look">Equipment Choices: A Closer Look</a></h3>
+<p>Over the years, WorldTour teams have made distinct choices about the equipment they rely on — from bikes to wheels to groupsets. These decisions reflect not just performance needs, but also technological partnerships, sponsorships, and evolving trends within the peloton.</p>
+<p>In this section, we track <strong>how often different brands were used by teams from 2010 to 2025</strong>. By counting how many teams selected each brand in a given season, we reveal which manufacturers have consistently maintained a strong presence — and which ones have faded or emerged over time.</p>
+<p>Use the toggle to explore the most commonly used <strong>bike brands</strong>, <strong>wheels</strong>, and <strong>groupsets (collections of mechanical components like brakes, derailleurs, and chains)</strong>. While popularity doesn’t always guarantee performance, this overview highlights the brands that have earned the trust of pro cycling’s top teams, season after season.</p>
+<div class="observablehq observablehq--block"><!--:a7ac4491:--></div>
+<div class="observablehq observablehq--block"><!--:43aa99c5:--></div>
+<div>
+  <div class="header-with-switcher">
+    <h2>Number of World-Tour teams using the branch for their equipment (2010-2025)</h2>
+    <observablehq-loading></observablehq-loading><!--:5fbf6a2c:-->
+  </div>
+  <div id="bike-brands" style="margin-bottom: 2rem;">
+    <observablehq-loading></observablehq-loading><!--:ed3896c0:-->
+  </div>
+</div>
+<h3 id="performance-by-equipment" tabindex="-1"><a class="observablehq-header-anchor" href="#performance-by-equipment">Performance by Equipment</a></h3>
+<p>In professional cycling, equipment isn't just a matter of preference — it can be a decisive factor in a team's success. From cutting-edge bikes to aerodynamic wheels and precision-engineered groupsets, every component contributes to performance on the road.</p>
+<p>In this section, we explore how equipment choices correlate with team success by comparing the performance of teams using different brands. To ensure a fair comparison, we calculate the <strong>average number of WorldTour wins per season for teams using each brand</strong>. This is done by dividing the total number of wins by the number of seasons those teams used that brand.</p>
+<p>By aggregating this data, we can identify which equipment is more commonly associated with winning performances.
+<strong>Of course, this doesn’t imply that the gear alone makes the difference — the strength, strategy, and budget of the teams using the equipment are key factors as well</strong>. Still, it gives us a data-driven look into how certain brands align with competitive success.</p>
+<div class="observablehq observablehq--block"><!--:df70628f:--></div>
+<div class="observablehq observablehq--block"><!--:726d8fa9:--></div>
+<div>
+  <div class="header-with-switcher">
+    <h2>Average number of World-Tour wins per brand (2010-2025)</h2>
+    <observablehq-loading></observablehq-loading><!--:1d2e2b3b:-->
+  </div>
+  <div id="bike-brands" style="margin-bottom: 2rem;">
+    <observablehq-loading></observablehq-loading><!--:09f992a8:-->
+  </div>
+</div>
+<div class="observablehq observablehq--block"><!--:4fe411d7:--></div>
+<h3 id="team-diversity-a-winning-strategy" tabindex="-1"><a class="observablehq-header-anchor" href="#team-diversity-a-winning-strategy">Team Diversity: A Winning Strategy?</a></h3>
+<p>In professional cycling, team dynamics go beyond training plans and equipment — diversity within a team may also influence its success. While performance depends on many factors, the variety of nationalities represented can shape how a team communicates, adapts, and competes.</p>
+<p>In this section, we <strong>analyze data from WorldTour teams</strong> to examine whether there’s a <strong>correlation between team diversity</strong> — measured by the number of nationalities — and <strong>the number of wins</strong>. The idea is that a broader mix of backgrounds might bring a wider range of skills, strategies, and perspectives to the table.</p>
+<p>The scatterplot below shows the relationship between nationality diversity and team victories. A <strong>positive trend suggests</strong> that <strong>more diverse teams tend to win more often</strong>. However, it's important to <strong>interpret this carefully</strong>: such teams are <strong>often backed by larger budgets and international sponsors</strong>, which can provide advantages beyond diversity alone. In other words, while diversity may contribute to success, it's often accompanied by greater resources, experience, and organizational support.</p>
+<div class="center-container">
+  <div class="header-with-switcher" style="margin-top: 1rem;">
+    <h2>Correlation between the diversity of teams and their performance (2000-2025)</h2>
+  </div>
+  <div style="margin-bottom: 2rem;">
+    <observablehq-loading></observablehq-loading><!--:e9de844c:-->
+  </div>
+</div>
+<style>
+
+.header-with-switcher {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.header-with-switcher h2 {
+  margin: 0;
+  font-size: 1em;
+}
+
+.center-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+</style>
+</main>
+</div>
+</body>
+</html>

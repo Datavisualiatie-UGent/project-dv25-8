@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="generator" content="Observable Framework v1.13.2">
+<title>Race trough the years | Tour de Data</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
+<link rel="preload" as="style" href="./_import/custom-style.d74c78f4.css">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
+<link rel="stylesheet" type="text/css" href="./_import/custom-style.d74c78f4.css">
+<link rel="modulepreload" href="./_observablehq/client.e6a8ae95.js">
+<link rel="modulepreload" href="./_observablehq/runtime.e080113b.js">
+<link rel="modulepreload" href="./_observablehq/stdlib.82806664.js">
+<link rel="modulepreload" href="./_import/components/inputSwitch.7207f3bb.js">
+<link rel="modulepreload" href="./_npm/d3@7.9.0/e780feca.js">
+<link rel="modulepreload" href="./_npm/htl@0.3.1/72f4716c.js">
+<link rel="modulepreload" href="./_npm/@observablehq/plot@0.6.17/d761ef9b.js">
+<link rel="modulepreload" href="./_npm/topojson-client@3.1.0/edd9ee95.js">
+<link rel="modulepreload" href="./_node/htl@0.3.1/index.0caf36e7.js">
+<link rel="modulepreload" href="./_npm/d3-array@3.2.4/e93ca09f.js">
+<link rel="modulepreload" href="./_npm/d3-axis@3.0.0/0f2de24d.js">
+<link rel="modulepreload" href="./_npm/d3-brush@3.0.0/65eb105b.js">
+<link rel="modulepreload" href="./_npm/d3-chord@3.0.1/7ef8fb2e.js">
+<link rel="modulepreload" href="./_npm/d3-color@3.1.0/aeb57b94.js">
+<link rel="modulepreload" href="./_npm/d3-contour@4.0.2/1d2aed74.js">
+<link rel="modulepreload" href="./_npm/d3-delaunay@6.0.4/5ced1d52.js">
+<link rel="modulepreload" href="./_npm/d3-dispatch@3.0.1/9ba9c7f3.js">
+<link rel="modulepreload" href="./_npm/d3-drag@3.0.0/4202580c.js">
+<link rel="modulepreload" href="./_npm/d3-dsv@3.0.1/9cffc2bd.js">
+<link rel="modulepreload" href="./_npm/d3-ease@3.0.1/cdd7e898.js">
+<link rel="modulepreload" href="./_npm/d3-fetch@3.0.1/b4e2ad9a.js">
+<link rel="modulepreload" href="./_npm/d3-force@3.0.0/5e804d15.js">
+<link rel="modulepreload" href="./_npm/d3-format@3.1.0/86074ef6.js">
+<link rel="modulepreload" href="./_npm/d3-geo@3.1.1/40599fb3.js">
+<link rel="modulepreload" href="./_npm/d3-hierarchy@3.1.2/e49e792c.js">
+<link rel="modulepreload" href="./_npm/d3-interpolate@3.0.1/8d1e5425.js">
+<link rel="modulepreload" href="./_npm/d3-path@3.1.0/20d3f133.js">
+<link rel="modulepreload" href="./_npm/d3-polygon@3.0.1/7553081f.js">
+<link rel="modulepreload" href="./_npm/d3-quadtree@3.0.1/0dfd751c.js">
+<link rel="modulepreload" href="./_npm/d3-random@3.0.1/3c90ee06.js">
+<link rel="modulepreload" href="./_npm/d3-scale@4.0.2/843b6a76.js">
+<link rel="modulepreload" href="./_npm/d3-scale-chromatic@3.1.0/ba24c2e7.js">
+<link rel="modulepreload" href="./_npm/d3-selection@3.0.0/4d94e5b7.js">
+<link rel="modulepreload" href="./_npm/d3-shape@3.2.0/6d3a6726.js">
+<link rel="modulepreload" href="./_npm/d3-time@3.1.0/9f03c579.js">
+<link rel="modulepreload" href="./_npm/d3-time-format@4.1.0/07c9626f.js">
+<link rel="modulepreload" href="./_npm/d3-timer@3.0.1/b58a267d.js">
+<link rel="modulepreload" href="./_npm/d3-transition@3.0.1/004da2ac.js">
+<link rel="modulepreload" href="./_npm/d3-zoom@3.0.0/b5786b3f.js">
+<link rel="modulepreload" href="./_npm/isoformat@0.2.1/18cbf477.js">
+<link rel="modulepreload" href="./_npm/interval-tree-1d@1.0.4/53fe8176.js">
+<link rel="modulepreload" href="./_npm/internmap@2.0.3/e08981d9.js">
+<link rel="modulepreload" href="./_npm/delaunator@5.0.1/02d43215.js">
+<link rel="modulepreload" href="./_npm/binary-search-bounds@2.0.5/cbf6ba23.js">
+<link rel="modulepreload" href="./_npm/robust-predicates@3.0.2/aa00730b.js">
+<link rel="icon" href="./_file/logo.6b894ad5.png" type="image/png" sizes="32x32">
+<script type="module">
+
+import {define} from "./_observablehq/client.e6a8ae95.js";
+import {registerFile} from "./_observablehq/stdlib.82806664.js";
+
+registerFile("./data/races.json", {"name":"./data/races.json","mimeType":"application/json","path":"./_file/data/races.c9d8d590.json","lastModified":1746392043536,"size":511515});
+
+define({id: "1b138c9f", inputs: ["FileAttachment"], outputs: ["winners","raceInfo","createSwitcher"], body: async (FileAttachment) => {
+const {createSwitcher} = await import("./_import/components/inputSwitch.7207f3bb.js");
+const {winners, raceInfo} = await FileAttachment("./data/races.json").json();
+
+return {winners,raceInfo,createSwitcher};
+}});
+
+define({id: "af4abd0b", outputs: ["racesList"], body: () => {
+// Mapping of the most important races to their respective logo
+const racesList = {
+  'tour-de-france': 'https://i.postimg.cc/jd9tP9kP/tour-de-france.png',
+  'giro-d-italia': 'https://i.postimg.cc/rpkNrZTj/giro-d-italia.jpg',
+  'vuelta-a-espana': 'https://i.postimg.cc/ZKv8DzKj/vuelta-a-espana.png',
+  'paris-roubaix': 'https://i.postimg.cc/gJcyMwn6/paris-roubaix.jpg',
+  'liege-bastogne-liege': 'https://i.postimg.cc/qqS8MjQ8/liege-bastogne-liege.png',
+  'milano-sanremo': 'https://i.postimg.cc/nrC4J6KF/milano-sanremo.jpg',
+  'ronde-van-vlaanderen': 'https://i.postimg.cc/Wz1TwPv6/ronde-van-vlaanderen.gif',
+  'il-lombardia': 'https://i.postimg.cc/nzd4NHDS/il-lombardia.jpg',
+  'world-championship': 'https://i.postimg.cc/1Rv954GW/world-championship.png'
+}
+return {racesList};
+}});
+
+define({id: "43c26587", inputs: ["Mutable","html","racesList"], outputs: ["selectedRace","createButtons"], body: (Mutable,html,racesList) => {
+// Selected race state
+const selectedRace = Mutable('tour-de-france');
+
+function createButtons(race) {
+  return html`
+  <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-bottom: 20px;">
+    ${Object.keys(racesList).map(race => html`
+      <div
+        class="race-button ${selectedRace.value === race ? 'selected' : ''}"  // This condition is now re-evaluated on each change
+        style="cursor: pointer;"
+        onclick=${() => selectedRace.value = race} // Updates the mutable, triggering this cell to re-run
+      >
+        <img src="${racesList[race]}" alt="${race}" />
+      </div>
+    `)}
+  </div>
+  `
+}
+return {selectedRace,createButtons};
+}});
+
+define({id: "c48de973", mode: "inline", inputs: ["createButtons","selectedRace","display"], body: async (createButtons,selectedRace,display) => {
+display(await(
+createButtons(selectedRace)
+))
+}});
+
+define({id: "e900b1dd", inputs: ["d3","topojson","Mutable","winners","html"], outputs: ["world","countries","selectedCountryId","selectedCountryName","winnersRacesMap"], body: async (d3,topojson,Mutable,winners,html) => {
+// Load the world map
+const world = await d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-50m.json");
+const countries = topojson.feature(world, world.objects.countries);
+
+// Mutable stores to keep track of the selected country id and name on the map
+const selectedCountryId = Mutable("");
+const selectedCountryName = Mutable("");
+
+// Define a function that creates a map of the world with the number of riders per country
+function winnersRacesMap(race, { width } = {}) {
+  // Filter based on the race
+  const filteredData = winners[race] || [];
+
+  // Aggregate total wins per country
+  const countryWins = d3.rollup(
+    filteredData,
+    v => d3.sum(v, d => d.first_places),
+    d => d.nationality
+  );
+
+  // Define a color scale
+  const color = d3.scaleSequentialLog(d3.interpolateBlues)
+    .domain([1, d3.max(Array.from(countryWins.values()))]);
+
+  // Create an SVG element
+  const svg = d3.create("svg")
+    .attr("width", width)
+    .attr("height", width / 2.5)
+    .call(d3.zoom().scaleExtent([1, 15]) // Allow zooming between 1x and 15x
+    .on("zoom", (event) => {
+      svg.select("g").attr("transform", event.transform);
+    }));
+
+  const g = svg.append("g");
+
+  // Draw the map
+  g.selectAll("path")
+    .data(countries.features)
+    .enter()
+    .append("path")
+    .attr("d", d3.geoPath(d3.geoEquirectangular()))
+    .attr("fill", d => {
+      const totalWins = countryWins.get(+d.id) || 0;
+      return totalWins > 0 ? color(totalWins) : "#eee";
+    })
+    .on("click", (event, d) => {
+      if (selectedCountryId.value === d.id) {
+        selectedCountryId.value = "";
+        selectedCountryName.value = "";
+      } else {
+        selectedCountryId.value = d.id;
+        selectedCountryName.value = d.properties.name;
+      }
+    })
+    .attr("stroke", "white")
+    .attr("stroke-width", 0.7);
+
+  return html`
+  <div class="map-container">
+    ${svg.node()}
+  </div>`;
+}
+return {world,countries,selectedCountryId,selectedCountryName,winnersRacesMap};
+}});
+
+define({id: "b0d312a0", inputs: ["winners","selectedCountryId","d3","html","selectedCountryName"], outputs: ["winnersRanking"], body: (winners,selectedCountryId,d3,html,selectedCountryName) => {
+// Function to display the ranking of winners
+function winnersRanking(race, { width } = {}) {
+    // Filter based on the race
+    const filteredData = winners[race] || [];
+
+    // If a country is selected, filter the winners
+    const countryfilteredData = selectedCountryId ? 
+        filteredData.filter(d => d.nationality === +selectedCountryId) : filteredData;
+        
+    // Sort winners by most wins
+    const sortedWinners = countryfilteredData
+        .map(d => ({ name: d.rider_name, wins: d.first_places }))
+        .filter(d => d.wins > 0)
+        .sort((a, b) => b.wins - a.wins);
+
+    // Count the total number of wins
+    const totalWins = d3.sum(sortedWinners, d => d.wins);
+
+    return html`
+        <div class="ranking-container" style="max-width: ${width}px; max-height: ${width * 1.35}px; overflow-y: auto;">
+            ${selectedCountryId && selectedCountryName ? html`
+              <h3><strong>${selectedCountryName} (Total: ${totalWins} ${totalWins !== 1 ? 'wins' : 'win'})</strong></h3>
+            ` : html`<h3><strong>All-time winners list</strong></h3>`}
+
+            ${sortedWinners.map(winner => html`
+                <li><strong>${winner.name}</strong>: ${winner.wins} ${winner.wins > 1 ? 'wins' : 'win'}</li>
+            `)}
+        </ul>
+    `;
+}
+return {winnersRanking};
+}});
+
+define({id: "34ef4129", mode: "inline", inputs: ["selectedRace","display"], body: async (selectedRace,display) => {
+display(await(
+selectedRace.replace(/-/g, ' ').toUpperCase()
+))
+}});
+
+define({id: "d405dfcd", mode: "inline", inputs: ["resize","winnersRacesMap","selectedRace","display"], body: async (resize,winnersRacesMap,selectedRace,display) => {
+display(await(
+resize((width) => winnersRacesMap(selectedRace, {width}))
+))
+}});
+
+define({id: "92d69efe", mode: "inline", inputs: ["resize","winnersRanking","selectedRace","display"], body: async (resize,winnersRanking,selectedRace,display) => {
+display(await(
+resize((width) => winnersRanking(selectedRace, {width}))
+))
+}});
+
+define({id: "9a36c660", inputs: ["raceInfo","customAnnotations","d3","Plot"], outputs: ["raceDetails"], body: (raceInfo,customAnnotations,d3,Plot) => {
+// Function that plots the distance and average of speed for the selected race over the years
+function raceDetails(race, metric, { width } = {}) {
+  const data = raceInfo[race] || [];
+  const filteredData = data.filter(d => d.average_speed > 0 && d.distance > 0);
+
+  // Get the annotations for the current race
+  const annotations = customAnnotations.filter(a => a.race === race);
+
+  // Extend data points with annotation if available
+  const annotatedData = filteredData.map(d => {
+    const annotation = annotations.find(a => a.year === d.year);
+    return {
+      ...d,
+      annotation: annotation?.label || ""
+    };
+  });
+
+  // Get top 3 entries based on selected metric
+  const top3 = [...filteredData]
+    .sort((a, b) => b[metric.value] - a[metric.value])
+    .slice(0, 3);
+
+  const medals = ["🥇", "🥈", "🥉"];
+
+  // Get year bounds of the data
+  const years = filteredData.map(d => d.year);
+  const minYear = d3.min(years);
+  const maxYear = d3.max(years);
+
+  // List of highlighted periods (WW I and WW II)
+  const highlightPeriods = [
+    { start: 1914, end: 1918, label: "WW I" },
+    { start: 1940, end: 1945, label: "WW II" }
+  ];
+
+  // Filter to only show highlightPeriods that overlap with data
+  const visiblePeriods = highlightPeriods.filter(p => p.end >= minYear && p.start <= maxYear);
+
+  return Plot.plot({
+    width,
+    height: width * 0.35,
+    grid: true,
+
+    marks: [
+      // Line
+      Plot.line(filteredData, {
+        x: "year",
+        y: metric.value,
+        stroke: metric.color,
+        strokeWidth: 2
+      }),
+
+      // Dotted vertical lines for start and end of periods
+      Plot.ruleX(
+        visiblePeriods.flatMap(p => [p.start, p.end]),
+        {
+          stroke: "black",
+          strokeOpacity: 0.6,
+          strokeDasharray: "4,2", // Dotted line
+          strokeWidth: 1
+        }
+      ),
+
+      // Dots
+      Plot.dot(annotatedData, {
+        x: "year",
+        y: metric.value,
+        fill: d => d.annotation ? "red" : metric.color, // Red if annotation exists
+        strokeWidth: 1,
+        stroke: "black",
+        r: d => d.annotation ? 5 : 3,
+      }),
+      
+      // Tooltip for each dot
+      Plot.tip(annotatedData, Plot.pointer({
+        x: "year",
+        y: metric.value,
+        title: (d) => [`Year: ${d.year}\n${metric.label}: ${d[metric.value]} ${metric.unit}` +
+                       `${d.annotation ? '\nNote: ' + d.annotation : ""}`],
+        fontSize: 14,
+      })),
+
+      // Medal annotations for top 3
+      Plot.text(
+        top3.map((d, i) => ({ ...d, medal: medals[i] })),
+        {
+          x: "year",
+          y: metric.value,
+          text: d => d.medal,
+          dy: -15,
+          fontSize: 18,
+          textAnchor: "middle",
+        }
+      ),
+
+      // Annotation text centered between period start and end
+      Plot.text(
+        visiblePeriods.map(p => ({
+          year: (p.start + p.end) / 2,
+          label: `${p.label}`
+        })),
+        {
+          x: "year",
+          text: d => d.label,
+          dy: 210,
+          fontSize: 14,
+          fontWeight: "bold",
+          fill: "black"
+        }
+      ),
+    ],
+    x: { label: "Year", ticks: 10, tickFormat: d3.format("d") },
+    y: { label: metric.label, nice: true }
+  });
+}
+return {raceDetails};
+}});
+
+define({id: "03d7671a", outputs: ["customAnnotations"], body: () => {
+// List with custom annotations to make the plot more informative.
+const customAnnotations = [
+  {
+    race: "milano-sanremo",
+    year: 2013,
+    label: "Race was neutralized due to cold, rain and snow.",
+  },
+  {
+    race: "world-championship",
+    year: 2002,
+    label: "Completely flat circuit in Zolder, Belgium.",
+  },
+  {
+    race: "world-championship",
+    year: 2011,
+    label: "Completely flat circuit in Copenhagen, Denmark.",
+  },
+  {
+    race: "world-championship",
+    year: 2016,
+    label: "Completely flat circuit in Doha, Qatar.",
+  },
+  {
+    race: "ronde-van-vlaanderen",
+    year: 1941,
+    label: "While the race was canceled during WW I, since the war front lay right trough Flanders, during the second world war the Nazis gave permission to organize the race. They wanted the so-called 'entertainments' to continue, so as not to undermine the morale of the population too much. However, adjustments needed to be made and new roads were discovered that are still part of the route today.",
+  },
+  {
+    race: "ronde-van-vlaanderen",
+    year: 1942,
+    label: "While the race was canceled during WW I, since the war front lay right trough Flanders, during the second world war the Nazis gave permission to organize the race. They wanted the so-called 'entertainments' to continue, so as not to undermine the morale of the population too much. However, adjustments needed to be made and new roads were discovered that are still part of the route today.",
+  },
+  {
+    race: "ronde-van-vlaanderen",
+    year: 1943,
+    label: "While the race was canceled during WW I, since the war front lay right trough Flanders, during the second world war the Nazis gave permission to organize the race. They wanted the so-called 'entertainments' to continue, so as not to undermine the morale of the population too much. However, adjustments needed to be made and new roads were discovered that are still part of the route today.",
+  },
+  {
+    race: "ronde-van-vlaanderen",
+    year: 1944,
+    label: "While the race was canceled during WW I, since the war front lay right trough Flanders, during the second world war the Nazis gave permission to organize the race. They wanted the so-called 'entertainments' to continue, so as not to undermine the morale of the population too much. However, adjustments needed to be made and new roads were discovered that are still part of the route today.",
+  },
+  {
+    race: "ronde-van-vlaanderen",
+    year: 1945,
+    label: "While the race was canceled during WW I, since the war front lay right trough Flanders, during the second world war the Nazis gave permission to organize the race. They wanted the so-called 'entertainments' to continue, so as not to undermine the morale of the population too much. However, adjustments needed to be made and new roads were discovered that are still part of the route today.",
+  },
+  {
+    race: "tour-de-france",
+    year: 1919,
+    label: "The first world war had just ended, and a lot of pre-war favorites had lost their lives on the battlefield. The survivors had little opportunity to train or race during war, and were therefore in poor condition. Partly because of this, there were only 69 participants at the start in Paris."
+  },
+  {
+    race: "tour-de-france",
+    year: 2018,
+    label: "In 2018, the UCI introduced a new rule that the maximum number of riders per team in a Grand Tour was reduced from 9 to 8. This was done to reduce the number of riders in the peloton and to increase the safety."
+  },
+  {
+    race: "giro-d-italia",
+    year: 2018,
+    label: "In 2018, the UCI introduced a new rule that the maximum number of riders per team in a Grand Tour was reduced from 9 to 8. This was done to reduce the number of riders in the peloton and to increase the safety."
+  },
+  {
+    race: "vuelta-a-espana",
+    year: 2018,
+    label: "In 2018, the UCI introduced a new rule that the maximum number of riders per team in a Grand Tour was reduced from 9 to 8. This was done to reduce the number of riders in the peloton and to increase the safety."
+  }
+
+]
+
+return {customAnnotations};
+}});
+
+define({id: "2695c3f4", inputs: ["Mutable","createSwitcher"], outputs: ["selectedMetric","switcherElement","metricMap"], body: (Mutable,createSwitcher) => {
+const selectedMetric = Mutable("Distance");
+const switcherElement = createSwitcher(
+  ["Distance", "Average Speed", "Nr. of participants"],
+  (value) => {
+    selectedMetric.value = value;
+  }
+);
+
+const metricMap = {
+  "Distance": { value: "distance", label: "Distance (km)", color: "black", unit: "km" },
+  "Average Speed": { value: "average_speed", label: "Average Speed (km/h)", color: "black", unit: "km/h" },
+  "Nr. of participants": { value: "participants", label: "Number of participants", color: "black", unit: "" },
+};
+return {selectedMetric,switcherElement,metricMap};
+}});
+
+define({id: "5fbf6a2c", mode: "inline", inputs: ["switcherElement","display"], body: async (switcherElement,display) => {
+display(await(
+switcherElement
+))
+}});
+
+define({id: "264145f5", mode: "inline", inputs: ["resize","raceDetails","selectedRace","metricMap","selectedMetric","display"], body: async (resize,raceDetails,selectedRace,metricMap,selectedMetric,display) => {
+display(await(
+resize((width) => raceDetails(selectedRace, metricMap[selectedMetric], { width }))
+))
+}});
+
+</script>
+</head>
+<body>
+<div id="observablehq-center">
+<header id="observablehq-header">
+
+  <div class="header">
+    <div class="header-centered">
+      <a href="./">Overview</a>
+      <a href="./peloton">Peloton</a>
+      <a href="./races">Races</a>
+      <a href="./insights">Insights</a>
+    </div>
+  </div>
+
+</header>
+<main id="observablehq-main" class="observablehq">
+<div class="observablehq observablehq--block"><!--:1b138c9f:--></div>
+<h1 id="race-trough-the-years" tabindex="-1"><a class="observablehq-header-anchor" href="#race-trough-the-years">Race trough the years</a></h1>
+<p>Welcome to an <strong>interactive journey</strong> through the most prestigious cycling races across the globe. Each button represents a <strong>major race</strong>, and by selecting one, you'll uncover intriguing insights into the <strong>history of the race</strong>.</p>
+<div class="observablehq observablehq--block"><!--:af4abd0b:--></div>
+<div class="observablehq observablehq--block"><!--:43c26587:--></div>
+<div>
+    <observablehq-loading></observablehq-loading><!--:c48de973:-->
+</div>
+<div class="observablehq observablehq--block"><!--:e900b1dd:--></div>
+<div class="observablehq observablehq--block"><!--:b0d312a0:--></div>
+<div>
+  <h2 style="margin-bottom: 1rem;"><observablehq-loading></observablehq-loading><!--:34ef4129:--></h2>
+</div>
+<h3 id="where-winners-are-born" tabindex="-1"><a class="observablehq-header-anchor" href="#where-winners-are-born">Where winners are born</a></h3>
+<p>On the left, a <strong>dynamic map</strong> highlights the countries that have produced the <strong>most winners for the selected race</strong>. On the right, you'll find a <strong>complete list of all victors</strong>. <strong>Click on a country</strong> to filter the list and see <strong>which riders</strong> from that nation have <strong>claimed victory</strong>. Want to view the full list again? Just click the country again to reset.
+Discover how different nations have left their mark on the history of cycling’s greatest races!</p>
+<div>
+    <div class="content">
+        <div class="card map-container">
+            <observablehq-loading></observablehq-loading><!--:d405dfcd:-->
+        </div>
+        <div class="card ranking-container">
+            <observablehq-loading></observablehq-loading><!--:92d69efe:-->
+        </div>
+    </div>
+</div>
+<div class="observablehq observablehq--block"><!--:9a36c660:--></div>
+<div class="observablehq observablehq--block"><!--:03d7671a:--></div>
+<h3 id="measuring-the-madness-how-tough-was-it" tabindex="-1"><a class="observablehq-header-anchor" href="#measuring-the-madness-how-tough-was-it">Measuring the madness: how tough was it?</a></h3>
+<p>Every race tells a story — not just of who won, but of how hard it was to win. In this section, we explore the defining traits that shape each race’s identity. Use the toggle to switch between <strong>total distance</strong>, <strong>average speed</strong>, and <strong>number of participants</strong> to see how these iconic events have evolved over time. Were races longer in the past? Has the pace increased in recent decades? Did the size of the peloton grow or shrink?</p>
+<p>We also <strong>highlight the top three editions</strong>, along with <strong>historical disruptions</strong> — such as the World Wars — that left their mark on the sport. Dive into the data behind the drama and discover how the challenge of winning has changed through the years.</p>
+<div class="observablehq observablehq--block"><!--:2695c3f4:--></div>
+<div class="card">
+    <div style="display: flex; justify-content: flex-end; margin-bottom: 10px;">
+      <observablehq-loading></observablehq-loading><!--:5fbf6a2c:-->
+    </div>
+    <div class="plot-container-wrapper">
+      <observablehq-loading></observablehq-loading><!--:264145f5:-->
+    </div>
+</div>
+<style>
+
+.plot-container-wrapper {
+  aspect-ratio: 100 / 35; 
+  width: 100%;      /* Ensure width is set for aspect-ratio to work */
+  overflow: hidden; /* Prevent temporary overflow during render */
+}
+
+button {
+  border: none; 
+  background: none;
+}
+
+.race-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  background: white;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border-radius: 8px;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+  }
+
+.race-button:hover {
+  transform: scale(1.05);
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.race-button img {
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+}
+
+.race-button.selected {
+  border: 3px solid #007BFF; /* Blue border for selected button */
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.6); /* Subtle glow */
+}
+
+.content {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.card {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.map-container {
+  flex: 2.5;
+}
+
+.ranking-container {
+  flex: 0.5;
+  min-width: 250px;
+}
+
+.ranking-list {
+  list-style: none;
+  padding: 0;
+}
+
+.ranking-list li {
+  padding: 5px 0;
+  border-bottom: 1px solid #ddd;
+}
+</style>
+</main>
+</div>
+</body>
+</html>
