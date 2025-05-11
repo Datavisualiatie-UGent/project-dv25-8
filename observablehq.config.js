@@ -2,10 +2,10 @@
 export const header = `
   <div class="header">
     <div class="header-centered">
-      <a href="/">Overview</a>
-      <a href="/peloton">Peloton</a>
-      <a href="/races">Races</a>
-      <a href="/insights">Insights</a>
+      <a href="./">Overview</a>
+      <a href="./peloton">Peloton</a>
+      <a href="./races">Races</a>
+      <a href="./insights">Insights</a>
     </div>
   </div>
 `;
@@ -52,5 +52,7 @@ export default {
   interpreters: {
     ".py": ["python"]
   },
+
+  base: "/project-dv25-8/",
 
 };
